@@ -11,7 +11,6 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         setColor(btnDestino);
         indDestino.setOpaque(true);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -192,7 +191,8 @@ public class Menu extends javax.swing.JFrame {
 
         BarraLateral.add(btnTransoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 130, -1));
 
-        btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icon_Exit_25px.png"))); // NOI18N
+        btn_exit.setBackground(new java.awt.Color(187, 187, 187));
+        btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icon_Exit_25px.png"))); // NOI18N
         btn_exit.setText("Salir");
         btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -324,7 +324,7 @@ public class Menu extends javax.swing.JFrame {
         setColor(btnAlojamiento);
         indAlojamiento.setOpaque(true);
         resetColor(new JPanel[]{btnDestino, btnTransoporte}, new JPanel[]{indDestino, indTransoporte});
-       // Test frame = new Test();
+        // Test frame = new Test();
         //InvocarJInternalFrame(frame);
     }//GEN-LAST:event_btnAlojamientoMousePressed
 
@@ -379,6 +379,17 @@ public class Menu extends javax.swing.JFrame {
 
     }
 
+    private void InvocarJInternalFrame(JInternalFrame frame) {
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) frame.getUI();
+        ui.setNorthPane(null);
+        frame.setBorder(null); // Elimina el borde
+        frame.setClosable(false); // Desactiva la opción de cerrar
+        frame.setIconifiable(false); // Desactiva la opción de minimizar
+        frame.setOpaque(true); // Hace que el contenido sea opaco
+        frame.setSize(Escritorio.getSize()); // Establece el tamaño igual al del desktopPane
+        frame.setVisible(true); // Lo hace visible
+        Escritorio.add(frame); // Agrega el JInternalFrame al JDesktopPane
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BarraLateral;
@@ -398,15 +409,4 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelMarcoArriba;
     private javax.swing.JPanel jPanelMarcoDerecha;
     // End of variables declaration//GEN-END:variables
-    private void InvocarJInternalFrame(JInternalFrame frame) {
-        BasicInternalFrameUI ui = (BasicInternalFrameUI) frame.getUI();
-        ui.setNorthPane(null);
-        frame.setBorder(null); // Elimina el borde
-        frame.setClosable(false); // Desactiva la opción de cerrar
-        frame.setIconifiable(false); // Desactiva la opción de minimizar
-        frame.setOpaque(true); // Hace que el contenido sea opaco
-        frame.setSize(Escritorio.getSize()); // Establece el tamaño igual al del desktopPane
-        frame.setVisible(true); // Lo hace visible
-        Escritorio.add(frame); // Agrega el JInternalFrame al JDesktopPane
-    }
 }
