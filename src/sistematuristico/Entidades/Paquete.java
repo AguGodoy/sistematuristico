@@ -12,8 +12,8 @@ public class Paquete {
     private int idPaquete;
     private Ciudad origen;
     private Ciudad destino;
-    private Alojamiento alojamiento;
-    private Pasaje pasaje;
+    private Alojamiento aloja;
+    private Pasaje pasa;
 
     public Paquete() {
     }
@@ -21,16 +21,16 @@ public class Paquete {
     public Paquete(Ciudad origen, Ciudad destino, Alojamiento alojaminto, Pasaje pasaje) {
         this.origen = origen;
         this.destino = destino;
-        this.alojamiento = alojaminto;
-        this.pasaje = pasaje;
+        this.aloja = alojaminto;
+        this.pasa = pasaje;
     }
 
     public Paquete(int idPaquete, Ciudad origen, Ciudad destino, Alojamiento alojaminto, Pasaje pasaje) {
         this.idPaquete = idPaquete;
         this.origen = origen;
         this.destino = destino;
-        this.alojamiento = alojaminto;
-        this.pasaje = pasaje;
+        this.aloja = alojaminto;
+        this.pasa = pasaje;
     }
 
     public int getIdPaquete() {
@@ -57,25 +57,25 @@ public class Paquete {
         this.destino = destino;
     }
 
-    public Alojamiento getAlojaminto() {
-        return alojamiento;
+    public Alojamiento getAloja() {
+        return aloja;
     }
 
-    public void setAlojaminto(Alojamiento alojaminto) {
-        this.alojamiento = alojaminto;
+    public void setAloja(Alojamiento alojaminto) {
+        this.aloja = alojaminto;
     }
 
-    public Pasaje getPasaje() {
-        return pasaje;
+    public Pasaje getPasa() {
+        return pasa;
     }
 
-    public void setPasaje(Pasaje pasaje) {
-        this.pasaje = pasaje;
+    public void setPasa(Pasaje pasaje) {
+        this.pasa = pasaje;
     }
     
     @Override
     public String toString(){
-        return idPaquete+" "+origen+" "+destino+" " +alojamiento+ " "+ pasaje;
+        return idPaquete+" "+origen+" "+destino+" " +aloja+ " "+ pasa;
     }
 
     public Object getAlojamiento() {
