@@ -23,7 +23,7 @@ public class PasajeData {
             ps.setInt(1, pasaje.getIdPasaje());
             ps.setString(2, pasaje.getTransporte());
             ps.setDouble(3, pasaje.getImporte());
-            ps.setCiudad(4, pasaje.getOrigen());
+            ps.setInt(4, pasaje.getOrigen(). getIdCiudad());
             ps.setBoolean(5, pasaje.isEstado());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -38,7 +38,7 @@ public class PasajeData {
     }
 
     public void BajaPasaje(int idPasaje) {
-        String sql = "UPDATE ciudad SET estado = 0 WHERE IdCiudad = ? ";
+        String sql = "UPDATE pasaje SET estado = 0 WHERE IdPasaje = ? ";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idPasaje);
@@ -54,14 +54,14 @@ public class PasajeData {
     }
 
     public void ModificacionPasaje(int IdPasaje, Pasaje pasaje) {
-        String sql = "UPDATE ciudad SET nombre = ? , provincia = ?, pais = ?, estado = ? WHERE idCiudad = ?";
+        String sql = "UPDATE pasaje SET Idpasaje = ? , transporte = ?, origen = ?, estado = ? WHERE importe = ?";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
              ps.setInt(1, pasaje.getIdPasaje());
             ps.setString(2, pasaje.getTransporte());
             ps.setDouble(3, pasaje.getImporte());
-            ps.setCiudad(4, pasaje.getOrigen());
+            ps.setInt(4, pasaje.getOrigen().getIdCiudad());
             ps.setBoolean(5, pasaje.isEstado());
 
             int exito = ps.executeUpdate();
