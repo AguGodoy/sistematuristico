@@ -34,7 +34,7 @@ public class PasajeData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla paseje\n[Error en el metodo]\n" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "\"Error al acceder a la tabla pasaje \\n[Error en el metodo Altapasaje de PasajeData]\\n\"" + ex.getMessage());
         }
     }
 
@@ -50,7 +50,7 @@ public class PasajeData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Ciudad\n[Error en el metodo BajaCiudad de CiudadData]\n" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pasaje \n[Error en el metodo BajaPasaje de PasajeData]\n" + ex.getMessage());
         }
     }
 
@@ -69,10 +69,10 @@ public class PasajeData {
             if (exito == 1) {
                 JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
             } else {
-                JOptionPane.showMessageDialog(null, "La Ciudad no existe");
+                JOptionPane.showMessageDialog(null, "el Pasaje no existe");
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Ciudad\n[Error en el metodo ModificacionCiudad de CiudadData]\n" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pasaje \n[Error en el metodo ModificacionPasaje de PasajeData]\n" + ex.getMessage());
         }
     }
 
