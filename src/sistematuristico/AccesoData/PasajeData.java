@@ -25,7 +25,7 @@ public class PasajeData {
             ps.setString(2, Pasaje.gettransporte());
             ps.setdouble(3, Pasaje.getimporte());
             ps.setCiudad(3, Pasaje.getorigen());
-            ps.setBoolean(5, Pasaje.isestado());
+            ps.setBoolean(5, Pasaje.getestado());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
