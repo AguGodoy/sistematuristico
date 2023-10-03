@@ -53,7 +53,7 @@ public class CiudadData {
         }
     }
 
-    public void ModificacionCiudad(Ciudad ciudad) {
+    public void ModificacionCiudad(int IdCiudadParametro, Ciudad ciudad) {
         String sql = "UPDATE ciudad SET nombre = ? , provincia = ?, pais = ?, estado = ? WHERE idCiudad = ?";
         PreparedStatement ps = null;
         try {
