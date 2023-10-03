@@ -9,7 +9,7 @@ package sistematuristico.Entidades;
  * @author Usuario
  */
 public class Ciudad {
-      private int idCiudad;
+    private int idCiudad;
     private String nombre;
     private String pais;
     private String provincia;
