@@ -17,13 +17,13 @@ public class CiudadData {
     }
 
     public void AltaCiudad(Ciudad ciudad) {
-        String sql = "INSERT INTO alumno (idCiudad, nombre, nombre, provincia, pais,estado) VALUES (?, ?, ?, ?, ?,?)";
+        String sql = "INSERT INTO ciudad (idCiudad, nombre, provincia, pais, estado) VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, ciudad.getIdCiudad());
             ps.setString(2, ciudad.getNombre());
             ps.setString(3, ciudad.getProvincia());
-            ps.setString(3, ciudad.getPais());
+            ps.setString(4, ciudad.getPais());
             ps.setBoolean(5, ciudad.isEstado());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
