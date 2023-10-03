@@ -4,6 +4,8 @@
  */
 package sistematuristico.Entidades;
 
+
+
 /**
  *
  * @author Usuario
@@ -15,6 +17,8 @@ public class Sistematuristico {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+
     }
+    
     
 }

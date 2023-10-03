@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import sistematuristico.Entidades.Alojamiento;
-import sistematuristico.Entidades.Ciudad;
 
 public class AlojamientoData {
      private Connection con = null;

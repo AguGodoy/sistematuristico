@@ -77,4 +77,8 @@ public class Paquete {
     public String toString(){
         return idPaquete+" "+origen+" "+destino+" " +alojamiento+ " "+ pasaje;
     }
+
+    public Object getAlojamiento() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
