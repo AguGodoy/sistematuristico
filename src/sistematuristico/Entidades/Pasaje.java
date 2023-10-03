@@ -19,7 +19,7 @@ public class Pasaje {
     }
 
     public Pasaje(String Transporte, double importe, Ciudad origen, boolean estado) {
-        this.transporte = transporte;
+        this.transporte = Transporte;
         this.importe = importe;
         this.origen = origen;
         this.estado = estado;
