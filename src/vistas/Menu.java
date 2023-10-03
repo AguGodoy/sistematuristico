@@ -9,6 +9,7 @@ public class Menu extends javax.swing.JFrame {
 
     public Menu() {
         initComponents();
+        jcbABM.setVisible(false);JLabelABM.setVisible(false);
         setColor(btnDestino);
         indDestino.setOpaque(true);
     }
@@ -27,8 +28,14 @@ public class Menu extends javax.swing.JFrame {
         btnTransoporte = new javax.swing.JPanel();
         indTransoporte = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        btn_login = new javax.swing.JLabel();
+        btnResumen = new javax.swing.JPanel();
+        indResumen = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
         btn_exit = new javax.swing.JLabel();
         jPanelMarcoArriba = new javax.swing.JPanel();
+        jcbABM = new javax.swing.JComboBox<>();
+        JLabelABM = new javax.swing.JLabel();
         jPanelMarcoAbajo = new javax.swing.JPanel();
         jPanelMarcoDerecha = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -191,15 +198,78 @@ public class Menu extends javax.swing.JFrame {
 
         BarraLateral.add(btnTransoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 130, -1));
 
+        btn_login.setBackground(new java.awt.Color(187, 187, 187));
+        btn_login.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btn_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icon_Contacts_25px.png"))); // NOI18N
+        btn_login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_loginMousePressed(evt);
+            }
+        });
+        BarraLateral.add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 110, 70));
+
+        btnResumen.setBackground(new java.awt.Color(23, 35, 51));
+        btnResumen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnResumenMousePressed(evt);
+            }
+        });
+
+        indResumen.setOpaque(false);
+        indResumen.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout indResumenLayout = new javax.swing.GroupLayout(indResumen);
+        indResumen.setLayout(indResumenLayout);
+        indResumenLayout.setHorizontalGroup(
+            indResumenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        indResumenLayout.setVerticalGroup(
+            indResumenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Resumen");
+
+        javax.swing.GroupLayout btnResumenLayout = new javax.swing.GroupLayout(btnResumen);
+        btnResumen.setLayout(btnResumenLayout);
+        btnResumenLayout.setHorizontalGroup(
+            btnResumenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnResumenLayout.createSequentialGroup()
+                .addComponent(indResumen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
+        );
+        btnResumenLayout.setVerticalGroup(
+            btnResumenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnResumenLayout.createSequentialGroup()
+                .addComponent(indResumen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btnResumenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        BarraLateral.add(btnResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 130, -1));
+
         btn_exit.setBackground(new java.awt.Color(187, 187, 187));
+        btn_exit.setForeground(new java.awt.Color(187, 187, 186));
+        btn_exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icon_Exit_25px.png"))); // NOI18N
         btn_exit.setText("Salir");
+        btn_exit.setToolTipText("");
         btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btn_exitMousePressed(evt);
             }
         });
-        BarraLateral.add(btn_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, -1, 46));
+        BarraLateral.add(btn_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, -1, 46));
 
         getContentPane().add(BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 720));
 
@@ -215,15 +285,30 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jcbABM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        JLabelABM.setForeground(new java.awt.Color(187, 187, 186));
+        JLabelABM.setText("ABM de");
+
         javax.swing.GroupLayout jPanelMarcoArribaLayout = new javax.swing.GroupLayout(jPanelMarcoArriba);
         jPanelMarcoArriba.setLayout(jPanelMarcoArribaLayout);
         jPanelMarcoArribaLayout.setHorizontalGroup(
             jPanelMarcoArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMarcoArribaLayout.createSequentialGroup()
+                .addContainerGap(999, Short.MAX_VALUE)
+                .addComponent(JLabelABM)
+                .addGap(18, 18, 18)
+                .addComponent(jcbABM, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
         );
         jPanelMarcoArribaLayout.setVerticalGroup(
             jPanelMarcoArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(jPanelMarcoArribaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelMarcoArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbABM, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(JLabelABM))
+                .addContainerGap())
         );
 
         getContentPane().add(jPanelMarcoArriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 40));
@@ -304,29 +389,40 @@ public class Menu extends javax.swing.JFrame {
         this.setLocation(x - xx, y - xy);
     }//GEN-LAST:event_jPanelMarcoArribaMouseDragged
 
-    private void btn_exitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exitMousePressed
-        System.exit(0);
-    }//GEN-LAST:event_btn_exitMousePressed
+    private void btn_loginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_loginMousePressed
+        jcbABM.setVisible(true);
+        JLabelABM.setVisible(true);
+    }//GEN-LAST:event_btn_loginMousePressed
 
     private void btnDestinoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDestinoMousePressed
         setColor(btnDestino);
         indDestino.setOpaque(true);
-        resetColor(new JPanel[]{btnAlojamiento, btnTransoporte}, new JPanel[]{indAlojamiento, indTransoporte});
+        resetColor(new JPanel[]{btnAlojamiento, btnTransoporte, btnResumen}, new JPanel[]{indAlojamiento, indTransoporte, indResumen});
     }//GEN-LAST:event_btnDestinoMousePressed
 
     private void btnTransoporteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransoporteMousePressed
         setColor(btnTransoporte);
         indTransoporte.setOpaque(true);
-        resetColor(new JPanel[]{btnAlojamiento, btnDestino}, new JPanel[]{indAlojamiento, indDestino});
+        resetColor(new JPanel[]{btnAlojamiento, btnDestino, btnResumen}, new JPanel[]{indAlojamiento, indDestino, indResumen});
     }//GEN-LAST:event_btnTransoporteMousePressed
 
     private void btnAlojamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlojamientoMousePressed
         setColor(btnAlojamiento);
         indAlojamiento.setOpaque(true);
-        resetColor(new JPanel[]{btnDestino, btnTransoporte}, new JPanel[]{indDestino, indTransoporte});
+        resetColor(new JPanel[]{btnDestino, btnTransoporte, btnResumen}, new JPanel[]{indDestino, indTransoporte, indResumen});
         // Test frame = new Test();
         //InvocarJInternalFrame(frame);
     }//GEN-LAST:event_btnAlojamientoMousePressed
+
+    private void btnResumenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResumenMousePressed
+        setColor(btnResumen);
+        indResumen.setOpaque(true);
+        resetColor(new JPanel[]{btnDestino, btnAlojamiento, btnTransoporte,}, new JPanel[]{indDestino, indAlojamiento, indTransoporte});
+    }//GEN-LAST:event_btnResumenMousePressed
+
+    private void btn_exitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exitMousePressed
+        System.exit(0);
+    }//GEN-LAST:event_btn_exitMousePressed
 
     /**
      * @param args the command line arguments
@@ -390,23 +486,30 @@ public class Menu extends javax.swing.JFrame {
         frame.setVisible(true); // Lo hace visible
         Escritorio.add(frame); // Agrega el JInternalFrame al JDesktopPane
     }
-
+     // <editor-fold defaultstate="collapsed" desc="Declaracion de Variables">    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BarraLateral;
     private javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JLabel JLabelABM;
     private javax.swing.JPanel btnAlojamiento;
     private javax.swing.JPanel btnDestino;
+    private javax.swing.JPanel btnResumen;
     private javax.swing.JPanel btnTransoporte;
     private javax.swing.JLabel btn_exit;
+    private javax.swing.JLabel btn_login;
     private javax.swing.JPanel indAlojamiento;
     private javax.swing.JPanel indDestino;
+    private javax.swing.JPanel indResumen;
     private javax.swing.JPanel indTransoporte;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanelMarcoAbajo;
     private javax.swing.JPanel jPanelMarcoArriba;
     private javax.swing.JPanel jPanelMarcoDerecha;
+    private javax.swing.JComboBox<String> jcbABM;
     // End of variables declaration//GEN-END:variables
+// </editor-fold>
 }
