@@ -29,10 +29,10 @@ public class PaqueteData {
         String sql = "INSERT INTO paquete( idOrigen, idDestino, idAlojamiento, idPasaje) VALUES (?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setObject(1, paquete.getOrigen());
-            ps.setObject(2, paquete.getDestino());
-            ps.setObject(3, paquete.getAlojamiento());
-            ps.setObject(4, paquete.getPasaje());
+            ps.setInt(1, paquete.getOrigen().getIdCiudad());
+            ps.setInt(2, paquete.getDestino().getIdCiudad());
+            ps.setInt(3, paquete.getAloja().getIdAlojamiento());
+            ps.setInt(4, paquete.getPasa().getIdPasaje());
 
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -52,10 +52,11 @@ public class PaqueteData {
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setObject(1, paquete.getOrigen());
-            ps.setObject(2, paquete.getDestino());
-            ps.setObject(3, paquete.getAlojamiento());
-            ps.setObject(4, paquete.getPasaje());
+            ps.setInt(1, paquete.getOrigen().getIdCiudad());
+            ps.setInt(2, paquete.getDestino().getIdCiudad());
+            ps.setInt(3, paquete.getAloja().getIdAlojamiento());
+            ps.setInt(4, paquete.getPasa().getIdPasaje());
+
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
