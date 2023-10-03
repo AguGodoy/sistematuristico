@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-
 import sistematuristico.Entidades.Pasaje;
 
 public class PasajeData {
@@ -17,19 +16,19 @@ public class PasajeData {
         con = Conexion.getConexion();
     }
 
-    public void AltaPasaje(Pasaje idPasaje) {
+    public void AltaPasaje(Pasaje Pasaje) {
         String sql = "INSERT INTO alumno (Ciudad origen, Ciudad destino, Alojamiento alojaminto, Pasaje pasaje) VALUES (?, ?, ?, ?, ?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, Pasaje.getidPasaje());
-            ps.setString(2, Pasaje.gettransporte());
-            ps.setdouble(3, Pasaje.getimporte());
-            ps.setCiudad(3, Pasaje.getorigen());
-            ps.setBoolean(5, Pasaje.getestado());
+            ps.setInt(1, Pasaje.getIdPasaje());
+            ps.setString(2, Pasaje.getTransporte());
+            ps.setDouble(3, Pasaje.getImporte());
+            ps.setCiudad(3, Pasaje.getOrigen());
+            ps.setBoolean(5, Pasaje.isEstado());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-                Pasaje.setidPasaje(rs.getInt(1));
+                Pasaje.setIdPasaje(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "pasaje añadido con exito.");
             }
             ps.close();
@@ -42,7 +41,7 @@ public class PasajeData {
         String sql = "UPDATE ciudad SET estado = 0 WHERE IdCiudad = ? ";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, IdPasaje);
+            ps.setInt(1, idPasaje);
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
@@ -59,11 +58,11 @@ public class PasajeData {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
-             ps.setInt(1, pasaje.getidPasaje());
-            ps.setString(2, pasaje.gettransporte());
-            ps.setdouble(3, pasaje.getimporte());
+             ps.setInt(1, pasaje.getIdPasaje());
+            ps.setString(2, pasaje.getTransporte());
+            ps.setDouble(3, pasaje.getImporte());
             ps.setCiudad(3, pasaje.getOrigen());
-            ps.setBoolean(5, pasaje.getestado);
+            ps.setBoolean(5, pasaje.isEstado());
 
             int exito = ps.executeUpdate();
             if (exito == 1) {
