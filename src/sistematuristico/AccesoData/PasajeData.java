@@ -16,19 +16,19 @@ public class PasajeData {
         con = Conexion.getConexion();
     }
 
-    public void AltaPasaje(Pasaje Pasaje) {
-        String sql = "INSERT INTO alumno (Ciudad origen, Ciudad destino, Alojamiento alojaminto, Pasaje pasaje) VALUES (?, ?, ?, ?, ?,?)";
+    public void AltaPasaje(Pasaje pasaje) {
+        String sql = "INSERT INTO pasaje (Ciudad origen, Ciudad destino, Alojamiento alojaminto, Pasaje pasaje) VALUES (?, ?, ?, ?, ?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, Pasaje.getIdPasaje());
-            ps.setString(2, Pasaje.getTransporte());
-            ps.setDouble(3, Pasaje.getImporte());
-            ps.setCiudad(3, Pasaje.getOrigen());
-            ps.setBoolean(5, Pasaje.isEstado());
+            ps.setInt(1, pasaje.getIdPasaje());
+            ps.setString(2, pasaje.getTransporte());
+            ps.setDouble(3, pasaje.getImporte());
+            ps.setCiudad(4, pasaje.getOrigen());
+            ps.setBoolean(5, pasaje.isEstado());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-                Pasaje.setIdPasaje(rs.getInt(1));
+                pasaje.setIdPasaje(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "pasaje añadido con exito.");
             }
             ps.close();
@@ -61,7 +61,7 @@ public class PasajeData {
              ps.setInt(1, pasaje.getIdPasaje());
             ps.setString(2, pasaje.getTransporte());
             ps.setDouble(3, pasaje.getImporte());
-            ps.setCiudad(3, pasaje.getOrigen());
+            ps.setCiudad(4, pasaje.getOrigen());
             ps.setBoolean(5, pasaje.isEstado());
 
             int exito = ps.executeUpdate();
