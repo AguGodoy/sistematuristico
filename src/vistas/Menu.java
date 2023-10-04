@@ -59,8 +59,7 @@ public class Menu extends javax.swing.JFrame {
         btn_login.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         btn_login.setForeground(new java.awt.Color(235, 237, 255));
         btn_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_login.setText("Paquete Turistico");
-        btn_login.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 186), 5, true));
+        btn_login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logo.png"))); // NOI18N
         btn_login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btn_loginMousePressed(evt);
@@ -76,21 +75,24 @@ public class Menu extends javax.swing.JFrame {
             BarraLateralHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BarraLateralHeadLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(BarraLateralHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_login, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                    .addComponent(jSeparator1))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGroup(BarraLateralHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BarraLateralHeadLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         BarraLateralHeadLayout.setVerticalGroup(
             BarraLateralHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BarraLateralHeadLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
-        BarraLateral.add(BarraLateralHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 110));
+        BarraLateral.add(BarraLateralHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 150));
 
         btnDestino.setBackground(new java.awt.Color(47, 52, 67));
         btnDestino.addMouseListener(new java.awt.event.MouseAdapter() {
