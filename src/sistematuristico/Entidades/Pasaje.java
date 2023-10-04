@@ -33,6 +33,10 @@ public class Pasaje {
         this.estado = estado;
     }
 
+    public Pasaje(int idPasaje, String transporte, double importe, int origen, boolean estado) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public int getIdPasaje() {
         return idPasaje;
     }
