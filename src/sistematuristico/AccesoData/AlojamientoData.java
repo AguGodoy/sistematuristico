@@ -8,12 +8,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import sistematuristico.Entidades.Alojamiento;
+import sistematuristico.Entidades.Ciudad;
 
 public class AlojamientoData {
      private Connection con = null;
+     private CiudadData ciudaddata=new CiudadData();
 
     public AlojamientoData() {
         con = Conexion.getConexion();
+        
+        
     }
 
     public void AltaAlojamiento(Alojamiento alojamiento) {
@@ -79,4 +83,35 @@ public class AlojamientoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alojamiento\n[Error en el metodo ModificacionAlojamiento de AlojamientoData]\n" + ex.getMessage());
         }
     }
+     public Alojamiento buscarAlojamiento(int id) {
+        Alojamiento alojamiento = null;
+        String sql = "SELECT idAlojamiento, fechaIn, fechaOn, estado, servicio, importe, idDestino,tipoDeAlojamiento FROM alojamiento WHERE idAlojamiento = ? AND estado = 1";
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                alojamiento = new Alojamiento();
+                alojamiento.setIdAlojamiento(id);
+                alojamiento.setFechaIn(rs.getDate("fechaIn").toLocalDate());
+                alojamiento.setFechaOn(rs.getDate("fechaOn").toLocalDate());
+                alojamiento.setEstado(rs.getBoolean("estado"));
+                alojamiento.setServicio(rs.getString("servicio"));
+                alojamiento.setImporteDiario(rs.getDouble("importe"));
+                alojamiento.setTipo(rs.getString("tipoDeAlojamiento"));
+                
+               Ciudad ciudad=ciudaddata.buscarCiudad(rs.getInt("idDestino"));
+                alojamiento.setDestino(ciudad);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe registro del alojamiento");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alojamiento " + ex.getMessage());
+        }
+        return alojamiento;
+     }
 }

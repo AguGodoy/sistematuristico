@@ -11,7 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import sistematuristico.Entidades.Alojamiento;
+import sistematuristico.Entidades.Ciudad;
 import sistematuristico.Entidades.Paquete;
+import sistematuristico.Entidades.Pasaje;
 
 /**
  *
@@ -20,7 +23,10 @@ import sistematuristico.Entidades.Paquete;
 public class PaqueteData {
 
     private Connection con = null;
-
+     private CiudadData ciudaddata=new CiudadData();
+    private AlojamientoData alojamientodata = new AlojamientoData();
+    private PasajeData pasajedata=new PasajeData();
+    
     public PaqueteData() {
         con = Conexion.getConexion();
     }
@@ -98,4 +104,34 @@ public class PaqueteData {
         }
 
     }
+         public Paquete buscarPaquete(int id) {
+        Paquete paquete = null;
+        String sql = "SELECT idOrigen, idDestino, idAlojamiento, idPasaje FROM paquete WHERE idPaquete = ?";
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                paquete = new Paquete();
+                paquete.setIdPaquete(id);
+                Ciudad ciudad1 =ciudaddata.buscarCiudad(rs.getInt("idDestino"));
+                paquete.setDestino(ciudad1);
+                Ciudad ciudad2 =ciudaddata.buscarCiudad(rs.getInt("idDestino"));
+                paquete.setDestino(ciudad2);
+                Alojamiento alojamiento=alojamientodata.buscarAlojamiento(rs.getInt("idAlojamiento"));
+                paquete.setAloja(alojamiento);
+                Pasaje pasaje=pasajedata.buscarPasaje(rs.getInt("idPasaje"));
+                paquete.setPasa(pasaje);
+              
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el paquete");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla paquete " + ex.getMessage());
+        }
+        return paquete;
+     }
 }

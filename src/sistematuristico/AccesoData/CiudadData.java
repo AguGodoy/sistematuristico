@@ -73,6 +73,33 @@ public class CiudadData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Ciudad\n[Error en el metodo ModificacionCiudad de CiudadData]\n" + ex.getMessage());
         }
+        
     }
+     public Ciudad buscarCiudad(int id) {
+        Ciudad ciudad = null;
+        String sql = "SELECT  nombre, provincia, pais, estado FROM ciudad WHERE idCiudad = ? AND estado = 1";
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                ciudad = new Ciudad();
+                ciudad.setIdCiudad(id);
+                ciudad.setNombre(rs.getString("nombre"));
+                ciudad.setProvincia(rs.getString("provincia"));
+                ciudad.setPais(rs.getString("pais"));
+                ciudad.setEstado(rs.getBoolean("estado"));
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe la Ciudad");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Ciudad " + ex.getMessage());
+        }
+        return ciudad;
+     }
 
 }
