@@ -5,6 +5,9 @@
 package vistas;
 
 import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 /**
@@ -13,11 +16,17 @@ import javax.swing.table.JTableHeader;
  */
 public class ABMCiudad extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ABMCiudad
-     */
+    private DefaultTableModel modelo = new DefaultTableModel() {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    };
+
     public ABMCiudad() {
         initComponents();
+        CrearTabla();
+        modelo.addRow(new Object[]{123, "dsds", "dasdsa", "sdadsad"});
     }
 
     /**
@@ -34,10 +43,9 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -48,11 +56,20 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         jTextField5 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         jCheckBox2 = new javax.swing.JCheckBox();
-        jButton4 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         jPanelFull.setBackground(new java.awt.Color(56, 63, 79));
         jPanelFull.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -96,6 +113,288 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
 
         jPanelFull.add(jPanelHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
+        jSeparator3.setBackground(new java.awt.Color(235, 237, 255));
+        jSeparator3.setForeground(new java.awt.Color(235, 237, 255));
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanelFull.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(438, 140, 10, 410));
+
+        jPanel2.setBackground(new java.awt.Color(56, 63, 79));
+
+        jPanel1.setBackground(new java.awt.Color(56, 63, 79));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel3.setText("Id de Ciudad");
+
+        jTextField2.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(235, 237, 255));
+        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField2FocusLost(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel4.setText("Nombre Ciudad:");
+
+        jTextField3.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(235, 237, 255));
+        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField3FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField3FocusLost(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel5.setText("Nombre Provincia:");
+
+        jTextField4.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextField4.setForeground(new java.awt.Color(235, 237, 255));
+        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField4FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField4FocusLost(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel6.setText("Nombre Pais:");
+
+        jTextField5.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextField5.setForeground(new java.awt.Color(235, 237, 255));
+        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField5FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField5FocusLost(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel7.setText("Estado:");
+
+        jCheckBox1.setBackground(new java.awt.Color(56, 63, 79));
+        jCheckBox1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jCheckBox1.setForeground(new java.awt.Color(235, 237, 255));
+        jCheckBox1.setText("Activo / Inactivo");
+        jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jCheckBox1MousePressed(evt);
+            }
+        });
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING)))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+
+        jButton4.setBackground(new java.awt.Color(47, 52, 67));
+        jButton4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(235, 237, 255));
+        jButton4.setText("Guardar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setBackground(new java.awt.Color(47, 52, 67));
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(235, 237, 255));
+        jButton1.setText("Nuevo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(37, 37, 37))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        jPanelFull.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 400, 480));
+
+        jPanel3.setBackground(new java.awt.Color(56, 63, 79));
+
+        jButton2.setBackground(new java.awt.Color(47, 52, 67));
+        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(235, 237, 255));
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setBackground(new java.awt.Color(47, 52, 67));
+        jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(235, 237, 255));
+        jButton3.setText("Modificar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jTextField6.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(235, 237, 255));
+        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField6FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField6FocusLost(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel8.setText("Nombre Provinia:");
+
+        jCheckBox2.setBackground(new java.awt.Color(56, 63, 79));
+        jCheckBox2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jCheckBox2.setForeground(new java.awt.Color(235, 237, 255));
+        jCheckBox2.setText("Mostrar Eliminados");
+        jCheckBox2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jCheckBox2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel9.setText("Nombre Pais:");
+
+        jTextField7.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextField7.setForeground(new java.awt.Color(235, 237, 255));
+        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextField7.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField7FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField7FocusLost(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel10.setText("Nombre Ciudad:");
+
+        jTextField8.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextField8.setForeground(new java.awt.Color(235, 237, 255));
+        jTextField8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextField8.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField8FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField8FocusLost(evt);
+            }
+        });
+
+        jTable1.setBackground(new java.awt.Color(56, 63, 79));
+        jTable1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(235, 237, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -106,102 +405,68 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setFocusable(false);
+        jTable1.setGridColor(new java.awt.Color(47, 52, 67));
+        jTable1.setSelectionBackground(new java.awt.Color(83, 81, 251));
+        jTable1.setSelectionForeground(new java.awt.Color(235, 237, 255));
+        jTable1.setShowVerticalLines(false);
         jScrollPane1.setViewportView(jTable1);
 
-        jPanelFull.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 288, 480, 88));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                                .addComponent(jTextField8)
+                                .addComponent(jTextField6))))
+                    .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39))
+        );
 
-        jTextField1.setText("jTextField1");
-        jPanelFull.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 200, 169, 38));
-
-        jLabel2.setForeground(new java.awt.Color(235, 237, 255));
-        jLabel2.setText("Nombre Ciudad:");
-        jPanelFull.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 110, 38));
-
-        jLabel3.setForeground(new java.awt.Color(235, 237, 255));
-        jLabel3.setText("Id de Ciudad");
-        jPanelFull.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 192, 110, 38));
-
-        jTextField2.setText("jTextField1");
-        jPanelFull.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 192, 169, 38));
-
-        jLabel4.setForeground(new java.awt.Color(235, 237, 255));
-        jLabel4.setText("Nombre Ciudad:");
-        jPanelFull.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 248, 110, 38));
-
-        jTextField3.setText("jTextField1");
-        jPanelFull.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 248, 169, 38));
-
-        jLabel5.setForeground(new java.awt.Color(235, 237, 255));
-        jLabel5.setText("Nombre Provincia:");
-        jPanelFull.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 304, 110, 38));
-
-        jTextField4.setText("jTextField1");
-        jPanelFull.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 304, 169, 38));
-
-        jLabel6.setForeground(new java.awt.Color(235, 237, 255));
-        jLabel6.setText("Nombre Pais:");
-        jPanelFull.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 365, 110, 38));
-
-        jTextField5.setText("jTextField1");
-        jPanelFull.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 365, 169, 38));
-
-        jLabel7.setForeground(new java.awt.Color(235, 237, 255));
-        jLabel7.setText("Estado:");
-        jPanelFull.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 421, 110, 38));
-
-        jCheckBox1.setText("jCheckBox1");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-        jPanelFull.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 421, 169, 38));
-
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setText("Nuevo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanelFull.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 489, 130, 45));
-
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2.setText("Eliminar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanelFull.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(353, 489, 130, 45));
-
-        jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton3.setText("Modificar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanelFull.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(518, 489, 130, 45));
-
-        jCheckBox2.setText("Mostrar Eliminados");
-        jCheckBox2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
-            }
-        });
-        jPanelFull.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 200, 160, 40));
-
-        jButton4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton4.setText("Guardar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanelFull.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(689, 489, 130, 45));
+        jPanelFull.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 530, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -238,10 +503,95 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
+    private void jCheckBox1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MousePressed
 
+    }//GEN-LAST:event_jCheckBox1MousePressed
+    
+    // <editor-fold defaultstate="collapsed" desc="textBorderFocus">
+    // <editor-fold defaultstate="collapsed" desc="textBorderFocusGained">
+    private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
+        textBorderFocusGained((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField2FocusGained
+
+    private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusGained
+        textBorderFocusGained((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField3FocusGained
+
+    private void jTextField4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusGained
+        textBorderFocusGained((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField4FocusGained
+
+    private void jTextField5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusGained
+        textBorderFocusGained((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField5FocusGained
+
+    private void jTextField8FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusGained
+        textBorderFocusGained((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField8FocusGained
+
+    private void jTextField6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusGained
+        textBorderFocusGained((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField6FocusGained
+
+    private void jTextField7FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField7FocusGained
+        textBorderFocusGained((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField7FocusGained
+    // </editor-fold>     
+    // <editor-fold defaultstate="collapsed" desc="textBorderFocusLost">
+    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
+        textBorderFocusLost((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField2FocusLost
+
+    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
+        textBorderFocusLost((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField3FocusLost
+
+    private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
+        textBorderFocusLost((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField4FocusLost
+
+    private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
+        textBorderFocusLost((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField5FocusLost
+
+    private void jTextField8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusLost
+        textBorderFocusLost((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField8FocusLost
+
+    private void jTextField6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusLost
+        textBorderFocusLost((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField6FocusLost
+
+    private void jTextField7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField7FocusLost
+        textBorderFocusLost((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField7FocusLost
+    // </editor-fold>
+    // </editor-fold>  
+    
+    private void CrearTabla() {
+        JTableHeader TblHeader = jTable1.getTableHeader();
+        TblHeader.setBackground(new Color(56, 63, 79));
+        TblHeader.setForeground(new Color(235, 237, 255));
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Provincia");
+        modelo.addColumn("Pais");
+
+        jTable1.setModel(modelo);
+        jTable1.setEnabled(true);
+        jTable1.setRowSelectionAllowed(true);
+    }
+
+    private void textBorderFocusGained(JTextField textField) {
+        textField.setBorder(new LineBorder(new Color(83, 81, 251), 3));
+    }
+
+    private void textBorderFocusLost(JTextField textField) {
+        textField.setBorder(new LineBorder(new Color(235, 237, 255), 1));
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -250,22 +600,30 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelFull;
     private javax.swing.JPanel jPanelHead;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }
