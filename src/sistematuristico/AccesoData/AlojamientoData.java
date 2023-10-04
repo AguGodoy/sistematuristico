@@ -17,7 +17,7 @@ public class AlojamientoData {
     }
 
     public void AltaAlojamiento(Alojamiento alojamiento) {
-        String sql = "INSERT INTO alojamiento (idAlojamiento, fechaIn, fechaOn, estado, servicio, importe, idDestino) VALUES (?, ?, ?, ?, ?,?,?)";
+        String sql = "INSERT INTO alojamiento (idAlojamiento, fechaIn, fechaOn, estado, servicio, importe, idDestino,tipoDeAlojamiento) VALUES (?, ?, ?, ?, ?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, alojamiento.getIdAlojamiento());
@@ -27,6 +27,7 @@ public class AlojamientoData {
             ps.setString(5, alojamiento.getServicio());
             ps.setDouble(6, alojamiento.getImporteDiario());
             ps.setInt(7, alojamiento.getDestino().getIdCiudad());
+            ps.setString(8, alojamiento.getTipo());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
@@ -56,7 +57,7 @@ public class AlojamientoData {
     }
 
     public void ModificacionAlojamiento(int IdAlojamientoParametro, Alojamiento alojamiento) {
-        String sql = "UPDATE alojamiento SET fechaIn = ?, fechaOn = ?, estado = ?, servicio = ?, importe = ?, idDestino = ? WHERE IdAlojamiento = ?";
+        String sql = "UPDATE alojamiento SET fechaIn = ?, fechaOn = ?, estado = ?, servicio = ?, importe = ?, idDestino = ?, tipoDeAlojamiento=? WHERE IdAlojamiento = ?";
         PreparedStatement ps = null;
         try {
             ps.setDate(1, Date.valueOf(alojamiento.getFechaIn()));
@@ -66,6 +67,7 @@ public class AlojamientoData {
             ps.setDouble(5, alojamiento.getImporteDiario());
             ps.setInt(6, alojamiento.getDestino().getIdCiudad());
             ps.setInt(7, IdAlojamientoParametro);
+            ps.setString(8, alojamiento.getTipo());
 
             int exito = ps.executeUpdate();
             if (exito == 1) {
