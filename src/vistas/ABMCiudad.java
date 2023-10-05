@@ -5,10 +5,14 @@
 package vistas;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import org.w3c.dom.events.Event;
+import sistematuristico.AccesoData.CiudadData;
+import sistematuristico.Entidades.Ciudad;
 
 /**
  *
@@ -16,6 +20,7 @@ import javax.swing.table.JTableHeader;
  */
 public class ABMCiudad extends javax.swing.JInternalFrame {
 
+    private CiudadData ciudadData = new CiudadData();
     private DefaultTableModel modelo = new DefaultTableModel() {
         @Override
         public boolean isCellEditable(int row, int column) {
@@ -26,7 +31,8 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
     public ABMCiudad() {
         initComponents();
         CrearTabla();
-        modelo.addRow(new Object[]{123, "dsds", "dasdsa", "sdadsad"});
+        actualizarTabla();
+        botonNuevaCiudad();
     }
 
     /**
@@ -43,31 +49,33 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        btnSalir = new javax.swing.JPanel();
+        jlabel_exit = new javax.swing.JLabel();
         jPanelBody = new javax.swing.JPanel();
         jPanelNuevo = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jtfIdCiudad = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jtfNombre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jtfProvincia = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jtfPais = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jButton4 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jcbActivo_Inactivo = new javax.swing.JCheckBox();
+        jbGuardar_Actualizar = new javax.swing.JButton();
+        jbNuevo = new javax.swing.JButton();
         jPanelBuscar = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField6 = new javax.swing.JTextField();
+        jbEliminar = new javax.swing.JButton();
+        jbModificar = new javax.swing.JButton();
+        jtfBuscarProvincia = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBoxEliminados = new javax.swing.JCheckBox();
         jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        jtfBuscarPais = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        jtfBuscarCiudad = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jSeparator3 = new javax.swing.JSeparator();
@@ -86,6 +94,35 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
 
         jSeparator2.setBackground(new java.awt.Color(235, 237, 255));
 
+        btnSalir.setBackground(new java.awt.Color(56, 63, 79));
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnSalirMousePressed(evt);
+            }
+        });
+
+        jlabel_exit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jlabel_exit.setForeground(new java.awt.Color(255, 255, 255));
+        jlabel_exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlabel_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icon_Exit_25px.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnSalirLayout = new javax.swing.GroupLayout(btnSalir);
+        btnSalir.setLayout(btnSalirLayout);
+        btnSalirLayout.setHorizontalGroup(
+            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnSalirLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jlabel_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
+        );
+        btnSalirLayout.setVerticalGroup(
+            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnSalirLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlabel_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanelHeadLayout = new javax.swing.GroupLayout(jPanelHead);
         jPanelHead.setLayout(jPanelHeadLayout);
         jPanelHeadLayout.setHorizontalGroup(
@@ -93,10 +130,21 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
             .addGroup(jPanelHeadLayout.createSequentialGroup()
                 .addGap(265, 265, 265)
                 .addGroup(jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< Updated upstream
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(265, Short.MAX_VALUE))
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+=======
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelHeadLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+>>>>>>> Stashed changes
         );
         jPanelHeadLayout.setVerticalGroup(
             jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,10 +152,12 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         jPanelFull.add(jPanelHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
@@ -123,16 +173,21 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(235, 237, 255));
         jLabel3.setText("Id de Ciudad");
 
-        jTextField2.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+        jtfIdCiudad.setBackground(new java.awt.Color(56, 63, 79));
+        jtfIdCiudad.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfIdCiudad.setForeground(new java.awt.Color(235, 237, 255));
+        jtfIdCiudad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfIdCiudad.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField2FocusGained(evt);
+                jtfIdCiudadFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField2FocusLost(evt);
+                jtfIdCiudadFocusLost(evt);
+            }
+        });
+        jtfIdCiudad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfIdCiudadKeyTyped(evt);
             }
         });
 
@@ -140,16 +195,21 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(235, 237, 255));
         jLabel4.setText("Nombre Ciudad:");
 
-        jTextField3.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+        jtfNombre.setBackground(new java.awt.Color(56, 63, 79));
+        jtfNombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfNombre.setForeground(new java.awt.Color(235, 237, 255));
+        jtfNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfNombre.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField3FocusGained(evt);
+                jtfNombreFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField3FocusLost(evt);
+                jtfNombreFocusLost(evt);
+            }
+        });
+        jtfNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfNombreKeyTyped(evt);
             }
         });
 
@@ -157,16 +217,21 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         jLabel5.setForeground(new java.awt.Color(235, 237, 255));
         jLabel5.setText("Nombre Provincia:");
 
-        jTextField4.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+        jtfProvincia.setBackground(new java.awt.Color(56, 63, 79));
+        jtfProvincia.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfProvincia.setForeground(new java.awt.Color(235, 237, 255));
+        jtfProvincia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfProvincia.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField4FocusGained(evt);
+                jtfProvinciaFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField4FocusLost(evt);
+                jtfProvinciaFocusLost(evt);
+            }
+        });
+        jtfProvincia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfProvinciaKeyTyped(evt);
             }
         });
 
@@ -174,16 +239,21 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         jLabel6.setForeground(new java.awt.Color(235, 237, 255));
         jLabel6.setText("Nombre Pais:");
 
-        jTextField5.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+        jtfPais.setBackground(new java.awt.Color(56, 63, 79));
+        jtfPais.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfPais.setForeground(new java.awt.Color(235, 237, 255));
+        jtfPais.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfPais.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField5FocusGained(evt);
+                jtfPaisFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField5FocusLost(evt);
+                jtfPaisFocusLost(evt);
+            }
+        });
+        jtfPais.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfPaisKeyTyped(evt);
             }
         });
 
@@ -191,20 +261,10 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         jLabel7.setForeground(new java.awt.Color(235, 237, 255));
         jLabel7.setText("Estado:");
 
-        jCheckBox1.setBackground(new java.awt.Color(56, 63, 79));
-        jCheckBox1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(235, 237, 255));
-        jCheckBox1.setText("Activo / Inactivo");
-        jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jCheckBox1MousePressed(evt);
-            }
-        });
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
+        jcbActivo_Inactivo.setBackground(new java.awt.Color(56, 63, 79));
+        jcbActivo_Inactivo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jcbActivo_Inactivo.setForeground(new java.awt.Color(235, 237, 255));
+        jcbActivo_Inactivo.setText("Activo / Inactivo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -220,12 +280,12 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbActivo_Inactivo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfIdCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addComponent(jtfNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                        .addComponent(jtfProvincia, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jtfPais, javax.swing.GroupLayout.Alignment.TRAILING)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -234,43 +294,43 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfIdCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfPais, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbActivo_Inactivo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jButton4.setBackground(new java.awt.Color(47, 52, 67));
-        jButton4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(235, 237, 255));
-        jButton4.setText("Guardar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jbGuardar_Actualizar.setBackground(new java.awt.Color(47, 52, 67));
+        jbGuardar_Actualizar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jbGuardar_Actualizar.setForeground(new java.awt.Color(235, 237, 255));
+        jbGuardar_Actualizar.setText("Guardar");
+        jbGuardar_Actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jbGuardar_ActualizarActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(47, 52, 67));
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(235, 237, 255));
-        jButton1.setText("Nuevo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbNuevo.setBackground(new java.awt.Color(47, 52, 67));
+        jbNuevo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jbNuevo.setForeground(new java.awt.Color(235, 237, 255));
+        jbNuevo.setText("Nuevo");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbNuevoActionPerformed(evt);
             }
         });
 
@@ -285,9 +345,9 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanelNuevoLayout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbGuardar_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(37, 37, 37))
         );
         jPanelNuevoLayout.setVerticalGroup(
@@ -297,43 +357,51 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addGroup(jPanelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbGuardar_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jPanelBuscar.setBackground(new java.awt.Color(56, 63, 79));
 
-        jButton2.setBackground(new java.awt.Color(47, 52, 67));
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(235, 237, 255));
-        jButton2.setText("Eliminar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbEliminar.setBackground(new java.awt.Color(47, 52, 67));
+        jbEliminar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jbEliminar.setForeground(new java.awt.Color(235, 237, 255));
+        jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbEliminarActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(47, 52, 67));
-        jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(235, 237, 255));
-        jButton3.setText("Modificar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbModificar.setBackground(new java.awt.Color(47, 52, 67));
+        jbModificar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jbModificar.setForeground(new java.awt.Color(235, 237, 255));
+        jbModificar.setText("Modificar");
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbModificarActionPerformed(evt);
             }
         });
 
-        jTextField6.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
+        jtfBuscarProvincia.setBackground(new java.awt.Color(56, 63, 79));
+        jtfBuscarProvincia.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfBuscarProvincia.setForeground(new java.awt.Color(235, 237, 255));
+        jtfBuscarProvincia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfBuscarProvincia.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField6FocusGained(evt);
+                jtfBuscarProvinciaFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField6FocusLost(evt);
+                jtfBuscarProvinciaFocusLost(evt);
+            }
+        });
+        jtfBuscarProvincia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtfBuscarProvinciaKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfBuscarProvinciaKeyTyped(evt);
             }
         });
 
@@ -341,15 +409,15 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         jLabel8.setForeground(new java.awt.Color(235, 237, 255));
         jLabel8.setText("Nombre Provinia:");
 
-        jCheckBox2.setBackground(new java.awt.Color(56, 63, 79));
-        jCheckBox2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jCheckBox2.setForeground(new java.awt.Color(235, 237, 255));
-        jCheckBox2.setText("Mostrar Eliminados");
-        jCheckBox2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+        jCheckBoxEliminados.setBackground(new java.awt.Color(56, 63, 79));
+        jCheckBoxEliminados.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jCheckBoxEliminados.setForeground(new java.awt.Color(235, 237, 255));
+        jCheckBoxEliminados.setText("Mostrar Eliminados");
+        jCheckBoxEliminados.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jCheckBoxEliminados.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jCheckBoxEliminados.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jCheckBoxEliminadosStateChanged(evt);
             }
         });
 
@@ -357,16 +425,24 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(235, 237, 255));
         jLabel9.setText("Nombre Pais:");
 
-        jTextField7.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField7.addFocusListener(new java.awt.event.FocusAdapter() {
+        jtfBuscarPais.setBackground(new java.awt.Color(56, 63, 79));
+        jtfBuscarPais.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfBuscarPais.setForeground(new java.awt.Color(235, 237, 255));
+        jtfBuscarPais.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfBuscarPais.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField7FocusGained(evt);
+                jtfBuscarPaisFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField7FocusLost(evt);
+                jtfBuscarPaisFocusLost(evt);
+            }
+        });
+        jtfBuscarPais.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtfBuscarPaisKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfBuscarPaisKeyTyped(evt);
             }
         });
 
@@ -374,16 +450,24 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         jLabel10.setForeground(new java.awt.Color(235, 237, 255));
         jLabel10.setText("Nombre Ciudad:");
 
-        jTextField8.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField8.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField8.addFocusListener(new java.awt.event.FocusAdapter() {
+        jtfBuscarCiudad.setBackground(new java.awt.Color(56, 63, 79));
+        jtfBuscarCiudad.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfBuscarCiudad.setForeground(new java.awt.Color(235, 237, 255));
+        jtfBuscarCiudad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfBuscarCiudad.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField8FocusGained(evt);
+                jtfBuscarCiudadFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField8FocusLost(evt);
+                jtfBuscarCiudadFocusLost(evt);
+            }
+        });
+        jtfBuscarCiudad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtfBuscarCiudadKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfBuscarCiudadKeyTyped(evt);
             }
         });
 
@@ -415,9 +499,9 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
             jPanelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBuscarLayout.createSequentialGroup()
                 .addGap(91, 91, 91)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79))
             .addGroup(jPanelBuscarLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
@@ -431,10 +515,10 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(18, 18, 18)
                             .addGroup(jPanelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
-                                .addComponent(jTextField8)
-                                .addComponent(jTextField6))))
-                    .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jtfBuscarPais, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                                .addComponent(jtfBuscarCiudad)
+                                .addComponent(jtfBuscarProvincia))))
+                    .addComponent(jCheckBoxEliminados, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanelBuscarLayout.setVerticalGroup(
@@ -443,23 +527,23 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
                 .addGap(55, 55, 55)
                 .addGroup(jPanelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfBuscarCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addGroup(jPanelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfBuscarProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfBuscarPais, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jCheckBoxEliminados, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40))
         );
 
@@ -514,94 +598,134 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void jbGuardar_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardar_ActualizarActionPerformed
+        if (jtfIdCiudad.isFocusable()) {
+            crearCiudad();
+        } else {
+            actualizarCiudad();
+        }
+        actualizarTabla();
+    }//GEN-LAST:event_jbGuardar_ActualizarActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
+        modificarCiudad();
+    }//GEN-LAST:event_jbModificarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jButton4.setText("Actualizar");
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        EliminarDeTabla();
+    }//GEN-LAST:event_jbEliminarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+        botonNuevaCiudad();
+    }//GEN-LAST:event_jbNuevoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jButton4.setText("Guardar");
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
-    private void jCheckBox1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MousePressed
-
-    }//GEN-LAST:event_jCheckBox1MousePressed
-    
     // <editor-fold defaultstate="collapsed" desc="textBorderFocus">
     // <editor-fold defaultstate="collapsed" desc="textBorderFocusGained">
-    private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
+    private void jtfIdCiudadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfIdCiudadFocusGained
         textBorderFocusGained((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField2FocusGained
+    }//GEN-LAST:event_jtfIdCiudadFocusGained
 
-    private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusGained
+    private void jtfNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfNombreFocusGained
         textBorderFocusGained((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField3FocusGained
+    }//GEN-LAST:event_jtfNombreFocusGained
 
-    private void jTextField4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusGained
+    private void jtfProvinciaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfProvinciaFocusGained
         textBorderFocusGained((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField4FocusGained
+    }//GEN-LAST:event_jtfProvinciaFocusGained
 
-    private void jTextField5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusGained
+    private void jtfPaisFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfPaisFocusGained
         textBorderFocusGained((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField5FocusGained
+    }//GEN-LAST:event_jtfPaisFocusGained
 
-    private void jTextField8FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusGained
+    private void jtfBuscarCiudadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfBuscarCiudadFocusGained
         textBorderFocusGained((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField8FocusGained
+    }//GEN-LAST:event_jtfBuscarCiudadFocusGained
 
-    private void jTextField6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusGained
+    private void jtfBuscarProvinciaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfBuscarProvinciaFocusGained
         textBorderFocusGained((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField6FocusGained
+    }//GEN-LAST:event_jtfBuscarProvinciaFocusGained
 
-    private void jTextField7FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField7FocusGained
+    private void jtfBuscarPaisFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfBuscarPaisFocusGained
         textBorderFocusGained((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField7FocusGained
+    }//GEN-LAST:event_jtfBuscarPaisFocusGained
     // </editor-fold>     
     // <editor-fold defaultstate="collapsed" desc="textBorderFocusLost">
-    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
+    private void jtfIdCiudadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfIdCiudadFocusLost
         textBorderFocusLost((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField2FocusLost
+    }//GEN-LAST:event_jtfIdCiudadFocusLost
 
-    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
+    private void jtfNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfNombreFocusLost
         textBorderFocusLost((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField3FocusLost
+    }//GEN-LAST:event_jtfNombreFocusLost
 
-    private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
+    private void jtfProvinciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfProvinciaFocusLost
         textBorderFocusLost((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField4FocusLost
+    }//GEN-LAST:event_jtfProvinciaFocusLost
 
-    private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
+    private void jtfPaisFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfPaisFocusLost
         textBorderFocusLost((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField5FocusLost
+    }//GEN-LAST:event_jtfPaisFocusLost
 
-    private void jTextField8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusLost
+    private void jtfBuscarCiudadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfBuscarCiudadFocusLost
         textBorderFocusLost((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField8FocusLost
+    }//GEN-LAST:event_jtfBuscarCiudadFocusLost
 
-    private void jTextField6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusLost
+    private void jtfBuscarProvinciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfBuscarProvinciaFocusLost
         textBorderFocusLost((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField6FocusLost
+    }//GEN-LAST:event_jtfBuscarProvinciaFocusLost
 
-    private void jTextField7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField7FocusLost
+    private void jtfBuscarPaisFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfBuscarPaisFocusLost
         textBorderFocusLost((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField7FocusLost
-    // </editor-fold>
-    // </editor-fold>  
+    }//GEN-LAST:event_jtfBuscarPaisFocusLost
+// </editor-fold> 
+    // </editor-fold> 
+    private void jtfBuscarCiudadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarCiudadKeyReleased
+        actualizarTabla();
+    }//GEN-LAST:event_jtfBuscarCiudadKeyReleased
+
+    private void jtfBuscarProvinciaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarProvinciaKeyReleased
+        actualizarTabla();
+    }//GEN-LAST:event_jtfBuscarProvinciaKeyReleased
+
+    private void jtfBuscarPaisKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarPaisKeyReleased
+        actualizarTabla();
+    }//GEN-LAST:event_jtfBuscarPaisKeyReleased
+
+    private void jCheckBoxEliminadosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBoxEliminadosStateChanged
+        actualizarTabla();
+    }//GEN-LAST:event_jCheckBoxEliminadosStateChanged
+    // <editor-fold defaultstate="collapsed" desc="KeyTyped">
+    private void jtfIdCiudadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfIdCiudadKeyTyped
+        KeyPress(evt,"numero");
+    }//GEN-LAST:event_jtfIdCiudadKeyTyped
+
+    private void jtfNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfNombreKeyTyped
+       KeyPress(evt,"letra");
+    }//GEN-LAST:event_jtfNombreKeyTyped
+
+    private void jtfProvinciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfProvinciaKeyTyped
+        KeyPress(evt,"letra");
+    }//GEN-LAST:event_jtfProvinciaKeyTyped
+
+    private void jtfPaisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfPaisKeyTyped
+        KeyPress(evt,"letra");
+    }//GEN-LAST:event_jtfPaisKeyTyped
+
+    private void jtfBuscarCiudadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarCiudadKeyTyped
+        KeyPress(evt,"letra");
+    }//GEN-LAST:event_jtfBuscarCiudadKeyTyped
+
+    private void jtfBuscarProvinciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarProvinciaKeyTyped
+        KeyPress(evt,"letra");
+    }//GEN-LAST:event_jtfBuscarProvinciaKeyTyped
+
+    private void jtfBuscarPaisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarPaisKeyTyped
+        KeyPress(evt,"letra");
+    }//GEN-LAST:event_jtfBuscarPaisKeyTyped
+    // </editor-fold> 
+    private void btnSalirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMousePressed
+        this.dispose();
+    }//GEN-LAST:event_btnSalirMousePressed
     
     private void CrearTabla() {
         JTableHeader TblHeader = jTable1.getTableHeader();
@@ -613,7 +737,7 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         modelo.addColumn("Nombre");
         modelo.addColumn("Provincia");
         modelo.addColumn("Pais");
-        
+
         jTable1.setModel(modelo);
         jTable1.setEnabled(true);
         jTable1.setRowSelectionAllowed(true);
@@ -626,14 +750,168 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
     private void textBorderFocusLost(JTextField textField) {
         textField.setBorder(new LineBorder(new Color(235, 237, 255), 1));
     }
-    
+
+    private void ActualizarDatosTabla() {
+        if (ciudadData.listarCiudades() != null) {
+            for (Ciudad ciudad : ciudadData.listarCiudades()) {
+                if (!jCheckBoxEliminados.isSelected() ? ciudad.isEstado() : !ciudad.isEstado()) {
+                    if (ciudad.getNombre().toUpperCase().startsWith(jtfBuscarCiudad.getText().toUpperCase())) {
+                        if (ciudad.getProvincia().toUpperCase().startsWith(jtfBuscarProvincia.getText().toUpperCase())) {
+                            if (ciudad.getPais().toUpperCase().startsWith(jtfBuscarPais.getText().toUpperCase())) {
+                                modelo.addRow(new Object[]{ciudad.getIdCiudad(), ciudad.getNombre(), ciudad.getProvincia(), ciudad.getPais()});
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            System.out.println("No hay datos en el array");
+        }
+    }
+
+    private void borrarfila() {
+        int f = jTable1.getRowCount() - 1;
+        for (; f >= 0; f--) {
+            modelo.removeRow(f);
+        }
+    }
+
+    private void actualizarTabla() {
+        borrarfila();
+        ActualizarDatosTabla();
+    }
+
+    private void limpiarFiltros() {
+        jtfBuscarCiudad.setText("");
+        jtfBuscarProvincia.setText("");
+        jtfBuscarPais.setText("");
+    }
+
+    private void limpiarTextFields() {
+        jtfIdCiudad.setText("");
+        jtfNombre.setText("");
+        jtfProvincia.setText("");
+        jtfPais.setText("");
+        jcbActivo_Inactivo.setSelected(true);
+    }
+
+    private void EliminarDeTabla() {
+        int filas = jTable1.getSelectedRow();
+        if (filas != -1) {
+            int idCiudad = (int) jTable1.getValueAt(filas, 0);
+            if (ciudadData.buscarCiudad(idCiudad).isEstado()) {
+                ciudadData.BajaCiudad(idCiudad);
+            } else {
+                String title = "Eliminacion Permanente";
+                String message = "Si elimina un dato ya eliminado no se podra recuperar\nEsta Seguro?";
+                int respuesta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+                if (respuesta == JOptionPane.YES_OPTION) {
+                    ciudadData.BajaRealCiudad(idCiudad);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione una fila");
+        }
+        limpiarFiltros();
+        actualizarTabla();
+    }
+
+    private void modificarCiudad() {
+        int filas = jTable1.getSelectedRow();
+        if (filas != -1) {
+            int idCiudad = (int) jTable1.getValueAt(filas, 0);
+            Ciudad ciudad = ciudadData.buscarCiudad(idCiudad);
+            jtfIdCiudad.setEditable(false);
+            jtfIdCiudad.setFocusable(false);
+            jtfIdCiudad.setBackground(new Color(66, 66, 66));
+            jbGuardar_Actualizar.setText("Actualizar");
+            jtfIdCiudad.setText("" + ciudad.getIdCiudad());
+            jtfNombre.setText(ciudad.getNombre());
+            jtfProvincia.setText(ciudad.getProvincia());
+            jtfPais.setText(ciudad.getPais());
+            jcbActivo_Inactivo.setSelected(ciudad.isEstado());
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione una fila");
+        }
+    }
+
+    private void crearCiudad() {
+        try {
+            String nombre = jtfNombre.getText();
+            String provincia = jtfProvincia.getText();
+            String pais = jtfPais.getText();
+            Boolean estado = jcbActivo_Inactivo.isSelected();
+            if (jtfIdCiudad.getText().isEmpty()) {
+                Ciudad ciudad = new Ciudad(nombre, pais, provincia, estado);
+                ciudadData.AltaCiudad(ciudad);
+                botonNuevaCiudad();
+            } else {
+                int IdCiudad = Integer.parseInt(jtfIdCiudad.getText());
+                if (ciudadData.buscarCiudad(IdCiudad) == null) {
+                    Ciudad ciudad = new Ciudad(IdCiudad, nombre, pais, provincia, estado);
+                    ciudadData.AltaCiudad(ciudad);
+                    botonNuevaCiudad();
+                } else {
+                    String title = "IdCiudad NO Disponible";
+                    String message = "Ya existe una ciudad con ese ID\n¿Quiere generar un ID Automaticamente?";
+                    int respuesta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+                    if (respuesta == JOptionPane.YES_OPTION) {
+                        Ciudad ciudad = new Ciudad(nombre, pais, provincia, estado);
+                        ciudadData.AltaCiudad(ciudad);
+                        botonNuevaCiudad();
+                    }
+                }
+            }
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "En el campo IdCiduad solo deben ingresarse numeros");
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(null, "No debe haber campos vacios");
+        }
+    }
+
+    private void actualizarCiudad() {
+        try {
+            String nombre = jtfNombre.getText();
+            String provincia = jtfProvincia.getText();
+            String pais = jtfPais.getText();
+            Boolean estado = jcbActivo_Inactivo.isSelected();
+            Ciudad ciudad = new Ciudad(nombre, pais, provincia, estado);
+            ciudadData.ModificacionCiudad(Integer.parseInt(jtfIdCiudad.getText()), ciudad);
+            botonNuevaCiudad();
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "En el campo IdCiduad solo deben ingresarse numeros");
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(null, "No debe haber campos vacios");
+        }
+    }
+
+    private void botonNuevaCiudad() {
+        limpiarTextFields();
+        jtfIdCiudad.setEditable(true);
+        jtfIdCiudad.setFocusable(true);
+        jtfIdCiudad.setBackground(new Color(56, 63, 79));
+        jbGuardar_Actualizar.setText("Guardar");
+    }
+
+    private void KeyPress(java.awt.event.KeyEvent evt, String Opcion) {
+        if (Opcion.equalsIgnoreCase("letra")) {
+            char c = evt.getKeyChar();
+            if (Character.isDigit(c)) {
+                evt.consume(); // Consume el evento si el carácter no es un número
+            }
+        }
+        if (Opcion.equalsIgnoreCase("numero")) {
+            char c = evt.getKeyChar();
+            if (!Character.isDigit(c)) {
+                evt.consume(); // Consume el evento si el carácter no es un número
+            }
+        }
+
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JPanel btnSalir;
+    private javax.swing.JCheckBox jCheckBoxEliminados;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
@@ -654,12 +932,18 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JButton jbEliminar;
+    private javax.swing.JButton jbGuardar_Actualizar;
+    private javax.swing.JButton jbModificar;
+    private javax.swing.JButton jbNuevo;
+    private javax.swing.JCheckBox jcbActivo_Inactivo;
+    private javax.swing.JLabel jlabel_exit;
+    private javax.swing.JTextField jtfBuscarCiudad;
+    private javax.swing.JTextField jtfBuscarPais;
+    private javax.swing.JTextField jtfBuscarProvincia;
+    private javax.swing.JTextField jtfIdCiudad;
+    private javax.swing.JTextField jtfNombre;
+    private javax.swing.JTextField jtfPais;
+    private javax.swing.JTextField jtfProvincia;
     // End of variables declaration//GEN-END:variables
 }

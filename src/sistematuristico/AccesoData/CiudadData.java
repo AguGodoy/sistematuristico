@@ -54,6 +54,21 @@ public class CiudadData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Ciudad\n[Error en el metodo BajaCiudad de CiudadData]\n" + ex.getMessage());
         }
     }
+    public void BajaRealCiudad(int IdCiudadParametro) {
+        String sql = "DELETE FROM `ciudad` WHERE IdCiudad = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, IdCiudadParametro);
+            int exito = ps.executeUpdate();
+
+            if (exito == 1) {
+                JOptionPane.showMessageDialog(null, " Se eliminó la Ciudad.");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Ciudad\n[Error en el metodo BajaRealCiudad de CiudadData]\n" + ex.getMessage());
+        }
+    }
 
     public void ModificacionCiudad(int IdCiudadParametro, Ciudad ciudad) {
         String sql = "UPDATE ciudad SET nombre = ? , provincia = ?, pais = ?, estado = ? WHERE idCiudad = ?";
@@ -64,7 +79,7 @@ public class CiudadData {
             ps.setString(2, ciudad.getProvincia());
             ps.setString(3, ciudad.getPais());
             ps.setBoolean(4, ciudad.isEstado());
-            ps.setInt(5, ciudad.getIdCiudad());
+            ps.setInt(5, IdCiudadParametro);
 
             int exito = ps.executeUpdate();
             if (exito == 1) {
@@ -79,7 +94,7 @@ public class CiudadData {
     }
      public Ciudad buscarCiudad(int id) {
         Ciudad ciudad = null;
-        String sql = "SELECT  nombre, provincia, pais, estado FROM ciudad WHERE idCiudad = ? AND estado = 1";
+        String sql = "SELECT  nombre, provincia, pais, estado FROM ciudad WHERE idCiudad = ?";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
@@ -116,7 +131,7 @@ public class CiudadData {
                 ciudad.setNombre(rs.getString("nombre"));
                 ciudad.setProvincia(rs.getString("provincia"));
                 ciudad.setPais(rs.getString("pais"));
-                ciudad.setEstado(rs.getBoolean("nota"));
+                ciudad.setEstado(rs.getBoolean("estado"));
                 
                 ListaCiudades.add(ciudad);
             }
