@@ -123,7 +123,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="100" width="1000" height="540"/>
+              <AbsoluteConstraints x="0" y="90" width="1000" height="540"/>
             </Constraint>
           </Constraints>
 
@@ -131,19 +131,15 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="329" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="jPanelNuevo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="216" max="32767" attributes="0"/>
+                      <EmptySpace pref="503" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="jPanelNuevo" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jPanelNuevo" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -151,7 +147,7 @@
             <Container class="javax.swing.JPanel" name="jPanelNuevo">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="b3" green="3f" red="38" type="rgb"/>
+                  <Color blue="4f" green="3f" red="38" type="rgb"/>
                 </Property>
               </Properties>
 
@@ -160,20 +156,17 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jPanel1" max="32767" attributes="0"/>
-                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="modificarButton" min="-2" pref="171" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="altaButton" min="-2" pref="130" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="bajaButton" min="-2" pref="130" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="jPanel1" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="modificarButton" min="-2" pref="171" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="altaButton" min="-2" pref="130" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="bajaButton" min="-2" pref="130" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -182,13 +175,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                           <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <EmptySpace pref="106" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="modificarButton" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
-                              <Component id="altaButton" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                               <Component id="bajaButton" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="altaButton" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="modificarButton" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="84" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -197,7 +190,7 @@
                 <Container class="javax.swing.JPanel" name="jPanel1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="4f" green="a3" red="38" type="rgb"/>
+                      <Color blue="4f" green="3f" red="38" type="rgb"/>
                     </Property>
                   </Properties>
 
@@ -269,7 +262,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ed" red="eb" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Id de Ciudad"/>
+                        <Property name="text" type="java.lang.String" value="id de Pasaje"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="idPasajeField">
@@ -304,7 +297,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ed" red="eb" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Nombre Ciudad:"/>
+                        <Property name="text" type="java.lang.String" value="Transporte"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="transporteField">
@@ -339,7 +332,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ed" red="eb" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Nombre Provincia:"/>
+                        <Property name="text" type="java.lang.String" value="Importe"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="importeField">
