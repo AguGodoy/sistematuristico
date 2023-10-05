@@ -141,7 +141,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        BarraLateral.add(btnDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 240, -1));
+        BarraLateral.add(btnDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 240, -1));
 
         btnAlojamiento.setBackground(new java.awt.Color(47, 52, 67));
         btnAlojamiento.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -190,7 +190,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        BarraLateral.add(btnAlojamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 240, -1));
+        BarraLateral.add(btnAlojamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 240, -1));
 
         btnTransoporte.setBackground(new java.awt.Color(47, 52, 67));
         btnTransoporte.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -239,7 +239,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        BarraLateral.add(btnTransoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 240, -1));
+        BarraLateral.add(btnTransoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 240, -1));
 
         btnResumen.setBackground(new java.awt.Color(47, 52, 67));
         btnResumen.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -289,7 +289,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        BarraLateral.add(btnResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 240, -1));
+        BarraLateral.add(btnResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 240, -1));
 
         btnSalir.setBackground(new java.awt.Color(47, 52, 67));
         btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -363,14 +363,14 @@ public class Menu extends javax.swing.JFrame {
         jPanelMarcoArriba.setLayout(jPanelMarcoArribaLayout);
         jPanelMarcoArribaLayout.setHorizontalGroup(
             jPanelMarcoArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGap(0, 1280, Short.MAX_VALUE)
         );
         jPanelMarcoArribaLayout.setVerticalGroup(
             jPanelMarcoArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 60, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanelMarcoArriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1000, 60));
+        getContentPane().add(jPanelMarcoArriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 60));
 
         jPanelMarcoAbajo.setBackground(new java.awt.Color(47, 52, 67));
 

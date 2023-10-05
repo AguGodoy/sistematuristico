@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import sistematuristico.Entidades.Ciudad;
 
@@ -97,9 +99,33 @@ public class CiudadData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Ciudad " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Ciudad\n[Error en el metodo buscarCiudad de CiudadData]\n" + ex.getMessage());
         }
         return ciudad;
      }
+     
+     public List<Ciudad> listarCiudades() {
+        List<Ciudad> ListaCiudades = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM ciudad";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Ciudad ciudad = new Ciudad();
+                ciudad.setIdCiudad(rs.getInt("idCiudad"));
+                ciudad.setNombre(rs.getString("nombre"));
+                ciudad.setProvincia(rs.getString("provincia"));
+                ciudad.setPais(rs.getString("pais"));
+                ciudad.setEstado(rs.getBoolean("nota"));
+                
+                ListaCiudades.add(ciudad);
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Ciudad\n[Error en el metodo listarCiudades de CiudadData]\n" + ex.getMessage());
+        }
+        return ListaCiudades;
+    }
 
 }
