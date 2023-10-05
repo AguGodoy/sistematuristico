@@ -3,30 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package vistas;
+import sistematuristico.AccesoData.PasajeData;
+import sistematuristico.Entidades.Pasaje;
 
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 
 /**
  *
  * @author crist
  */
 public class ABMPasaje extends javax.swing.JInternalFrame {
-
-    private DefaultTableModel modelo = new DefaultTableModel() {
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            return false;
-        }
-    };
+  private final PasajeData pasajeData;
+    
 
     public ABMPasaje() {
+        pasajeData = new PasajeData();
         initComponents();
-        CrearTabla();
-        modelo.addRow(new Object[]{123, "dsds", "dasdsa", "sdadsad"});
+      
     }
 
     /**
@@ -47,17 +43,18 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
         jPanelNuevo = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        idPasajeField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        transporteField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        importeField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        origenField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jButton4 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        estadoCheckBox = new javax.swing.JCheckBox();
+        modificarButton = new javax.swing.JButton();
+        altaButton = new javax.swing.JButton();
+        bajaButton = new javax.swing.JButton();
 
         jPanelFull.setBackground(new java.awt.Color(56, 63, 79));
         jPanelFull.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -112,16 +109,16 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(235, 237, 255));
         jLabel3.setText("Id de Ciudad");
 
-        jTextField2.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+        idPasajeField.setBackground(new java.awt.Color(56, 63, 79));
+        idPasajeField.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        idPasajeField.setForeground(new java.awt.Color(235, 237, 255));
+        idPasajeField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        idPasajeField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField2FocusGained(evt);
+                idPasajeFieldFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField2FocusLost(evt);
+                idPasajeFieldFocusLost(evt);
             }
         });
 
@@ -129,16 +126,16 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(235, 237, 255));
         jLabel4.setText("Nombre Ciudad:");
 
-        jTextField3.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+        transporteField.setBackground(new java.awt.Color(56, 63, 79));
+        transporteField.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        transporteField.setForeground(new java.awt.Color(235, 237, 255));
+        transporteField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        transporteField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField3FocusGained(evt);
+                transporteFieldFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField3FocusLost(evt);
+                transporteFieldFocusLost(evt);
             }
         });
 
@@ -146,16 +143,16 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
         jLabel5.setForeground(new java.awt.Color(235, 237, 255));
         jLabel5.setText("Nombre Provincia:");
 
-        jTextField4.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+        importeField.setBackground(new java.awt.Color(56, 63, 79));
+        importeField.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        importeField.setForeground(new java.awt.Color(235, 237, 255));
+        importeField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        importeField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField4FocusGained(evt);
+                importeFieldFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField4FocusLost(evt);
+                importeFieldFocusLost(evt);
             }
         });
 
@@ -163,16 +160,16 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
         jLabel6.setForeground(new java.awt.Color(235, 237, 255));
         jLabel6.setText("Nombre Pais:");
 
-        jTextField5.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+        origenField.setBackground(new java.awt.Color(56, 63, 79));
+        origenField.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        origenField.setForeground(new java.awt.Color(235, 237, 255));
+        origenField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        origenField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField5FocusGained(evt);
+                origenFieldFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField5FocusLost(evt);
+                origenFieldFocusLost(evt);
             }
         });
 
@@ -180,18 +177,18 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
         jLabel7.setForeground(new java.awt.Color(235, 237, 255));
         jLabel7.setText("Estado:");
 
-        jCheckBox1.setBackground(new java.awt.Color(56, 63, 79));
-        jCheckBox1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(235, 237, 255));
-        jCheckBox1.setText("Activo / Inactivo");
-        jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+        estadoCheckBox.setBackground(new java.awt.Color(56, 63, 79));
+        estadoCheckBox.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        estadoCheckBox.setForeground(new java.awt.Color(235, 237, 255));
+        estadoCheckBox.setText("Activo / Inactivo");
+        estadoCheckBox.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jCheckBox1MousePressed(evt);
+                estadoCheckBoxMousePressed(evt);
             }
         });
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        estadoCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                estadoCheckBoxActionPerformed(evt);
             }
         });
 
@@ -209,13 +206,13 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(estadoCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idPasajeField, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addComponent(transporteField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                        .addComponent(importeField, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(origenField, javax.swing.GroupLayout.Alignment.TRAILING)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,33 +220,53 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(idPasajeField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(transporteField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(importeField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(origenField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(estadoCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jButton4.setBackground(new java.awt.Color(47, 52, 67));
-        jButton4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(235, 237, 255));
-        jButton4.setText("Guardar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        modificarButton.setBackground(new java.awt.Color(47, 52, 67));
+        modificarButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        modificarButton.setForeground(new java.awt.Color(235, 237, 255));
+        modificarButton.setText("Modificar Pasaje");
+        modificarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                modificarButtonActionPerformed(evt);
+            }
+        });
+
+        altaButton.setBackground(new java.awt.Color(47, 52, 67));
+        altaButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        altaButton.setForeground(new java.awt.Color(235, 237, 255));
+        altaButton.setText("Alta pasaje");
+        altaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altaButtonActionPerformed(evt);
+            }
+        });
+
+        bajaButton.setBackground(new java.awt.Color(47, 52, 67));
+        bajaButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        bajaButton.setForeground(new java.awt.Color(235, 237, 255));
+        bajaButton.setText("Baja Pasaje");
+        bajaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bajaButtonActionPerformed(evt);
             }
         });
 
@@ -257,14 +274,19 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
         jPanelNuevo.setLayout(jPanelNuevoLayout);
         jPanelNuevoLayout.setHorizontalGroup(
             jPanelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNuevoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(37, 37, 37))
             .addGroup(jPanelNuevoLayout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelNuevoLayout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(37, 37, 37))
+                    .addGroup(jPanelNuevoLayout.createSequentialGroup()
+                        .addComponent(modificarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(altaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bajaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanelNuevoLayout.setVerticalGroup(
             jPanelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,41 +294,28 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
                 .addGap(55, 55, 55)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGroup(jPanelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(modificarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(altaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bajaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
-
-        jButton1.setBackground(new java.awt.Color(47, 52, 67));
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(235, 237, 255));
-        jButton1.setText("Nuevo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addGap(254, 254, 254)
+                .addGap(329, 329, 329)
                 .addComponent(jPanelNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(14, 14, 14)
                 .addComponent(jPanelNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(28, 28, 28))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(240, 240, 240))
+                .addContainerGap())
         );
 
         jPanelFull.add(jPanelBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1000, 540));
@@ -325,71 +334,78 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
+    private void idPasajeFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idPasajeFieldFocusGained
         textBorderFocusGained((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField2FocusGained
+    }//GEN-LAST:event_idPasajeFieldFocusGained
 
-    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
+    private void idPasajeFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idPasajeFieldFocusLost
         textBorderFocusLost((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField2FocusLost
+    }//GEN-LAST:event_idPasajeFieldFocusLost
 
-    private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusGained
+    private void transporteFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_transporteFieldFocusGained
         textBorderFocusGained((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField3FocusGained
+    }//GEN-LAST:event_transporteFieldFocusGained
 
-    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
+    private void transporteFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_transporteFieldFocusLost
         textBorderFocusLost((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField3FocusLost
+    }//GEN-LAST:event_transporteFieldFocusLost
 
-    private void jTextField4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusGained
+    private void importeFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_importeFieldFocusGained
         textBorderFocusGained((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField4FocusGained
+    }//GEN-LAST:event_importeFieldFocusGained
 
-    private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
+    private void importeFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_importeFieldFocusLost
         textBorderFocusLost((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField4FocusLost
+    }//GEN-LAST:event_importeFieldFocusLost
 
-    private void jTextField5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusGained
+    private void origenFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_origenFieldFocusGained
         textBorderFocusGained((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField5FocusGained
+    }//GEN-LAST:event_origenFieldFocusGained
 
-    private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
+    private void origenFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_origenFieldFocusLost
         textBorderFocusLost((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField5FocusLost
+    }//GEN-LAST:event_origenFieldFocusLost
 
-    private void jCheckBox1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MousePressed
+    private void estadoCheckBoxMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_estadoCheckBoxMousePressed
 
-    }//GEN-LAST:event_jCheckBox1MousePressed
+    }//GEN-LAST:event_estadoCheckBoxMousePressed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void estadoCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoCheckBoxActionPerformed
 
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_estadoCheckBoxActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void modificarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarButtonActionPerformed
+         int idPasaje = Integer.parseInt(idPasajeField.getText());
+                String transporte = transporteField.getText();
+                double importe = Double.parseDouble(importeField.getText());
+                int origen = Integer.parseInt(origenField.getText());
+                boolean estado = estadoCheckBox.isSelected();
+
+                Pasaje pasaje = new Pasaje(idPasaje, transporte, importe, origen, estado);
+                pasajeData.ModificacionPasaje(idPasaje, pasaje);
+    }//GEN-LAST:event_modificarButtonActionPerformed
+
+    private void bajaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bajaButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+                 int idPasaje = Integer.parseInt(idPasajeField.getText());
+                pasajeData.BajaPasaje(idPasaje);
+    }//GEN-LAST:event_bajaButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jButton4.setText("Guardar");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void altaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaButtonActionPerformed
+        // TODO add your handling code here:
+          int idPasaje = Integer.parseInt(idPasajeField.getText());
+                String transporte = transporteField.getText();
+                double importe = Double.parseDouble(importeField.getText());
+                int origen = Integer.parseInt(origenField.getText());
+                boolean estado = estadoCheckBox.isSelected();
+
+                Pasaje pasaje = new Pasaje(idPasaje, transporte, importe, origen, estado);
+                pasajeData.AltaPasaje(pasaje);
+    }//GEN-LAST:event_altaButtonActionPerformed
         // </editor-fold>
     // </editor-fold>  
     
-    private void CrearTabla() {
-        JTableHeader TblHeader = jTable1.getTableHeader();
-        TblHeader.setBackground(new Color(56, 63, 79));
-        TblHeader.setForeground(new Color(235, 237, 255));
 
-        jScrollPane1.getViewport().setBackground(new Color(56, 63, 79)); //fondo sin grilla de color
-        modelo.addColumn("ID");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Provincia");
-        modelo.addColumn("Pais");
-        
-        jTable1.setModel(modelo);
-        jTable1.setEnabled(true);
-        jTable1.setRowSelectionAllowed(true);
-    }
 
     private void textBorderFocusGained(JTextField textField) {
         textField.setBorder(new LineBorder(new Color(83, 81, 251), 3));
@@ -400,9 +416,11 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JButton altaButton;
+    private javax.swing.JButton bajaButton;
+    private javax.swing.JCheckBox estadoCheckBox;
+    private javax.swing.JTextField idPasajeField;
+    private javax.swing.JTextField importeField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -416,9 +434,10 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanelNuevo;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JButton modificarButton;
+    private javax.swing.JTextField origenField;
+    private javax.swing.JTextField transporteField;
     // End of variables declaration//GEN-END:variables
+
+
 }
