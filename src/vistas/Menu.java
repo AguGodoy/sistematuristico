@@ -451,6 +451,8 @@ public class Menu extends javax.swing.JFrame {
         setColor(btnDestino);
         indDestino.setOpaque(true);
         resetColor(new JPanel[]{btnAlojamiento, btnTransoporte, btnResumen}, new JPanel[]{indAlojamiento, indTransoporte, indResumen});
+        InvocarJInternalFrame(new SeleccionCiudad());
+        //InvocarJInternalFrame(new ABMCiudad());
     }//GEN-LAST:event_btnDestinoMousePressed
 
     private void btnTransoporteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransoporteMousePressed
@@ -470,7 +472,7 @@ public class Menu extends javax.swing.JFrame {
     private void btnResumenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResumenMousePressed
         setColor(btnResumen);
         indResumen.setOpaque(true);
-        resetColor(new JPanel[]{btnDestino, btnAlojamiento, btnTransoporte,}, new JPanel[]{indDestino, indAlojamiento, indTransoporte});  
+        resetColor(new JPanel[]{btnDestino, btnAlojamiento, btnTransoporte,}, new JPanel[]{indDestino, indAlojamiento, indTransoporte});
         InvocarJInternalFrame(new ResumenPaquete());
     }//GEN-LAST:event_btnResumenMousePressed
 
@@ -515,12 +517,12 @@ public class Menu extends javax.swing.JFrame {
     }
 
     private void setColor(JPanel pane) {
-        pane.setBackground(new Color(83,81,251));
+        pane.setBackground(new Color(83, 81, 251));
     }
 
     private void resetColor(JPanel[] pane, JPanel[] indicators) {
         for (int i = 0; i < pane.length; i++) {
-            pane[i].setBackground(new Color(47,52,67));
+            pane[i].setBackground(new Color(47, 52, 67));
 
         }
         for (int i = 0; i < indicators.length; i++) {
@@ -530,6 +532,8 @@ public class Menu extends javax.swing.JFrame {
     }
 
     private void InvocarJInternalFrame(JInternalFrame frame) {
+        Escritorio.removeAll();
+        Escritorio.repaint();
         BasicInternalFrameUI ui = (BasicInternalFrameUI) frame.getUI();
         ui.setNorthPane(null);
         frame.setBorder(null); // Elimina el borde
@@ -540,11 +544,11 @@ public class Menu extends javax.swing.JFrame {
         frame.setVisible(true); // Lo hace visible
         Escritorio.add(frame); // Agrega el JInternalFrame al JDesktopPane
     }
-     // <editor-fold defaultstate="collapsed" desc="Declaracion de Variables">    
+    // <editor-fold defaultstate="collapsed" desc="Declaracion de Variables">    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BarraLateral;
     private javax.swing.JPanel BarraLateralHead;
-    private javax.swing.JDesktopPane Escritorio;
+    public static javax.swing.JDesktopPane Escritorio;
     private javax.swing.JPanel btnAlojamiento;
     private javax.swing.JPanel btnDestino;
     private javax.swing.JPanel btnResumen;
