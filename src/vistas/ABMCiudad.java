@@ -56,7 +56,7 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         jTextField5 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jButtonGuardar = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jPanelBuscar = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -256,13 +256,13 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jButtonGuardar.setBackground(new java.awt.Color(47, 52, 67));
-        jButtonGuardar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButtonGuardar.setForeground(new java.awt.Color(235, 237, 255));
-        jButtonGuardar.setText("Guardar");
-        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setBackground(new java.awt.Color(47, 52, 67));
+        jButton4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(235, 237, 255));
+        jButton4.setText("Guardar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGuardarActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -289,7 +289,7 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
                         .addGap(34, 34, 34)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(37, 37, 37))
         );
         jPanelNuevoLayout.setVerticalGroup(
@@ -299,7 +299,7 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addGroup(jPanelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
@@ -517,16 +517,16 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonGuardarActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jButtonGuardar.setText("Actualizar");
+        jButton4.setText("Actualizar");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -534,7 +534,7 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jButtonGuardar.setText("Guardar");
+        jButton4.setText("Guardar");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -634,7 +634,7 @@ public class ABMCiudad extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButtonGuardar;
+    private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;

@@ -44,6 +44,20 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jPanelBody = new javax.swing.JPanel();
+        jPanelNuevo = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jButton4 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jPanelFull.setBackground(new java.awt.Color(56, 63, 79));
         jPanelFull.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,15 +104,209 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
         jPanelBody.setBackground(new java.awt.Color(56, 63, 79));
         jPanelBody.setPreferredSize(new java.awt.Dimension(1000, 540));
 
+        jPanelNuevo.setBackground(new java.awt.Color(56, 63, 179));
+
+        jPanel1.setBackground(new java.awt.Color(56, 163, 79));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel3.setText("Id de Ciudad");
+
+        jTextField2.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(235, 237, 255));
+        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField2FocusLost(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel4.setText("Nombre Ciudad:");
+
+        jTextField3.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(235, 237, 255));
+        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField3FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField3FocusLost(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel5.setText("Nombre Provincia:");
+
+        jTextField4.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextField4.setForeground(new java.awt.Color(235, 237, 255));
+        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField4FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField4FocusLost(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel6.setText("Nombre Pais:");
+
+        jTextField5.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextField5.setForeground(new java.awt.Color(235, 237, 255));
+        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField5FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField5FocusLost(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel7.setText("Estado:");
+
+        jCheckBox1.setBackground(new java.awt.Color(56, 63, 79));
+        jCheckBox1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jCheckBox1.setForeground(new java.awt.Color(235, 237, 255));
+        jCheckBox1.setText("Activo / Inactivo");
+        jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jCheckBox1MousePressed(evt);
+            }
+        });
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING)))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+
+        jButton4.setBackground(new java.awt.Color(47, 52, 67));
+        jButton4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(235, 237, 255));
+        jButton4.setText("Guardar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelNuevoLayout = new javax.swing.GroupLayout(jPanelNuevo);
+        jPanelNuevo.setLayout(jPanelNuevoLayout);
+        jPanelNuevoLayout.setHorizontalGroup(
+            jPanelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNuevoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(37, 37, 37))
+            .addGroup(jPanelNuevoLayout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelNuevoLayout.setVerticalGroup(
+            jPanelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNuevoLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+
+        jButton1.setBackground(new java.awt.Color(47, 52, 67));
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(235, 237, 255));
+        jButton1.setText("Nuevo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGroup(jPanelBodyLayout.createSequentialGroup()
+                .addGap(254, 254, 254)
+                .addComponent(jPanelNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGroup(jPanelBodyLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jPanelNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(28, 28, 28))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(240, 240, 240))
         );
 
         jPanelFull.add(jPanelBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1000, 540));
@@ -116,6 +324,54 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
+        textBorderFocusGained((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField2FocusGained
+
+    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
+        textBorderFocusLost((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField2FocusLost
+
+    private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusGained
+        textBorderFocusGained((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField3FocusGained
+
+    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
+        textBorderFocusLost((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField3FocusLost
+
+    private void jTextField4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusGained
+        textBorderFocusGained((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField4FocusGained
+
+    private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
+        textBorderFocusLost((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField4FocusLost
+
+    private void jTextField5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusGained
+        textBorderFocusGained((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField5FocusGained
+
+    private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
+        textBorderFocusLost((JTextField) evt.getComponent());
+    }//GEN-LAST:event_jTextField5FocusLost
+
+    private void jCheckBox1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MousePressed
+
+    }//GEN-LAST:event_jCheckBox1MousePressed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jButton4.setText("Guardar");
+    }//GEN-LAST:event_jButton1ActionPerformed
         // </editor-fold>
     // </editor-fold>  
     
@@ -144,11 +400,25 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelBody;
     private javax.swing.JPanel jPanelFull;
     private javax.swing.JPanel jPanelHead;
+    private javax.swing.JPanel jPanelNuevo;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
