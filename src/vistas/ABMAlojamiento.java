@@ -5,16 +5,21 @@
 package vistas;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import sistematuristico.AccesoData.AlojamientoData;
+import sistematuristico.Entidades.Alojamiento;
 
 /**
  *
  * @author crist
  */
 public class ABMAlojamiento extends javax.swing.JInternalFrame {
+private AlojamientoData aData=new AlojamientoData();
+
 
     private DefaultTableModel modelo = new DefaultTableModel() {
         @Override
@@ -25,6 +30,7 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
 
     public ABMAlojamiento() {
         initComponents();
+        cargarcombobox();
        
         modelo.addRow(new Object[]{123, "dsds", "dasdsa", "sdadsad"});
     }
@@ -49,26 +55,26 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
+        jTextIdAlojamiento = new javax.swing.JTextField();
+        jTextImporteD = new javax.swing.JTextField();
+        jButtonBuscar = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField10 = new javax.swing.JTextField();
+        jComboBoxServicio = new javax.swing.JComboBox<>();
+        jComboBoxAlojamiento = new javax.swing.JComboBox<>();
+        jTextTipoAlojamiento = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooserIngreso = new com.toedter.calendar.JDateChooser();
         jLabel16 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jDateChooserSalida = new com.toedter.calendar.JDateChooser();
+        jCheckBoxEstado = new javax.swing.JCheckBox();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        jTextServicio = new javax.swing.JTextField();
+        jTextImporteT = new javax.swing.JTextField();
+        jButtonNuevo = new javax.swing.JButton();
+        jButtonGuardar = new javax.swing.JButton();
+        jButtonEliminar = new javax.swing.JButton();
 
         jPanelFull.setBackground(new java.awt.Color(56, 63, 79));
         jPanelFull.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -105,39 +111,39 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
         jLabel11.setForeground(new java.awt.Color(235, 237, 255));
         jLabel11.setText("Importe Diario:");
 
-        jTextField2.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextIdAlojamiento.setBackground(new java.awt.Color(56, 63, 79));
+        jTextIdAlojamiento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextIdAlojamiento.setForeground(new java.awt.Color(235, 237, 255));
+        jTextIdAlojamiento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextIdAlojamiento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField2FocusGained(evt);
+                jTextIdAlojamientoFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField2FocusLost(evt);
+                jTextIdAlojamientoFocusLost(evt);
             }
         });
 
-        jTextField9.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField9.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField9.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextImporteD.setBackground(new java.awt.Color(56, 63, 79));
+        jTextImporteD.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextImporteD.setForeground(new java.awt.Color(235, 237, 255));
+        jTextImporteD.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextImporteD.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField9FocusGained(evt);
+                jTextImporteDFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField9FocusLost(evt);
+                jTextImporteDFocusLost(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(47, 52, 67));
-        jButton5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(235, 237, 255));
-        jButton5.setText("Buscar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBuscar.setBackground(new java.awt.Color(47, 52, 67));
+        jButtonBuscar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonBuscar.setForeground(new java.awt.Color(235, 237, 255));
+        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButtonBuscarActionPerformed(evt);
             }
         });
 
@@ -149,20 +155,20 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
         jLabel14.setForeground(new java.awt.Color(235, 237, 255));
         jLabel14.setText("Tipo de Servicio");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxServicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxAlojamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTextField10.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField10.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField10.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextTipoAlojamiento.setBackground(new java.awt.Color(56, 63, 79));
+        jTextTipoAlojamiento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextTipoAlojamiento.setForeground(new java.awt.Color(235, 237, 255));
+        jTextTipoAlojamiento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextTipoAlojamiento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField10FocusGained(evt);
+                jTextTipoAlojamientoFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField10FocusLost(evt);
+                jTextTipoAlojamientoFocusLost(evt);
             }
         });
 
@@ -174,18 +180,18 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
         jLabel16.setForeground(new java.awt.Color(235, 237, 255));
         jLabel16.setText("Fecha de Salida:");
 
-        jCheckBox1.setBackground(new java.awt.Color(56, 63, 79));
-        jCheckBox1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(235, 237, 255));
-        jCheckBox1.setText("Activo / Inactivo");
-        jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jCheckBoxEstado.setBackground(new java.awt.Color(56, 63, 79));
+        jCheckBoxEstado.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jCheckBoxEstado.setForeground(new java.awt.Color(235, 237, 255));
+        jCheckBoxEstado.setText("Activo / Inactivo");
+        jCheckBoxEstado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jCheckBox1MousePressed(evt);
+                jCheckBoxEstadoMousePressed(evt);
             }
         });
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBoxEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jCheckBoxEstadoActionPerformed(evt);
             }
         });
 
@@ -197,59 +203,59 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
         jLabel18.setForeground(new java.awt.Color(235, 237, 255));
         jLabel18.setText("$:");
 
-        jTextField11.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField11.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField11.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextServicio.setBackground(new java.awt.Color(56, 63, 79));
+        jTextServicio.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextServicio.setForeground(new java.awt.Color(235, 237, 255));
+        jTextServicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextServicio.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField11FocusGained(evt);
+                jTextServicioFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField11FocusLost(evt);
+                jTextServicioFocusLost(evt);
             }
         });
 
-        jTextField12.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField12.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField12.setForeground(new java.awt.Color(235, 237, 255));
-        jTextField12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField12.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextImporteT.setBackground(new java.awt.Color(56, 63, 79));
+        jTextImporteT.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextImporteT.setForeground(new java.awt.Color(235, 237, 255));
+        jTextImporteT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextImporteT.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField12FocusGained(evt);
+                jTextImporteTFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField12FocusLost(evt);
+                jTextImporteTFocusLost(evt);
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(47, 52, 67));
-        jButton7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(235, 237, 255));
-        jButton7.setText("Nuevo");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        jButtonNuevo.setBackground(new java.awt.Color(47, 52, 67));
+        jButtonNuevo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonNuevo.setForeground(new java.awt.Color(235, 237, 255));
+        jButtonNuevo.setText("Nuevo");
+        jButtonNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                jButtonNuevoActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(47, 52, 67));
-        jButton4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(235, 237, 255));
-        jButton4.setText("Guardar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonGuardar.setBackground(new java.awt.Color(47, 52, 67));
+        jButtonGuardar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonGuardar.setForeground(new java.awt.Color(235, 237, 255));
+        jButtonGuardar.setText("Guardar");
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButtonGuardarActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(47, 52, 67));
-        jButton8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(235, 237, 255));
-        jButton8.setText("Eliminar");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEliminar.setBackground(new java.awt.Color(47, 52, 67));
+        jButtonEliminar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonEliminar.setForeground(new java.awt.Color(235, 237, 255));
+        jButtonEliminar.setText("Eliminar");
+        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                jButtonEliminarActionPerformed(evt);
             }
         });
 
@@ -265,37 +271,37 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextImporteD, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBoxServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jComboBoxAlojamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField11)
-                            .addComponent(jTextField10)))
+                            .addComponent(jTextServicio)
+                            .addComponent(jTextTipoAlojamiento)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jDateChooserIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jDateChooserSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(32, 32, 32)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextIdAlojamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,17 +309,17 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextImporteT, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCheckBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -321,45 +327,45 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextIdAlojamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooserIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooserSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxAlojamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextTipoAlojamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextImporteD, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextImporteT, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCheckBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -427,69 +433,99 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
+    private void jTextIdAlojamientoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextIdAlojamientoFocusGained
         textBorderFocusGained((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField2FocusGained
+    }//GEN-LAST:event_jTextIdAlojamientoFocusGained
 
-    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
+    private void jTextIdAlojamientoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextIdAlojamientoFocusLost
         textBorderFocusLost((JTextField) evt.getComponent());
-    }//GEN-LAST:event_jTextField2FocusLost
+    }//GEN-LAST:event_jTextIdAlojamientoFocusLost
 
-    private void jTextField9FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField9FocusGained
+    private void jTextImporteDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextImporteDFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9FocusGained
+    }//GEN-LAST:event_jTextImporteDFocusGained
 
-    private void jTextField9FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField9FocusLost
+    private void jTextImporteDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextImporteDFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9FocusLost
+    }//GEN-LAST:event_jTextImporteDFocusLost
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+    try {
+            int id = Integer.parseInt(jTextIdAlojamiento.getText());
+
+           Alojamiento aloja = aData.buscarAlojamiento(id);
+            if (aloja != null) {
+                
+                 jDateChooserIngreso.setDate(java.sql.Date.valueOf(aloja.getFechaIn()));
+                 jDateChooserSalida.setDate(java.sql.Date.valueOf(aloja.getFechaOn()));
+                String nom = aloja.getNombre();
+                String ape = alumno.getApellido();
+
+                jTextApellido.setText(ape + "");
+                jTextNombre.setText(nom + "");
+                if (alumno.isActivo()) {
+                    jRadioButtonActivo.setSelected(true);
+                } else {
+                    jRadioButtonInactivo.setSelected(true);
+                }
+                jDateChooser1.setDate(java.sql.Date.valueOf(alumno.getFechaNacimiento()));
+                buscar();
+            } else {
+                JOptionPane.showMessageDialog(null, "No hay registros de alojamiento con ese ID");
+                nuevo();
+                vaciar();
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Error: campos vacios ");
+        }
+
+                                                
+    
+    }//GEN-LAST:event_jButtonBuscarActionPerformed
+
+    private void jTextTipoAlojamientoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextTipoAlojamientoFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jTextTipoAlojamientoFocusGained
 
-    private void jTextField10FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField10FocusGained
+    private void jTextTipoAlojamientoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextTipoAlojamientoFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10FocusGained
+    }//GEN-LAST:event_jTextTipoAlojamientoFocusLost
 
-    private void jTextField10FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField10FocusLost
+    private void jCheckBoxEstadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxEstadoMousePressed
+
+    }//GEN-LAST:event_jCheckBoxEstadoMousePressed
+
+    private void jCheckBoxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxEstadoActionPerformed
+
+    }//GEN-LAST:event_jCheckBoxEstadoActionPerformed
+
+    private void jTextServicioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextServicioFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10FocusLost
+    }//GEN-LAST:event_jTextServicioFocusGained
 
-    private void jCheckBox1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MousePressed
-
-    }//GEN-LAST:event_jCheckBox1MousePressed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
-    private void jTextField11FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField11FocusGained
+    private void jTextServicioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextServicioFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11FocusGained
+    }//GEN-LAST:event_jTextServicioFocusLost
 
-    private void jTextField11FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField11FocusLost
+    private void jTextImporteTFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextImporteTFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11FocusLost
+    }//GEN-LAST:event_jTextImporteTFocusGained
 
-    private void jTextField12FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField12FocusGained
+    private void jTextImporteTFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextImporteTFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12FocusGained
+    }//GEN-LAST:event_jTextImporteTFocusLost
 
-    private void jTextField12FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField12FocusLost
+    private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12FocusLost
+    }//GEN-LAST:event_jButtonNuevoActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+        jButtonGuardar.setText("Guardar");
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
+
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        jButton4.setText("Guardar");
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
 
        // </editor-fold>
     // </editor-fold>  
@@ -505,15 +541,15 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JButton jButtonEliminar;
+    private javax.swing.JButton jButtonGuardar;
+    private javax.swing.JButton jButtonNuevo;
+    private javax.swing.JCheckBox jCheckBoxEstado;
+    private javax.swing.JComboBox<String> jComboBoxAlojamiento;
+    private javax.swing.JComboBox<String> jComboBoxServicio;
+    private com.toedter.calendar.JDateChooser jDateChooserIngreso;
+    private com.toedter.calendar.JDateChooser jDateChooserSalida;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -531,10 +567,26 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanelHead;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextIdAlojamiento;
+    private javax.swing.JTextField jTextImporteD;
+    private javax.swing.JTextField jTextImporteT;
+    private javax.swing.JTextField jTextServicio;
+    private javax.swing.JTextField jTextTipoAlojamiento;
     // End of variables declaration//GEN-END:variables
+private void cargarcombobox() {
+        
+            jComboBoxAlojamiento.addItem("Hotel");
+            
+            jComboBoxAlojamiento.addItem("Hostel");
+            jComboBoxAlojamiento.addItem("Casa");
+            jComboBoxAlojamiento.addItem("Cabania");
+            
+            jComboBoxServicio.addItem("Clasico");
+            jComboBoxServicio.addItem("Desayuno");
+            jComboBoxServicio.addItem("Media Pension");
+            jComboBoxServicio.addItem("Todo Incluido");
+            
+            
+       
+}
 }
