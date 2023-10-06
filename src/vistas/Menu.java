@@ -9,8 +9,8 @@ public class Menu extends javax.swing.JFrame {
 
     public Menu() {
         initComponents();
-        setColor(btnDestino);
-        indDestino.setOpaque(true);
+        InvocarJInternalFrame(new Idle());
+
     }
 
     @SuppressWarnings("unchecked")
@@ -465,8 +465,7 @@ public class Menu extends javax.swing.JFrame {
         setColor(btnAlojamiento);
         indAlojamiento.setOpaque(true);
         resetColor(new JPanel[]{btnDestino, btnTransoporte, btnResumen}, new JPanel[]{indDestino, indTransoporte, indResumen});
-        // Test frame = new Test();
-        //InvocarJInternalFrame(frame);
+        InvocarJInternalFrame(new SeleccionAlojamiento());
     }//GEN-LAST:event_btnAlojamientoMousePressed
 
     private void btnResumenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResumenMousePressed

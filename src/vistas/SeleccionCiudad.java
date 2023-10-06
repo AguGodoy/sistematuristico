@@ -6,6 +6,7 @@ package vistas;
 
 import java.awt.Color;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -38,7 +39,10 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
     public SeleccionCiudad() {
         initComponents();
         CrearTabla();
-        actualizarTabla();
+        actualizarTabla("Destino");
+        actualizarTabla("Origen");
+        botonFocusSeiguiente();
+
     }
 
     /**
@@ -85,7 +89,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
-        jbModificar2 = new javax.swing.JButton();
+        jbSiguiente = new javax.swing.JButton();
 
         jPanelFull.setBackground(new java.awt.Color(56, 63, 79));
         jPanelFull.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -171,6 +175,11 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         jbSeleccionarDestino.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jbSeleccionarDestino.setForeground(new java.awt.Color(235, 237, 255));
         jbSeleccionarDestino.setText("Seleccionar");
+        jbSeleccionarDestino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSeleccionarDestinoActionPerformed(evt);
+            }
+        });
 
         jtfBuscarProvinciaDestino.setBackground(new java.awt.Color(56, 63, 79));
         jtfBuscarProvinciaDestino.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -294,10 +303,6 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                     .addGroup(jPanelBuscarLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBuscarLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jbSeleccionarDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(121, 121, 121))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelBuscarLayout.createSequentialGroup()
                                 .addGroup(jPanelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -311,6 +316,10 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                                         .addComponent(jtfBuscarProvinciaDestino, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jtfBuscarPaisDestino, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(44, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBuscarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jbSeleccionarDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(153, 153, 153))
         );
         jPanelBuscarLayout.setVerticalGroup(
             jPanelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -352,6 +361,11 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         jbSeleccionarOrigen.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jbSeleccionarOrigen.setForeground(new java.awt.Color(235, 237, 255));
         jbSeleccionarOrigen.setText("Seleccionar");
+        jbSeleccionarOrigen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSeleccionarOrigenActionPerformed(evt);
+            }
+        });
 
         jtfBuscarProvinciaOrigen.setBackground(new java.awt.Color(56, 63, 79));
         jtfBuscarProvinciaOrigen.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -475,10 +489,6 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                     .addGroup(jPanelBuscar1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanelBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBuscar1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jbSeleccionarOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(121, 121, 121))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelBuscar1Layout.createSequentialGroup()
                                 .addGroup(jPanelBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -492,6 +502,10 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                                         .addComponent(jtfBuscarProvinciaOrigen, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jtfBuscarPaisOrigen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(32, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBuscar1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jbSeleccionarOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(146, 146, 146))
         );
         jPanelBuscar1Layout.setVerticalGroup(
             jPanelBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -523,10 +537,15 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                 .addGap(25, 25, 25))
         );
 
-        jbModificar2.setBackground(new java.awt.Color(47, 52, 67));
-        jbModificar2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jbModificar2.setForeground(new java.awt.Color(235, 237, 255));
-        jbModificar2.setText("Siguiente");
+        jbSiguiente.setBackground(new java.awt.Color(47, 52, 67));
+        jbSiguiente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jbSiguiente.setForeground(new java.awt.Color(235, 237, 255));
+        jbSiguiente.setText("Siguiente");
+        jbSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSiguienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
@@ -534,7 +553,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addGap(428, 428, 428)
-                .addComponent(jbModificar2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
                 .addContainerGap(29, Short.MAX_VALUE)
@@ -554,7 +573,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbModificar2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
@@ -599,15 +618,15 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtfBuscarPaisDestinoFocusLost
 
     private void jtfBuscarCiudadDestinoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarCiudadDestinoKeyReleased
-        ActualizarDatosTablaDestino();
+        actualizarTabla("Destino");
     }//GEN-LAST:event_jtfBuscarCiudadDestinoKeyReleased
 
     private void jtfBuscarProvinciaDestinoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarProvinciaDestinoKeyReleased
-        ActualizarDatosTablaDestino();
+        actualizarTabla("Destino");
     }//GEN-LAST:event_jtfBuscarProvinciaDestinoKeyReleased
 
     private void jtfBuscarPaisDestinoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarPaisDestinoKeyReleased
-        ActualizarDatosTablaDestino();
+        actualizarTabla("Destino");
     }//GEN-LAST:event_jtfBuscarPaisDestinoKeyReleased
 
     private void jtfBuscarCiudadDestinoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarCiudadDestinoKeyTyped
@@ -635,7 +654,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtfBuscarProvinciaOrigenFocusLost
 
     private void jtfBuscarProvinciaOrigenKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarProvinciaOrigenKeyReleased
-        ActualizarDatosTablaOrigen();
+        actualizarTabla("Origen");
     }//GEN-LAST:event_jtfBuscarProvinciaOrigenKeyReleased
 
     private void jtfBuscarProvinciaOrigenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarProvinciaOrigenKeyTyped
@@ -651,7 +670,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtfBuscarPaisOrigenFocusLost
 
     private void jtfBuscarPaisOrigenKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarPaisOrigenKeyReleased
-        ActualizarDatosTablaOrigen();
+        actualizarTabla("Origen");
     }//GEN-LAST:event_jtfBuscarPaisOrigenKeyReleased
 
     private void jtfBuscarPaisOrigenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarPaisOrigenKeyTyped
@@ -667,12 +686,26 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtfBuscarCiudadOrigenFocusLost
 
     private void jtfBuscarCiudadOrigenKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarCiudadOrigenKeyReleased
-        ActualizarDatosTablaOrigen();
+        actualizarTabla("Origen");
     }//GEN-LAST:event_jtfBuscarCiudadOrigenKeyReleased
 
     private void jtfBuscarCiudadOrigenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfBuscarCiudadOrigenKeyTyped
         KeyPress(evt, "letra");
     }//GEN-LAST:event_jtfBuscarCiudadOrigenKeyTyped
+
+    private void jbSeleccionarOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeleccionarOrigenActionPerformed
+        SeleccionOrigen();
+        botonFocusSeiguiente();
+    }//GEN-LAST:event_jbSeleccionarOrigenActionPerformed
+
+    private void jbSeleccionarDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeleccionarDestinoActionPerformed
+        SeleccionDestino();
+        botonFocusSeiguiente();
+    }//GEN-LAST:event_jbSeleccionarDestinoActionPerformed
+
+    private void jbSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSiguienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbSiguienteActionPerformed
 
     private void CrearTabla() {
         //tabla origen
@@ -714,11 +747,6 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         textField.setBorder(new LineBorder(new Color(235, 237, 255), 1));
     }
 
-    private void ActualizarDatosTabla() {
-        ActualizarDatosTablaOrigen();
-        ActualizarDatosTablaDestino();
-    }
-
     private void ActualizarDatosTablaOrigen() {
 
         if (ciudadData.listarCiudades() != null) {
@@ -752,20 +780,30 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         }
     }
 
-    private void borrarfila() {
+    private void borrarFilaDestino() {
+        int f = jTableDestino.getRowCount() - 1;
+        for (; f >= 0; f--) {
+            modeloDestino.removeRow(f);
+        }
+    }
+
+    private void borrarFilaOrigen() {
         int f = jTableOrigen.getRowCount() - 1;
         for (; f >= 0; f--) {
             modeloOrigen.removeRow(f);
         }
-        int f2 = jTableDestino.getRowCount() - 1;
-        for (; f2 >= 0; f2--) {
-            modeloDestino.removeRow(f2);
-        }
     }
 
-    private void actualizarTabla() {
-        borrarfila();
-        ActualizarDatosTabla();
+    private void actualizarTabla(String OrigenDestino) {
+        if (OrigenDestino.equalsIgnoreCase("Origen")) {
+            borrarFilaOrigen();
+            ActualizarDatosTablaOrigen();
+        }
+        if (OrigenDestino.equalsIgnoreCase("Destino")) {
+            borrarFilaDestino();
+            ActualizarDatosTablaDestino();
+        }
+
     }
 
     private void KeyPress(java.awt.event.KeyEvent evt, String Opcion) {
@@ -796,6 +834,106 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         Menu.Escritorio.add(frame); // Agrega el JInternalFrame al JDesktopPane
         frame.toFront();
     }
+
+    private void SeleccionOrigen() {
+        int filas = jTableOrigen.getSelectedRow();
+        if (filas != -1) {
+            Color colorEditable;
+            Boolean flag;
+            if (jbSeleccionarOrigen.getText().equalsIgnoreCase("Seleccionar")) {
+                colorEditable = new Color(66, 66, 66);
+                flag = false;
+                jbSeleccionarOrigen.setText("De-Seleccionar");
+
+                jtfBuscarCiudadOrigen.setText((String) jTableOrigen.getValueAt(filas, 1));
+                jtfBuscarProvinciaOrigen.setText((String) jTableOrigen.getValueAt(filas, 2));
+                jtfBuscarPaisOrigen.setText((String) jTableOrigen.getValueAt(filas, 3));
+            } else {
+                colorEditable = new Color(56, 63, 79);
+                flag = true;
+                jbSeleccionarOrigen.setText("Seleccionar");
+
+                jtfBuscarCiudadOrigen.setText("");
+                jtfBuscarProvinciaOrigen.setText("");
+                jtfBuscarPaisOrigen.setText("");
+            }
+
+            jTableOrigen.setFocusable(flag);
+            jTableOrigen.setRowSelectionAllowed(flag);
+
+            jtfBuscarCiudadOrigen.setEditable(flag);
+            jtfBuscarCiudadOrigen.setFocusable(flag);
+            jtfBuscarCiudadOrigen.setBackground(colorEditable);
+
+            jtfBuscarProvinciaOrigen.setEditable(flag);
+            jtfBuscarProvinciaOrigen.setFocusable(flag);
+            jtfBuscarProvinciaOrigen.setBackground(colorEditable);
+
+            jtfBuscarPaisOrigen.setEditable(flag);
+            jtfBuscarPaisOrigen.setFocusable(flag);
+            jtfBuscarPaisOrigen.setBackground(colorEditable);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione una fila");
+        }
+    }
+
+    private void SeleccionDestino() {
+        int filas = jTableDestino.getSelectedRow();
+        if (filas != -1) {
+            Color colorEditable;
+            Boolean flag;
+            if (jbSeleccionarDestino.getText().equalsIgnoreCase("Seleccionar")) {
+                colorEditable = new Color(66, 66, 66);
+                flag = false;
+                jbSeleccionarDestino.setText("De-Seleccionar");
+
+                jtfBuscarCiudadDestino.setText((String) jTableDestino.getValueAt(filas, 1));
+                jtfBuscarProvinciaDestino.setText((String) jTableDestino.getValueAt(filas, 2));
+                jtfBuscarPaisDestino.setText((String) jTableDestino.getValueAt(filas, 3));
+            } else {
+                colorEditable = new Color(56, 63, 79);
+                flag = true;
+                jbSeleccionarDestino.setText("Seleccionar");
+
+                jtfBuscarCiudadDestino.setText("");
+                jtfBuscarProvinciaDestino.setText("");
+                jtfBuscarPaisDestino.setText("");
+            }
+
+            jTableDestino.setFocusable(flag);
+            jTableDestino.setRowSelectionAllowed(flag);
+
+            jtfBuscarCiudadDestino.setEditable(flag);
+            jtfBuscarCiudadDestino.setFocusable(flag);
+            jtfBuscarCiudadDestino.setBackground(colorEditable);
+
+            jtfBuscarProvinciaDestino.setEditable(flag);
+            jtfBuscarProvinciaDestino.setFocusable(flag);
+            jtfBuscarProvinciaDestino.setBackground(colorEditable);
+
+            jtfBuscarPaisDestino.setEditable(flag);
+            jtfBuscarPaisDestino.setFocusable(flag);
+            jtfBuscarPaisDestino.setBackground(colorEditable);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione una fila");
+        }
+    }
+
+    private void botonFocusSeiguiente() {
+        if (jbSeleccionarDestino.getText().equalsIgnoreCase("De-Seleccionar")
+                && jbSeleccionarOrigen.getText().equalsIgnoreCase("De-Seleccionar")) {
+            jbSiguiente.setFocusable(true);
+            jbSiguiente.setEnabled(true);
+            jbSiguiente.setBackground(new Color(56, 63, 79));
+
+        } else {
+            jbSiguiente.setFocusable(false);
+            jbSiguiente.setEnabled(false);
+                jbSiguiente.setBackground(new Color(66, 66, 66));
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnSalir;
     private javax.swing.JLabel jLabel1;
@@ -823,9 +961,9 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTable jTableDestino;
     private javax.swing.JTable jTableOrigen;
-    private javax.swing.JButton jbModificar2;
     private javax.swing.JButton jbSeleccionarDestino;
     private javax.swing.JButton jbSeleccionarOrigen;
+    private javax.swing.JButton jbSiguiente;
     private javax.swing.JLabel jlabel_exit;
     private javax.swing.JTextField jtfBuscarCiudadDestino;
     private javax.swing.JTextField jtfBuscarCiudadOrigen;
