@@ -711,7 +711,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         if (origen.getIdCiudad()==destino.getIdCiudad()) {
             System.out.println("poner aca un jpanel de que origen y destino son el mismo");
         }else{
-            InvocarJInternalFrame(new SeleccionAlojamiento());
+            InvocarJInternalFrame(new SeleccionAlojamiento(origen,destino));
         }
     }//GEN-LAST:event_jbSiguienteActionPerformed
 
