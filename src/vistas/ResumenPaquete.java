@@ -31,6 +31,7 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        panel1 = new java.awt.Panel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -75,6 +76,22 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
 
         panelGeneral.add(jPanelHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
+        panel1.setBackground(new java.awt.Color(56, 63, 79));
+
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
+        );
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 530, Short.MAX_VALUE)
+        );
+
+        panelGeneral.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1000, 530));
+        panel1.getAccessibleContext().setAccessibleName("");
+
         getContentPane().add(panelGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 600));
 
         pack();
@@ -86,6 +103,7 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanelHead;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private java.awt.Panel panel1;
     private java.awt.Panel panelGeneral;
     // End of variables declaration//GEN-END:variables
 }
