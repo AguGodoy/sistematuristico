@@ -704,7 +704,14 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbSeleccionarDestinoActionPerformed
 
     private void jbSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSiguienteActionPerformed
-        // TODO add your handling code here:
+        Ciudad origen=ciudadData.buscarCiudad(Integer.parseInt(jtfBuscarCiudadOrigen.getText()));
+        Ciudad destino=ciudadData.buscarCiudad(Integer.parseInt(jtfBuscarCiudadDestino.getText()));;
+        
+        if (origen.getIdCiudad()==destino.getIdCiudad()) {
+            System.out.println("poner aca un jpanel de que origen y destino son el mismo");
+        }else{
+            InvocarJInternalFrame(new SeleccionAlojamiento());
+        }
     }//GEN-LAST:event_jbSiguienteActionPerformed
 
     private void CrearTabla() {
