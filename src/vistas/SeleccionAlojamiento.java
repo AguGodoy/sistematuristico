@@ -5,7 +5,9 @@
 package vistas;
 
 import java.awt.Color;
+import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -592,6 +594,12 @@ private void cargarcombobox() {
     private void precioDiario(){
         if(!(jTextAlojamiento.getText().isEmpty()||jTextServicio.getText().isEmpty())){
             jTextDiario.setText(Double.parseDouble(jTextAlojamiento.getText())+Double.parseDouble(jTextServicio.getText())+"");
+            
+            LocalDate fecha1 = jDateChooserInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate fecha2 = jDateChooserSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            long diferenciaDias = ChronoUnit.DAYS.between(fecha1, fecha2);
+
+                jTextTotal.setText(String.valueOf(Double.valueOf(jTextDiario.getText())*diferenciaDias+""));
         }
             
                     
