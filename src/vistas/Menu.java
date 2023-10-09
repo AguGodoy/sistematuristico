@@ -451,8 +451,9 @@ public class Menu extends javax.swing.JFrame {
         setColor(btnDestino);
         indDestino.setOpaque(true);
         resetColor(new JPanel[]{btnAlojamiento, btnTransoporte, btnResumen}, new JPanel[]{indAlojamiento, indTransoporte, indResumen});
+        Escritorio.removeAll();
+        Escritorio.repaint();
         InvocarJInternalFrame(new SeleccionCiudad());
-        //InvocarJInternalFrame(new ABMCiudad());
     }//GEN-LAST:event_btnDestinoMousePressed
 
     private void btnTransoporteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransoporteMousePressed
@@ -531,8 +532,6 @@ public class Menu extends javax.swing.JFrame {
     }
 
     private void InvocarJInternalFrame(JInternalFrame frame) {
-        Escritorio.removeAll();
-        Escritorio.repaint();
         BasicInternalFrameUI ui = (BasicInternalFrameUI) frame.getUI();
         ui.setNorthPane(null);
         frame.setBorder(null); // Elimina el borde
@@ -542,6 +541,7 @@ public class Menu extends javax.swing.JFrame {
         frame.setSize(Escritorio.getSize()); // Establece el tamaño igual al del desktopPane
         frame.setVisible(true); // Lo hace visible
         Escritorio.add(frame); // Agrega el JInternalFrame al JDesktopPane
+        frame.moveToFront();
     }
     // <editor-fold defaultstate="collapsed" desc="Declaracion de Variables">    
     // Variables declaration - do not modify//GEN-BEGIN:variables
