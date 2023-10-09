@@ -6,6 +6,7 @@ package vistas;
 
 import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import sistematuristico.Entidades.Alojamiento;
 import sistematuristico.Entidades.Ciudad;
 
 
@@ -15,7 +16,7 @@ import sistematuristico.Entidades.Ciudad;
  */
 public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
-    public SeleccionTransporte(Ciudad origen, Ciudad destino) {
+    public SeleccionTransporte(Ciudad origen, Ciudad destino,Alojamiento alojamineto) {
         initComponents();
         ActualizarPrecio(CalcularDistancia(origen,destino));
 
