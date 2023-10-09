@@ -22,7 +22,8 @@ import sistematuristico.Entidades.Ciudad;
 public class SeleccionCiudad extends javax.swing.JInternalFrame {
 
     private CiudadData ciudadData = new CiudadData();
-
+    int idOrigen;
+    int idDestino;
     private DefaultTableModel modeloOrigen = new DefaultTableModel() {
         @Override
         public boolean isCellEditable(int row, int column) {
@@ -704,9 +705,9 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbSeleccionarDestinoActionPerformed
 
     private void jbSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSiguienteActionPerformed
-        Ciudad origen=ciudadData.buscarCiudad(Integer.parseInt(jtfBuscarCiudadOrigen.getText()));
-        Ciudad destino=ciudadData.buscarCiudad(Integer.parseInt(jtfBuscarCiudadDestino.getText()));;
-        
+
+        Ciudad origen=ciudadData.buscarCiudad(idOrigen);
+        Ciudad destino=ciudadData.buscarCiudad(idDestino);
         if (origen.getIdCiudad()==destino.getIdCiudad()) {
             System.out.println("poner aca un jpanel de que origen y destino son el mismo");
         }else{
@@ -855,6 +856,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                 jtfBuscarCiudadOrigen.setText((String) jTableOrigen.getValueAt(filas, 1));
                 jtfBuscarProvinciaOrigen.setText((String) jTableOrigen.getValueAt(filas, 2));
                 jtfBuscarPaisOrigen.setText((String) jTableOrigen.getValueAt(filas, 3));
+                idOrigen=(int) jTableOrigen.getValueAt(filas, 0); //guardamoes esto para mas tarde
             } else {
                 colorEditable = new Color(56, 63, 79);
                 flag = true;
@@ -863,6 +865,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                 jtfBuscarCiudadOrigen.setText("");
                 jtfBuscarProvinciaOrigen.setText("");
                 jtfBuscarPaisOrigen.setText("");
+                idOrigen=0;
             }
 
             jTableOrigen.setFocusable(flag);
@@ -898,6 +901,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                 jtfBuscarCiudadDestino.setText((String) jTableDestino.getValueAt(filas, 1));
                 jtfBuscarProvinciaDestino.setText((String) jTableDestino.getValueAt(filas, 2));
                 jtfBuscarPaisDestino.setText((String) jTableDestino.getValueAt(filas, 3));
+                idDestino=(int) jTableDestino.getValueAt(filas, 0); //guardamoes esto para mas tarde
             } else {
                 colorEditable = new Color(56, 63, 79);
                 flag = true;
@@ -906,6 +910,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                 jtfBuscarCiudadDestino.setText("");
                 jtfBuscarProvinciaDestino.setText("");
                 jtfBuscarPaisDestino.setText("");
+                idDestino=0;
             }
 
             jTableDestino.setFocusable(flag);
