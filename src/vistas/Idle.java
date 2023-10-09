@@ -4,15 +4,10 @@
  */
 package vistas;
 
-import java.awt.Color;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.border.LineBorder;
+
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-import org.w3c.dom.events.Event;
 import sistematuristico.AccesoData.CiudadData;
-import sistematuristico.Entidades.Ciudad;
+
 
 /**
  *

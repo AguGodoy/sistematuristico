@@ -115,7 +115,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         jlabel_exit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlabel_exit.setForeground(new java.awt.Color(255, 255, 255));
         jlabel_exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlabel_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icon_Exit_25px.png"))); // NOI18N
+        jlabel_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/settings-25-24.png"))); // NOI18N
 
         javax.swing.GroupLayout btnSalirLayout = new javax.swing.GroupLayout(btnSalir);
         btnSalir.setLayout(btnSalirLayout);
@@ -146,7 +146,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                     .addGroup(jPanelHeadLayout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
