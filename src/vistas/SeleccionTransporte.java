@@ -529,6 +529,7 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
         //distancia es 1 dentro de la provincia
         //          es 2 dentro del pais
         //          es 3 si es internacional
+        distancia--;
         int colectivo[] = {5000,10000,30000};
         int avion[] = {0,80000,150000};
         int tren[] = {300,300,10000};

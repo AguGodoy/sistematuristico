@@ -4,6 +4,7 @@ import java.awt.Color;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import sistematuristico.Entidades.*;
 
 public class Menu extends javax.swing.JFrame {
 
@@ -432,6 +433,11 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     int xx, xy;
+    static Ciudad ciudadOrigen;
+    static Ciudad ciudadDestino;
+    static Alojamiento sAlojamiento;
+    static Pasaje sPasaje;
+    
     private void jPanelMarcoArribaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMarcoArribaMousePressed
         xx = evt.getX();
         xy = evt.getY();

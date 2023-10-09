@@ -857,6 +857,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                 jtfBuscarProvinciaOrigen.setText((String) jTableOrigen.getValueAt(filas, 2));
                 jtfBuscarPaisOrigen.setText((String) jTableOrigen.getValueAt(filas, 3));
                 idOrigen=(int) jTableOrigen.getValueAt(filas, 0); //guardamoes esto para mas tarde
+                Menu.test=5;
             } else {
                 colorEditable = new Color(56, 63, 79);
                 flag = true;
