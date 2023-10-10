@@ -78,7 +78,5 @@ public class Paquete {
         return idPaquete+" "+origen+" "+destino+" " +aloja+ " "+ pasa;
     }
 
-    public Object getAlojamiento() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
 }

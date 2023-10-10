@@ -433,10 +433,11 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     int xx, xy;
-    static Ciudad ciudadOrigen;
-    static Ciudad ciudadDestino;
-    static Alojamiento sAlojamiento;
-    static Pasaje sPasaje;
+    //static Ciudad ciudadOrigen;
+    //static Ciudad ciudadDestino;
+    //static Alojamiento sAlojamiento;
+    //static Pasaje sPasaje;
+    static Paquete paquete=new Paquete();
     
     private void jPanelMarcoArribaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMarcoArribaMousePressed
         xx = evt.getX();
@@ -466,13 +467,14 @@ public class Menu extends javax.swing.JFrame {
         setColor(btnTransoporte);
         indTransoporte.setOpaque(true);
         resetColor(new JPanel[]{btnAlojamiento, btnDestino, btnResumen}, new JPanel[]{indAlojamiento, indDestino, indResumen});
+        InvocarJInternalFrame(new SeleccionTransporte(paquete.getOrigen(), paquete.getDestino(),paquete.getAloja()));
     }//GEN-LAST:event_btnTransoporteMousePressed
 
     private void btnAlojamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlojamientoMousePressed
         setColor(btnAlojamiento);
         indAlojamiento.setOpaque(true);
         resetColor(new JPanel[]{btnDestino, btnTransoporte, btnResumen}, new JPanel[]{indDestino, indTransoporte, indResumen});
-        InvocarJInternalFrame(new SeleccionAlojamiento(ciudadOrigen, ciudadDestino));
+        InvocarJInternalFrame(new SeleccionAlojamiento(paquete.getOrigen(), paquete.getDestino()));
     }//GEN-LAST:event_btnAlojamientoMousePressed
 
     private void btnResumenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResumenMousePressed

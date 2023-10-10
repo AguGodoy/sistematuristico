@@ -34,13 +34,15 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
             return false;
         }
     };
-
+    Ciudad origen;
+    Ciudad destino;
     public SeleccionCiudad() {
         initComponents();
         CrearTabla();
         actualizarTabla("Destino");
         actualizarTabla("Origen");
         botonFocusSeiguiente();
+        
 
     }
 
@@ -704,10 +706,13 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
 
     private void jbSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSiguienteActionPerformed
 
-        if (Menu.ciudadOrigen.getIdCiudad()==Menu.ciudadDestino.getIdCiudad()) {
+        if (destino.getIdCiudad()==origen.getIdCiudad()) {
             System.out.println("poner aca un jpanel de que origen y destino son el mismo");
         }else{
-            InvocarJInternalFrame(new SeleccionAlojamiento(Menu.ciudadOrigen,Menu.ciudadDestino));
+            Menu.paquete.setOrigen(origen);
+            Menu.paquete.setDestino(destino);
+            InvocarJInternalFrame(new SeleccionAlojamiento(Menu.paquete.getOrigen(),Menu.paquete.getDestino()));
+            
         }
     }//GEN-LAST:event_jbSiguienteActionPerformed
 
@@ -853,7 +858,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                 jtfBuscarProvinciaOrigen.setText((String) jTableOrigen.getValueAt(filas, 2));
                 jtfBuscarPaisOrigen.setText((String) jTableOrigen.getValueAt(filas, 3));
                 int idOrigen=(int) jTableOrigen.getValueAt(filas, 0); //guardamoes esto para mas tarde
-                Menu.ciudadOrigen=ciudadData.buscarCiudad(idOrigen);
+               origen=ciudadData.buscarCiudad(idOrigen);
             } else {
                 colorEditable = new Color(56, 63, 79);
                 flag = true;
@@ -898,7 +903,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                 jtfBuscarProvinciaDestino.setText((String) jTableDestino.getValueAt(filas, 2));
                 jtfBuscarPaisDestino.setText((String) jTableDestino.getValueAt(filas, 3));
                 int idDestino=(int) jTableDestino.getValueAt(filas, 0); //guardamoes esto para mas tarde
-                Menu.ciudadDestino=ciudadData.buscarCiudad(idDestino);
+                destino=ciudadData.buscarCiudad(idDestino);
             } else {
                 colorEditable = new Color(56, 63, 79);
                 flag = true;

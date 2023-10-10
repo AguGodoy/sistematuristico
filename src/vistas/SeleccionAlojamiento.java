@@ -5,9 +5,11 @@
 package vistas;
 
 import java.awt.Color;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -26,21 +28,23 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
     Alojamiento alojamiento;
     Ciudad origen;
     Ciudad destino;
-    private DefaultTableModel modelo = new DefaultTableModel() {
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            return false;
-        }
-    };
 
     public SeleccionAlojamiento(Ciudad origen, Ciudad destino) {
         initComponents();
         cargarcombobox();
-        jTextCiudad.setText(destino.getNombre()+", "+destino.getProvincia()+", "+destino.getPais());
    
-        modelo.addRow(new Object[]{123, "dsds", "dasdsa", "sdadsad"});
         this.origen=origen;
         this.destino=destino;
+        jTextCiudad.setText(destino.getNombre()+", "+destino.getProvincia()+", "+destino.getPais());
+        if(Menu.paquete.getAloja()!=null){
+            LocalDate ldate = (Menu.paquete.getAloja().getFechaIn());
+          
+
+            jDateChooserInicio.setDate(Date.from(Instant.from((Menu.paquete.getAloja().getFechaIn()).atStartOfDay(ZoneId.of("GMT")))));
+            jDateChooserSalida.setDate(Date.from(Instant.from((Menu.paquete.getAloja().getFechaOn()).atStartOfDay(ZoneId.of("GMT")))));
+            jComboBoxAlojamiento.setSelectedItem(Menu.paquete.getAloja().getTipo());
+            jComboBoxServicio.setSelectedItem(Menu.paquete.getAloja().getServicio());
+        }
     }
 
     /**
@@ -284,11 +288,7 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(53, 53, 53)
-                                .addComponent(jTextTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,7 +315,11 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextCiudad)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -425,7 +429,8 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextAlojamientoFocusLost
 
     private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
-InvocarJInternalFrame(new SeleccionTransporte(origen, destino, alojamiento));     
+        Menu.paquete.setAloja(alojamiento);
+        InvocarJInternalFrame(new SeleccionTransporte(Menu.paquete.getOrigen(), Menu.paquete.getDestino(), Menu.paquete.getAloja()));     
     }//GEN-LAST:event_jButtonNuevoActionPerformed
 
     private void jTextServicioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextServicioFocusGained
@@ -475,6 +480,9 @@ InvocarJInternalFrame(new SeleccionTransporte(origen, destino, alojamiento));
 
     private void jComboBoxAlojamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAlojamientoActionPerformed
        switch (String.valueOf(jComboBoxAlojamiento.getSelectedItem())) {
+            case "":
+                jTextAlojamiento.setText(String.valueOf(0));
+                break;
             case "Hotel":
                 jTextAlojamiento.setText(String.valueOf(3000));
                 break;
@@ -505,6 +513,9 @@ InvocarJInternalFrame(new SeleccionTransporte(origen, destino, alojamiento));
 
     private void jComboBoxServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxServicioActionPerformed
          switch (String.valueOf(jComboBoxServicio.getSelectedItem())) {
+            case "":
+                jTextServicio.setText(String.valueOf(0));
+                break;
             case "Clasico":
                 jTextServicio.setText(String.valueOf(0));
                 break;
@@ -565,13 +576,14 @@ InvocarJInternalFrame(new SeleccionTransporte(origen, destino, alojamiento));
     private javax.swing.JTextField jTextTotal;
     // End of variables declaration//GEN-END:variables
 private void cargarcombobox() {
-
+        //combo alojamiento
+        jComboBoxAlojamiento.addItem("");
         jComboBoxAlojamiento.addItem("Hotel");
-
         jComboBoxAlojamiento.addItem("Hostel");
         jComboBoxAlojamiento.addItem("Casa");
         jComboBoxAlojamiento.addItem("Cabania");
-
+        //combo servicio
+        jComboBoxServicio.addItem("");
         jComboBoxServicio.addItem("Clasico");
         jComboBoxServicio.addItem("Desayuno");
         jComboBoxServicio.addItem("Media Pension");
@@ -594,12 +606,16 @@ private void cargarcombobox() {
     private void precioDiario(){
         if(!(jTextAlojamiento.getText().isEmpty()||jTextServicio.getText().isEmpty())){
             jTextDiario.setText(Double.parseDouble(jTextAlojamiento.getText())+Double.parseDouble(jTextServicio.getText())+"");
-            
-            LocalDate fecha1 = jDateChooserInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            LocalDate fecha2 = jDateChooserSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            long diferenciaDias = ChronoUnit.DAYS.between(fecha1, fecha2);
+        if(jDateChooserInicio.getDate()==null||jDateChooserSalida.getDate()==null){   
+           
+        }else{
+         LocalDate fecha1 = jDateChooserInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+         LocalDate fecha2 = jDateChooserSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+         
+         long diferenciaDias = ChronoUnit.DAYS.between(fecha1, fecha2);
 
-                jTextTotal.setText(String.valueOf(Double.valueOf(jTextDiario.getText())*diferenciaDias+""));
+           jTextTotal.setText(String.valueOf(Double.valueOf(jTextDiario.getText())*diferenciaDias+""));
+        }
         }
             
                     
