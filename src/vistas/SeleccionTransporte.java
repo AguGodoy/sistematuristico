@@ -15,8 +15,10 @@ import sistematuristico.Entidades.Ciudad;
  * @author crist
  */
 public class SeleccionTransporte extends javax.swing.JInternalFrame {
-
-    public SeleccionTransporte(Ciudad origen, Ciudad destino,Alojamiento alojamineto) {
+    Ciudad origen = Menu.paquete.getOrigen();
+    Ciudad destino = Menu.paquete.getDestino();
+    Alojamiento alojamineto = Menu.paquete.getAloja();
+    public SeleccionTransporte() {
         initComponents();
         ActualizarPrecio(CalcularDistancia(origen,destino));
 
