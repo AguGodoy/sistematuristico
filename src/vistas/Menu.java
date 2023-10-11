@@ -467,14 +467,14 @@ public class Menu extends javax.swing.JFrame {
         setColor(btnTransoporte);
         indTransoporte.setOpaque(true);
         resetColor(new JPanel[]{btnAlojamiento, btnDestino, btnResumen}, new JPanel[]{indAlojamiento, indDestino, indResumen});
-        InvocarJInternalFrame(new SeleccionTransporte(paquete.getOrigen(), paquete.getDestino(),paquete.getAloja()));
+        InvocarJInternalFrame(new SeleccionTransporte());
     }//GEN-LAST:event_btnTransoporteMousePressed
 
     private void btnAlojamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlojamientoMousePressed
         setColor(btnAlojamiento);
         indAlojamiento.setOpaque(true);
         resetColor(new JPanel[]{btnDestino, btnTransoporte, btnResumen}, new JPanel[]{indDestino, indTransoporte, indResumen});
-        InvocarJInternalFrame(new SeleccionAlojamiento(paquete.getOrigen(), paquete.getDestino()));
+        InvocarJInternalFrame(new SeleccionAlojamiento());
     }//GEN-LAST:event_btnAlojamientoMousePressed
 
     private void btnResumenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResumenMousePressed
