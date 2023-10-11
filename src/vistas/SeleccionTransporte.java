@@ -6,8 +6,10 @@ package vistas;
 
 import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import sistematuristico.AccesoData.PasajeData;
 import sistematuristico.Entidades.Alojamiento;
 import sistematuristico.Entidades.Ciudad;
+import sistematuristico.Entidades.Pasaje;
 
 
 /**
@@ -17,7 +19,13 @@ import sistematuristico.Entidades.Ciudad;
 public class SeleccionTransporte extends javax.swing.JInternalFrame {
     Ciudad origen = Menu.paquete.getOrigen();
     Ciudad destino = Menu.paquete.getDestino();
-    Alojamiento alojamineto = Menu.paquete.getAloja();
+    int precio;
+    String transporte;
+    PasajeData pasajeData = new PasajeData();
+    int colectivo[] = {5000,10000,30000};
+        int avion[] = {0,80000,150000};
+        int tren[] = {300,300,10000};
+        int barco[] = {0,15000,40000};
     public SeleccionTransporte() {
         initComponents();
         ActualizarPrecio(CalcularDistancia(origen,destino));
@@ -496,46 +504,43 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalirMousePressed
 
     private void jbSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSiguienteActionPerformed
-        // TODO add your handling code here:
+        Pasaje pasaje = new Pasaje(transporte, precio, origen, true, destino);
+        Menu.guardarIdTransporte=pasajeData.AltaPasaje(pasaje);
     }//GEN-LAST:event_jbSiguienteActionPerformed
 
     private void jbSeleccionarColectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeleccionarColectivoActionPerformed
-        // TODO add your handling code here:
+        precio=colectivo[CalcularDistancia(origen,destino)];
+        transporte="Colectivo";
     }//GEN-LAST:event_jbSeleccionarColectivoActionPerformed
 
     private void jbSeleccionarAvionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeleccionarAvionActionPerformed
-        // TODO add your handling code here:
+        precio=avion[CalcularDistancia(origen,destino)];
+        transporte="Avion";
     }//GEN-LAST:event_jbSeleccionarAvionActionPerformed
 
     private void jbSeleccionarBarcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeleccionarBarcoActionPerformed
-        // TODO add your handling code here:
+        precio=barco[CalcularDistancia(origen,destino)];
+        transporte="Barco";
     }//GEN-LAST:event_jbSeleccionarBarcoActionPerformed
 
     private void jbSeleccionarTrenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeleccionarTrenActionPerformed
-        // TODO add your handling code here:
+        precio=tren[CalcularDistancia(origen,destino)];
+        transporte="Tren";
     }//GEN-LAST:event_jbSeleccionarTrenActionPerformed
 
    
    
     private int CalcularDistancia(Ciudad origen, Ciudad destino){
         if (!(origen.getPais().equalsIgnoreCase(destino.getPais()))) {
-            return 3;//es internacional
+            return 2;//es internacional
         }else if (!origen.getProvincia().equalsIgnoreCase(destino.getProvincia())) {
-            return 2;//es interprovincial 
+            return 1;//es interprovincial 
         }else{
-            return 3;
+            return 0;
         }  
     }
     
     private void ActualizarPrecio(int distancia){
-        //distancia es 1 dentro de la provincia
-        //          es 2 dentro del pais
-        //          es 3 si es internacional
-        distancia--;
-        int colectivo[] = {5000,10000,30000};
-        int avion[] = {0,80000,150000};
-        int tren[] = {300,300,10000};
-        int barco[] = {0,15000,40000};
         jlPrecioColectivo.setText("$ " + colectivo[distancia]);
         jlPrecioAvion.setText("$ " + avion[distancia]);
         jlPrecioTren.setText("$ " + tren[distancia]);

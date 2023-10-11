@@ -439,9 +439,11 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     int xx, xy;
-    static Paquete paquete=new Paquete();
+    static Paquete paquete = new Paquete();
     static int InternalNum;
-    
+    static int guardarIdAlojamiento;
+    static int guardarIdTransporte;
+
     private void jPanelMarcoArribaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMarcoArribaMousePressed
         xx = evt.getX();
         xy = evt.getY();
@@ -458,7 +460,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_loginMousePressed
 
     private void btnDestinoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDestinoMousePressed
-        InternalNum=1;
+        InternalNum = 1;
         SelecCiudad();
         Escritorio.removeAll();
         Escritorio.repaint();
@@ -466,15 +468,15 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDestinoMousePressed
 
     private void btnTransoporteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransoporteMousePressed
-        InternalNum=3;
+        InternalNum = 3;
         SelecTransporte();
         InvocarJInternalFrame(new SeleccionTransporte());
     }//GEN-LAST:event_btnTransoporteMousePressed
 
     private void btnAlojamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlojamientoMousePressed
-        InternalNum=2;
+        InternalNum = 2;
         SelecAlojamiento();
-                InvocarJInternalFrame(new SeleccionAlojamiento());
+        InvocarJInternalFrame(new SeleccionAlojamiento());
     }//GEN-LAST:event_btnAlojamientoMousePressed
 
     private void btnResumenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResumenMousePressed
@@ -490,22 +492,22 @@ public class Menu extends javax.swing.JFrame {
 
     private void EscritorioComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_EscritorioComponentAdded
         System.out.println("ComponentAdded");
-        switch(InternalNum){
+        switch (InternalNum) {
             case 1:
                 SelecCiudad();
                 break;
-                case 2:
-                    SelecAlojamiento();
+            case 2:
+                SelecAlojamiento();
                 break;
-                case 3:
-                    SelecTransporte();    
+            case 3:
+                SelecTransporte();
                 break;
-                case 4:
+            case 4:
                 break;
-                default:
-                    System.out.println("No deveria pasar esto");
+            default:
+                System.out.println("No deveria pasar esto");
         }
-        
+
     }//GEN-LAST:event_EscritorioComponentAdded
 
     /**
@@ -558,17 +560,20 @@ public class Menu extends javax.swing.JFrame {
         }
 
     }
-    private  void SelecCiudad(){
+
+    private void SelecCiudad() {
         setColor(btnDestino);
         indDestino.setOpaque(true);
         resetColor(new JPanel[]{btnAlojamiento, btnTransoporte, btnResumen}, new JPanel[]{indAlojamiento, indTransoporte, indResumen});
     }
-    private void SelecAlojamiento(){
+
+    private void SelecAlojamiento() {
         setColor(btnAlojamiento);
         indAlojamiento.setOpaque(true);
         resetColor(new JPanel[]{btnDestino, btnTransoporte, btnResumen}, new JPanel[]{indDestino, indTransoporte, indResumen});
     }
-    private void SelecTransporte(){
+
+    private void SelecTransporte() {
         setColor(btnTransoporte);
         indTransoporte.setOpaque(true);
         resetColor(new JPanel[]{btnAlojamiento, btnDestino, btnResumen}, new JPanel[]{indAlojamiento, indDestino, indResumen});

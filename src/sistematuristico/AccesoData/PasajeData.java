@@ -19,7 +19,7 @@ public class PasajeData {
         con = Conexion.getConexion();
     }
 
-    public void AltaPasaje(Pasaje pasaje) {
+    public int AltaPasaje(Pasaje pasaje) {
         String sql = "INSERT INTO pasaje idPasaje, transporte, importe, idOrigen, estado, idDestino VALUES (?, ?, ?, ?, ?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -36,9 +36,11 @@ public class PasajeData {
                 JOptionPane.showMessageDialog(null, "pasaje añadido con exito.");
             }
             ps.close();
+            return pasaje.getIdPasaje();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "\"Error al acceder a la tabla pasaje \\n[Error en el metodo Altapasaje de PasajeData]\\n\"" + ex.getMessage());
         }
+        return 0;
     }
 
     public void BajaPasaje(int idPasaje) {
