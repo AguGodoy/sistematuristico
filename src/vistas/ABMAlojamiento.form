@@ -62,17 +62,19 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jPanelHead" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jPanelHead" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanelHead" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="13" max="32767" attributes="0"/>
+                      <EmptySpace pref="7" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -174,7 +176,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel6" min="-2" pref="154" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jDateChooserIngreso" min="-2" pref="160" max="-2" attributes="0"/>
+                                          <Component id="jDateChooserInicio" min="-2" pref="160" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel16" min="-2" pref="154" max="-2" attributes="0"/>
@@ -216,7 +218,7 @@
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jTextTipoAlojamiento" max="32767" attributes="0"/>
+                                              <Component id="jTextAlojamiento" max="32767" attributes="0"/>
                                               <Component id="jTextServicio" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -243,8 +245,8 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextImporteT" min="-2" pref="160" max="-2" attributes="0"/>
-                                          <Component id="jTextImporteD" min="-2" pref="160" max="-2" attributes="0"/>
+                                          <Component id="jTextTotal" min="-2" pref="160" max="-2" attributes="0"/>
+                                          <Component id="jTextDiario" min="-2" pref="160" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -268,7 +270,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="2" attributes="0">
                                   <Component id="jLabel6" alignment="2" min="-2" pref="38" max="-2" attributes="0"/>
-                                  <Component id="jDateChooserIngreso" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jDateChooserInicio" alignment="2" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="2" attributes="0">
@@ -280,7 +282,7 @@
                                   <Component id="jLabel10" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                                   <Component id="jComboBoxAlojamiento" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel17" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                                  <Component id="jTextTipoAlojamiento" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                  <Component id="jTextAlojamiento" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -292,12 +294,12 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel11" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                                  <Component id="jTextImporteD" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                  <Component id="jTextDiario" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel13" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                                  <Component id="jTextImporteT" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                  <Component id="jTextTotal" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -384,7 +386,7 @@
                         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextIdAlojamientoFocusLost"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextImporteD">
+                    <Component class="javax.swing.JTextField" name="jTextDiario">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -405,8 +407,8 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextImporteDFocusGained"/>
-                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextImporteDFocusLost"/>
+                        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextDiarioFocusGained"/>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextDiarioFocusLost"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButtonBuscar">
@@ -484,7 +486,7 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextTipoAlojamiento">
+                    <Component class="javax.swing.JTextField" name="jTextAlojamiento">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -505,8 +507,8 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextTipoAlojamientoFocusGained"/>
-                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextTipoAlojamientoFocusLost"/>
+                        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextAlojamientoFocusGained"/>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextAlojamientoFocusLost"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel15">
@@ -520,7 +522,7 @@
                         <Property name="text" type="java.lang.String" value="Estado:"/>
                       </Properties>
                     </Component>
-                    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserIngreso">
+                    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserInicio">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel16">
                       <Properties>
@@ -600,7 +602,7 @@
                         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextServicioFocusLost"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextImporteT">
+                    <Component class="javax.swing.JTextField" name="jTextTotal">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -621,8 +623,8 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextImporteTFocusGained"/>
-                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextImporteTFocusLost"/>
+                        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextTotalFocusGained"/>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextTotalFocusLost"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButtonNuevo">
