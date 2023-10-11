@@ -15,6 +15,7 @@ import javax.swing.table.JTableHeader;
 import sistematuristico.AccesoData.CiudadData;
 import sistematuristico.Entidades.Ciudad;
 
+
 /**
  *
  * @author crist
@@ -706,7 +707,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbSeleccionarDestinoActionPerformed
 
     private void jbSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSiguienteActionPerformed
-
+        Menu.InternalNum = 2;
         if (destino.getIdCiudad() == origen.getIdCiudad()) {
             System.out.println("poner aca un jpanel de que origen y destino son el mismo");
         } else {

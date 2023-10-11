@@ -405,6 +405,12 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
+        Escritorio.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                EscritorioComponentAdded(evt);
+            }
+        });
+
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
@@ -433,11 +439,8 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     int xx, xy;
-    //static Ciudad ciudadOrigen;
-    //static Ciudad ciudadDestino;
-    //static Alojamiento sAlojamiento;
-    //static Pasaje sPasaje;
     static Paquete paquete=new Paquete();
+    static int InternalNum;
     
     private void jPanelMarcoArribaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMarcoArribaMousePressed
         xx = evt.getX();
@@ -455,26 +458,23 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_loginMousePressed
 
     private void btnDestinoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDestinoMousePressed
-        setColor(btnDestino);
-        indDestino.setOpaque(true);
-        resetColor(new JPanel[]{btnAlojamiento, btnTransoporte, btnResumen}, new JPanel[]{indAlojamiento, indTransoporte, indResumen});
+        InternalNum=1;
+        SelecCiudad();
         Escritorio.removeAll();
         Escritorio.repaint();
         InvocarJInternalFrame(new SeleccionCiudad());
     }//GEN-LAST:event_btnDestinoMousePressed
 
     private void btnTransoporteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransoporteMousePressed
-        setColor(btnTransoporte);
-        indTransoporte.setOpaque(true);
-        resetColor(new JPanel[]{btnAlojamiento, btnDestino, btnResumen}, new JPanel[]{indAlojamiento, indDestino, indResumen});
+        InternalNum=3;
+        SelecTransporte();
         InvocarJInternalFrame(new SeleccionTransporte());
     }//GEN-LAST:event_btnTransoporteMousePressed
 
     private void btnAlojamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlojamientoMousePressed
-        setColor(btnAlojamiento);
-        indAlojamiento.setOpaque(true);
-        resetColor(new JPanel[]{btnDestino, btnTransoporte, btnResumen}, new JPanel[]{indDestino, indTransoporte, indResumen});
-        InvocarJInternalFrame(new SeleccionAlojamiento());
+        InternalNum=2;
+        SelecAlojamiento();
+                InvocarJInternalFrame(new SeleccionAlojamiento());
     }//GEN-LAST:event_btnAlojamientoMousePressed
 
     private void btnResumenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResumenMousePressed
@@ -487,6 +487,26 @@ public class Menu extends javax.swing.JFrame {
     private void btnSalirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMousePressed
         System.exit(0);
     }//GEN-LAST:event_btnSalirMousePressed
+
+    private void EscritorioComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_EscritorioComponentAdded
+        System.out.println("ComponentAdded");
+        switch(InternalNum){
+            case 1:
+                SelecCiudad();
+                break;
+                case 2:
+                    SelecAlojamiento();
+                break;
+                case 3:
+                    SelecTransporte();    
+                break;
+                case 4:
+                break;
+                default:
+                    System.out.println("No deveria pasar esto");
+        }
+        
+    }//GEN-LAST:event_EscritorioComponentAdded
 
     /**
      * @param args the command line arguments
@@ -537,6 +557,21 @@ public class Menu extends javax.swing.JFrame {
             indicators[i].setOpaque(false);
         }
 
+    }
+    private  void SelecCiudad(){
+        setColor(btnDestino);
+        indDestino.setOpaque(true);
+        resetColor(new JPanel[]{btnAlojamiento, btnTransoporte, btnResumen}, new JPanel[]{indAlojamiento, indTransoporte, indResumen});
+    }
+    private void SelecAlojamiento(){
+        setColor(btnAlojamiento);
+        indAlojamiento.setOpaque(true);
+        resetColor(new JPanel[]{btnDestino, btnTransoporte, btnResumen}, new JPanel[]{indDestino, indTransoporte, indResumen});
+    }
+    private void SelecTransporte(){
+        setColor(btnTransoporte);
+        indTransoporte.setOpaque(true);
+        resetColor(new JPanel[]{btnAlojamiento, btnDestino, btnResumen}, new JPanel[]{indAlojamiento, indDestino, indResumen});
     }
 
     private void InvocarJInternalFrame(JInternalFrame frame) {
