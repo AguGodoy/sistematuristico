@@ -11,8 +11,6 @@ import java.time.temporal.ChronoUnit;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 import sistematuristico.AccesoData.AlojamientoData;
 import sistematuristico.Entidades.Alojamiento;
 
@@ -24,18 +22,13 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
 
     private AlojamientoData aData = new AlojamientoData();
 
-    private DefaultTableModel modelo = new DefaultTableModel() {
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            return false;
-        }
-    };
+    
 
     public ABMAlojamiento() {
         initComponents();
         cargarcombobox();
 
-        modelo.addRow(new Object[]{123, "dsds", "dasdsa", "sdadsad"});
+       
     }
 
     /**
@@ -59,22 +52,22 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jTextIdAlojamiento = new javax.swing.JTextField();
-        jTextImporteD = new javax.swing.JTextField();
+        jTextDiario = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jComboBoxServicio = new javax.swing.JComboBox<>();
         jComboBoxAlojamiento = new javax.swing.JComboBox<>();
-        jTextTipoAlojamiento = new javax.swing.JTextField();
+        jTextAlojamiento = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jDateChooserIngreso = new com.toedter.calendar.JDateChooser();
+        jDateChooserInicio = new com.toedter.calendar.JDateChooser();
         jLabel16 = new javax.swing.JLabel();
         jDateChooserSalida = new com.toedter.calendar.JDateChooser();
         jCheckBoxEstado = new javax.swing.JCheckBox();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jTextServicio = new javax.swing.JTextField();
-        jTextImporteT = new javax.swing.JTextField();
+        jTextTotal = new javax.swing.JTextField();
         jButtonNuevo = new javax.swing.JButton();
         jButtonGuardar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
@@ -131,17 +124,17 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextImporteD.setEditable(false);
-        jTextImporteD.setBackground(new java.awt.Color(56, 63, 79));
-        jTextImporteD.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextImporteD.setForeground(new java.awt.Color(235, 237, 255));
-        jTextImporteD.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextImporteD.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextDiario.setEditable(false);
+        jTextDiario.setBackground(new java.awt.Color(56, 63, 79));
+        jTextDiario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextDiario.setForeground(new java.awt.Color(235, 237, 255));
+        jTextDiario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextDiario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextImporteDFocusGained(evt);
+                jTextDiarioFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextImporteDFocusLost(evt);
+                jTextDiarioFocusLost(evt);
             }
         });
 
@@ -177,17 +170,17 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextTipoAlojamiento.setEditable(false);
-        jTextTipoAlojamiento.setBackground(new java.awt.Color(56, 63, 79));
-        jTextTipoAlojamiento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextTipoAlojamiento.setForeground(new java.awt.Color(235, 237, 255));
-        jTextTipoAlojamiento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextTipoAlojamiento.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextAlojamiento.setEditable(false);
+        jTextAlojamiento.setBackground(new java.awt.Color(56, 63, 79));
+        jTextAlojamiento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextAlojamiento.setForeground(new java.awt.Color(235, 237, 255));
+        jTextAlojamiento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextAlojamiento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextTipoAlojamientoFocusGained(evt);
+                jTextAlojamientoFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextTipoAlojamientoFocusLost(evt);
+                jTextAlojamientoFocusLost(evt);
             }
         });
 
@@ -236,17 +229,17 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextImporteT.setEditable(false);
-        jTextImporteT.setBackground(new java.awt.Color(56, 63, 79));
-        jTextImporteT.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextImporteT.setForeground(new java.awt.Color(235, 237, 255));
-        jTextImporteT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextImporteT.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextTotal.setEditable(false);
+        jTextTotal.setBackground(new java.awt.Color(56, 63, 79));
+        jTextTotal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextTotal.setForeground(new java.awt.Color(235, 237, 255));
+        jTextTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextTotal.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextImporteTFocusGained(evt);
+                jTextTotalFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextImporteTFocusLost(evt);
+                jTextTotalFocusLost(evt);
             }
         });
 
@@ -311,7 +304,7 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jDateChooserIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jDateChooserInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -343,7 +336,7 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel17))
                             .addGap(18, 18, 18)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextTipoAlojamiento)
+                                .addComponent(jTextAlojamiento)
                                 .addComponent(jTextServicio)))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,8 +355,8 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
                             .addComponent(jLabel13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextImporteT, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextImporteD, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jTextTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextDiario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -380,7 +373,7 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooserIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooserInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -390,7 +383,7 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxAlojamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextTipoAlojamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextAlojamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBoxServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -400,11 +393,11 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextImporteD, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextDiario, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextImporteT, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -484,15 +477,17 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelBodyLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanelHead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanelHead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         jPanelFull.add(jPanelBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 580));
@@ -522,13 +517,13 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
         textBorderFocusLost((JTextField) evt.getComponent());
     }//GEN-LAST:event_jTextIdAlojamientoFocusLost
 
-    private void jTextImporteDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextImporteDFocusGained
+    private void jTextDiarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextDiarioFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextImporteDFocusGained
+    }//GEN-LAST:event_jTextDiarioFocusGained
 
-    private void jTextImporteDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextImporteDFocusLost
+    private void jTextDiarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextDiarioFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextImporteDFocusLost
+    }//GEN-LAST:event_jTextDiarioFocusLost
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         try {
@@ -537,7 +532,7 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
             Alojamiento aloja = aData.buscarAlojamiento(id);
             if (aloja != null) {
 
-                jDateChooserIngreso.setDate(java.sql.Date.valueOf(aloja.getFechaIn()));
+                jDateChooserInicio.setDate(java.sql.Date.valueOf(aloja.getFechaIn()));
                 jDateChooserSalida.setDate(java.sql.Date.valueOf(aloja.getFechaOn()));
 
                 jComboBoxAlojamiento.setSelectedItem(aloja.getTipo());
@@ -545,14 +540,14 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
                 jTextCiudad.setText(aloja.getDestino().getNombre()+", "+ aloja.getDestino().getProvincia()+", "+aloja.getDestino().getPais());
                 
                 jTextIdAlojamiento.setText(String.valueOf(aloja.getIdAlojamiento()));
-                jTextImporteD.setText(String.valueOf(aloja.getImporteDiario()));
+                jTextDiario.setText(String.valueOf(aloja.getImporteDiario()));
                 LocalDate fecha1 = aloja.getFechaIn();
                 LocalDate fecha2 = aloja.getFechaOn();
 
         // Calcular la diferencia en días
         long diferenciaDias = ChronoUnit.DAYS.between(fecha1, fecha2);
 
-                jTextImporteT.setText(String.valueOf(aloja.getImporteDiario()*diferenciaDias));
+                jTextTotal.setText(String.valueOf(aloja.getImporteDiario()*diferenciaDias));
                
                          
 
@@ -572,13 +567,13 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
-    private void jTextTipoAlojamientoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextTipoAlojamientoFocusGained
+    private void jTextAlojamientoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextAlojamientoFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextTipoAlojamientoFocusGained
+    }//GEN-LAST:event_jTextAlojamientoFocusGained
 
-    private void jTextTipoAlojamientoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextTipoAlojamientoFocusLost
+    private void jTextAlojamientoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextAlojamientoFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextTipoAlojamientoFocusLost
+    }//GEN-LAST:event_jTextAlojamientoFocusLost
 
     private void jCheckBoxEstadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxEstadoMousePressed
 
@@ -596,13 +591,13 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextServicioFocusLost
 
-    private void jTextImporteTFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextImporteTFocusGained
+    private void jTextTotalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextTotalFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextImporteTFocusGained
+    }//GEN-LAST:event_jTextTotalFocusGained
 
-    private void jTextImporteTFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextImporteTFocusLost
+    private void jTextTotalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextTotalFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextImporteTFocusLost
+    }//GEN-LAST:event_jTextTotalFocusLost
 
     private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
         limpiar();
@@ -614,7 +609,7 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
         try {
             Alojamiento aloja = new Alojamiento();
             aloja.setIdAlojamiento(Integer.parseInt(jTextIdAlojamiento.getText())) ;
-            aloja.setFechaIn(jDateChooserIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+            aloja.setFechaIn(jDateChooserInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             aloja.setFechaOn(jDateChooserSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             //aloja.setDestino(completar);
             aloja.setTipo(String.valueOf(jComboBoxAlojamiento.getSelectedItem()));
@@ -657,16 +652,16 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
     private void jComboBoxAlojamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAlojamientoActionPerformed
         switch (String.valueOf(jComboBoxAlojamiento.getSelectedItem())) {
             case "Hotel":
-                jTextTipoAlojamiento.setText(String.valueOf(3000));
+                jTextAlojamiento.setText(String.valueOf(3000));
                 break;
             case "Hostel":
-                jTextTipoAlojamiento.setText(String.valueOf(1500));
+                jTextAlojamiento.setText(String.valueOf(1500));
                 break;
             case "Casa":
-                jTextTipoAlojamiento.setText(String.valueOf(2000));
+                jTextAlojamiento.setText(String.valueOf(2000));
                 break;
             case "Cabania":
-                jTextTipoAlojamiento.setText(String.valueOf(2500));
+                jTextAlojamiento.setText(String.valueOf(2500));
                 break;
             default:
         }
@@ -714,7 +709,6 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel btnSalir;
     private javax.swing.JPanel btnSalir1;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEliminar;
@@ -723,7 +717,7 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox jCheckBoxEstado;
     private javax.swing.JComboBox<String> jComboBoxAlojamiento;
     private javax.swing.JComboBox<String> jComboBoxServicio;
-    private com.toedter.calendar.JDateChooser jDateChooserIngreso;
+    private com.toedter.calendar.JDateChooser jDateChooserInicio;
     private com.toedter.calendar.JDateChooser jDateChooserSalida;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -743,13 +737,12 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanelHead;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField jTextAlojamiento;
     private javax.swing.JTextField jTextCiudad;
+    private javax.swing.JTextField jTextDiario;
     private javax.swing.JTextField jTextIdAlojamiento;
-    private javax.swing.JTextField jTextImporteD;
-    private javax.swing.JTextField jTextImporteT;
     private javax.swing.JTextField jTextServicio;
-    private javax.swing.JTextField jTextTipoAlojamiento;
-    private javax.swing.JLabel jlabel_exit;
+    private javax.swing.JTextField jTextTotal;
     private javax.swing.JLabel jlabel_exit1;
     // End of variables declaration//GEN-END:variables
 private void cargarcombobox() {
@@ -771,13 +764,28 @@ private void cargarcombobox() {
         jCheckBoxEstado.setSelected(false);
         jComboBoxAlojamiento.setSelectedIndex(-1);
         jComboBoxServicio.setSelectedIndex(-1);
-        jDateChooserIngreso.setDate(null);
+        jDateChooserInicio.setDate(null);
         jDateChooserSalida.setDate(null);
         jTextIdAlojamiento.setText("");
-        jTextImporteD.setText("");
-        jTextImporteT.setText("");
+        jTextDiario.setText("");
+        jTextTotal.setText("");
         jTextServicio.setText("");
-        jTextTipoAlojamiento.setText("");
+        jTextAlojamiento.setText("");
 
     }
+     private void precioDiario(){
+        if(!(jTextAlojamiento.getText().isEmpty()||jTextServicio.getText().isEmpty())){
+            jTextDiario.setText(Double.parseDouble(jTextAlojamiento.getText())+Double.parseDouble(jTextServicio.getText())+"");
+        if(jDateChooserInicio.getDate()==null||jDateChooserSalida.getDate()==null){   
+           
+        }else{
+         LocalDate fecha1 = jDateChooserInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+         LocalDate fecha2 = jDateChooserSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+         
+         long diferenciaDias = ChronoUnit.DAYS.between(fecha1, fecha2);
+
+           jTextTotal.setText(String.valueOf(Double.valueOf(jTextDiario.getText())*diferenciaDias+""));
+        }
+        }
+}
 }
