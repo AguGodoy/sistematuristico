@@ -7,7 +7,6 @@ package vistas;
 import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import sistematuristico.AccesoData.PasajeData;
-import sistematuristico.Entidades.Alojamiento;
 import sistematuristico.Entidades.Ciudad;
 import sistematuristico.Entidades.Pasaje;
 
@@ -28,6 +27,7 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
         int barco[] = {0,15000,40000};
     public SeleccionTransporte() {
         initComponents();
+        datosPrecargados();
         ActualizarPrecio(CalcularDistancia(origen,destino));
 
     }
@@ -505,7 +505,13 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
     private void jbSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSiguienteActionPerformed
         Pasaje pasaje = new Pasaje(transporte, precio, origen, true, destino);
-        Menu.guardarIdTransporte=pasajeData.AltaPasaje(pasaje);
+        if(Menu.paquete.getPasa().getIdPasaje()==0){
+            Menu.guardarIdTransporte=pasajeData.AltaPasaje(pasaje);
+        }else{
+            Menu.guardarIdTransporte=Menu.paquete.getPasa().getIdPasaje();
+            pasajeData.ModificacionPasaje(Menu.guardarIdTransporte,pasaje);
+        }
+        
     }//GEN-LAST:event_jbSiguienteActionPerformed
 
     private void jbSeleccionarColectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeleccionarColectivoActionPerformed
@@ -560,6 +566,9 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
         frame.setVisible(true); // Lo hace visible
         Menu.Escritorio.add(frame); // Agrega el JInternalFrame al JDesktopPane
         frame.toFront();
+    }
+    private void datosPrecargados(){
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
