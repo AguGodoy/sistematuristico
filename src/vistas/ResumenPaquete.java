@@ -4,6 +4,10 @@
  */
 package vistas;
 
+import javax.swing.JInternalFrame;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+
+
 /**
  *
  * @author Lean
@@ -13,6 +17,7 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
     /**
      * Creates new form ResumenPaquete2
      */
+    
     public ResumenPaquete() {
         initComponents();
     }
@@ -26,21 +31,15 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelGeneral = new java.awt.Panel();
+        jPanelFull = new javax.swing.JPanel();
         jPanelHead = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        panel1 = new java.awt.Panel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jPanelBody = new javax.swing.JPanel();
 
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        panelGeneral.setBackground(new java.awt.Color(56, 63, 79));
-        panelGeneral.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        panelGeneral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelFull.setBackground(new java.awt.Color(56, 63, 79));
+        jPanelFull.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelHead.setBackground(new java.awt.Color(56, 63, 79));
 
@@ -60,10 +59,13 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
             .addGroup(jPanelHeadLayout.createSequentialGroup()
                 .addGap(265, 265, 265)
                 .addGroup(jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelHeadLayout.createSequentialGroup()
+                            .addGap(57, 57, 57)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(265, Short.MAX_VALUE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelHeadLayout.setVerticalGroup(
             jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,69 +79,58 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        panelGeneral.add(jPanelHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
+        jPanelFull.add(jPanelHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
-        panel1.setBackground(new java.awt.Color(56, 63, 79));
+        jPanelBody.setBackground(new java.awt.Color(56, 63, 79));
+        jPanelBody.setPreferredSize(new java.awt.Dimension(1000, 540));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Fechas", "Destino", "Medio de transporte", "Alojamiento"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jButton1.setBackground(new java.awt.Color(47, 52, 67));
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(235, 237, 255));
-        jButton1.setText("Confirmar");
-
-        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
-        panel1.setLayout(panel1Layout);
-        panel1Layout.setHorizontalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(266, 266, 266)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(265, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(423, 423, 423))
+        javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
+        jPanelBody.setLayout(jPanelBodyLayout);
+        jPanelBodyLayout.setHorizontalGroup(
+            jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
         );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+        jPanelBodyLayout.setVerticalGroup(
+            jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 540, Short.MAX_VALUE)
         );
 
-        panelGeneral.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1000, 530));
-        panel1.getAccessibleContext().setAccessibleName("");
+        jPanelFull.add(jPanelBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1000, 540));
 
-        getContentPane().add(panelGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 600));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelFull, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelFull, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
+    private void InvocarJInternalFrame(JInternalFrame frame) {
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) frame.getUI();
+        ui.setNorthPane(null);
+        frame.setBorder(null); // Elimina el borde
+        frame.setClosable(false); // Desactiva la opción de cerrar
+        frame.setIconifiable(false); // Desactiva la opción de minimizar
+        frame.setOpaque(true); // Hace que el contenido sea opaco
+        frame.setSize(Menu.Escritorio.getSize()); // Establece el tamaño igual al del desktopPane
+        frame.setVisible(true); // Lo hace visible
+        Menu.Escritorio.add(frame); // Agrega el JInternalFrame al JDesktopPane
+        frame.toFront();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanelBody;
+    private javax.swing.JPanel jPanelFull;
     private javax.swing.JPanel jPanelHead;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
-    private java.awt.Panel panel1;
-    private java.awt.Panel panelGeneral;
     // End of variables declaration//GEN-END:variables
 }

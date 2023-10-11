@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 import sistematuristico.Entidades.Alojamiento;
 import sistematuristico.Entidades.Ciudad;
 

@@ -279,7 +279,6 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         jTableDestino.setGridColor(new java.awt.Color(47, 52, 67));
         jTableDestino.setSelectionBackground(new java.awt.Color(83, 81, 251));
         jTableDestino.setSelectionForeground(new java.awt.Color(235, 237, 255));
-        jTableDestino.setShowVerticalLines(false);
         jScrollPane1.setViewportView(jTableDestino);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -465,7 +464,6 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         jTableOrigen.setGridColor(new java.awt.Color(47, 52, 67));
         jTableOrigen.setSelectionBackground(new java.awt.Color(83, 81, 251));
         jTableOrigen.setSelectionForeground(new java.awt.Color(235, 237, 255));
-        jTableOrigen.setShowVerticalLines(false);
         jScrollPane2.setViewportView(jTableOrigen);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
