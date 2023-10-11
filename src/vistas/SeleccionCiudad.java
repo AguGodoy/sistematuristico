@@ -36,13 +36,14 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
     };
     Ciudad origen;
     Ciudad destino;
+
     public SeleccionCiudad() {
         initComponents();
         CrearTabla();
         actualizarTabla("Destino");
         actualizarTabla("Origen");
+        datosPrecargados();
         botonFocusSeiguiente();
-        
 
     }
 
@@ -706,13 +707,13 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
 
     private void jbSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSiguienteActionPerformed
 
-        if (destino.getIdCiudad()==origen.getIdCiudad()) {
+        if (destino.getIdCiudad() == origen.getIdCiudad()) {
             System.out.println("poner aca un jpanel de que origen y destino son el mismo");
-        }else{
+        } else {
             Menu.paquete.setOrigen(origen);
             Menu.paquete.setDestino(destino);
-            InvocarJInternalFrame(new SeleccionAlojamiento(Menu.paquete.getOrigen(),Menu.paquete.getDestino()));
-            
+            InvocarJInternalFrame(new SeleccionAlojamiento(Menu.paquete.getOrigen(), Menu.paquete.getDestino()));
+
         }
     }//GEN-LAST:event_jbSiguienteActionPerformed
 
@@ -846,10 +847,11 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
 
     private void SeleccionOrigen() {
         int filas = jTableOrigen.getSelectedRow();
-        if (filas != -1) {
-            Color colorEditable;
-            Boolean flag;
-            if (jbSeleccionarOrigen.getText().equalsIgnoreCase("Seleccionar")) {
+
+        Color colorEditable = new Color(66, 66, 66);;
+        Boolean flag = false;;
+        if (jbSeleccionarOrigen.getText().equalsIgnoreCase("Seleccionar")) {
+            if (filas != -1) {
                 colorEditable = new Color(66, 66, 66);
                 flag = false;
                 jbSeleccionarOrigen.setText("De-Seleccionar");
@@ -857,21 +859,120 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
                 jtfBuscarCiudadOrigen.setText((String) jTableOrigen.getValueAt(filas, 1));
                 jtfBuscarProvinciaOrigen.setText((String) jTableOrigen.getValueAt(filas, 2));
                 jtfBuscarPaisOrigen.setText((String) jTableOrigen.getValueAt(filas, 3));
-                int idOrigen=(int) jTableOrigen.getValueAt(filas, 0); //guardamoes esto para mas tarde
-               origen=ciudadData.buscarCiudad(idOrigen);
+                int idOrigen = (int) jTableOrigen.getValueAt(filas, 0); //guardamoes esto para mas tarde
+                origen = ciudadData.buscarCiudad(idOrigen);
             } else {
-                colorEditable = new Color(56, 63, 79);
-                flag = true;
-                jbSeleccionarOrigen.setText("Seleccionar");
-
-                jtfBuscarCiudadOrigen.setText("");
-                jtfBuscarProvinciaOrigen.setText("");
-                jtfBuscarPaisOrigen.setText("");
+                JOptionPane.showMessageDialog(this, "Seleccione una fila");
             }
+        } else {
+            colorEditable = new Color(56, 63, 79);
+            flag = true;
+            jbSeleccionarOrigen.setText("Seleccionar");
 
+            jtfBuscarCiudadOrigen.setText("");
+            jtfBuscarProvinciaOrigen.setText("");
+            jtfBuscarPaisOrigen.setText("");
+        }
+
+        jTableOrigen.setFocusable(flag);
+        jTableOrigen.setRowSelectionAllowed(flag);
+
+        jtfBuscarCiudadOrigen.setEditable(flag);
+        jtfBuscarCiudadOrigen.setFocusable(flag);
+        jtfBuscarCiudadOrigen.setBackground(colorEditable);
+
+        jtfBuscarProvinciaOrigen.setEditable(flag);
+        jtfBuscarProvinciaOrigen.setFocusable(flag);
+        jtfBuscarProvinciaOrigen.setBackground(colorEditable);
+
+        jtfBuscarPaisOrigen.setEditable(flag);
+        jtfBuscarPaisOrigen.setFocusable(flag);
+        jtfBuscarPaisOrigen.setBackground(colorEditable);
+
+    }
+
+    private void SeleccionDestino() {
+        int filas = jTableDestino.getSelectedRow();
+        Color colorEditable = new Color(66, 66, 66);
+        Boolean flag = false;
+
+        if (jbSeleccionarDestino.getText().equalsIgnoreCase("Seleccionar")) {
+            if (filas != -1) {
+                colorEditable = new Color(66, 66, 66);
+                flag = false;
+                jbSeleccionarDestino.setText("De-Seleccionar");
+
+                jtfBuscarCiudadDestino.setText((String) jTableDestino.getValueAt(filas, 1));
+                jtfBuscarProvinciaDestino.setText((String) jTableDestino.getValueAt(filas, 2));
+                jtfBuscarPaisDestino.setText((String) jTableDestino.getValueAt(filas, 3));
+                int idDestino = (int) jTableDestino.getValueAt(filas, 0); //guardamoes esto para mas tarde
+                destino = ciudadData.buscarCiudad(idDestino);
+            } else {
+                JOptionPane.showMessageDialog(this, "Seleccione una fila");
+            }
+        } else {
+            colorEditable = new Color(56, 63, 79);
+            flag = true;
+            jbSeleccionarDestino.setText("Seleccionar");
+
+            jtfBuscarCiudadDestino.setText("");
+            jtfBuscarProvinciaDestino.setText("");
+            jtfBuscarPaisDestino.setText("");
+        }
+
+        jTableDestino.setFocusable(flag);
+        jTableDestino.setRowSelectionAllowed(flag);
+
+        jtfBuscarCiudadDestino.setEditable(flag);
+        jtfBuscarCiudadDestino.setFocusable(flag);
+        jtfBuscarCiudadDestino.setBackground(colorEditable);
+
+        jtfBuscarProvinciaDestino.setEditable(flag);
+        jtfBuscarProvinciaDestino.setFocusable(flag);
+        jtfBuscarProvinciaDestino.setBackground(colorEditable);
+
+        jtfBuscarPaisDestino.setEditable(flag);
+        jtfBuscarPaisDestino.setFocusable(flag);
+        jtfBuscarPaisDestino.setBackground(colorEditable);
+
+    }
+
+    private void botonFocusSeiguiente() {
+        if (jbSeleccionarDestino.getText().equalsIgnoreCase("De-Seleccionar")
+                && jbSeleccionarOrigen.getText().equalsIgnoreCase("De-Seleccionar")) {
+            jbSiguiente.setFocusable(true);
+            jbSiguiente.setEnabled(true);
+            jbSiguiente.setBackground(new Color(56, 63, 79));
+
+        } else {
+            jbSiguiente.setFocusable(false);
+            jbSiguiente.setEnabled(false);
+            jbSiguiente.setBackground(new Color(66, 66, 66));
+        }
+    }
+
+    private void datosPrecargados() {
+        if (Menu.paquete.getOrigen() != null && Menu.paquete.getDestino() != null) {
+            Color colorEditable;
+            Boolean flag;
+            origen = Menu.paquete.getOrigen();
+            destino = Menu.paquete.getDestino();
+
+            jtfBuscarCiudadDestino.setText(destino.getNombre());
+            jtfBuscarProvinciaDestino.setText(destino.getProvincia());
+            jtfBuscarPaisDestino.setText(destino.getPais());
+
+            jtfBuscarCiudadOrigen.setText(origen.getNombre());
+            jtfBuscarProvinciaOrigen.setText(origen.getProvincia());
+            jtfBuscarPaisOrigen.setText(origen.getPais());
+
+            colorEditable = new Color(66, 66, 66);
+            flag = false;
+
+            //Sacar modo editable para Origen
+            jbSeleccionarOrigen.setText("De-Seleccionar");
             jTableOrigen.setFocusable(flag);
             jTableOrigen.setRowSelectionAllowed(flag);
-
             jtfBuscarCiudadOrigen.setEditable(flag);
             jtfBuscarCiudadOrigen.setFocusable(flag);
             jtfBuscarCiudadOrigen.setBackground(colorEditable);
@@ -884,36 +985,8 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
             jtfBuscarPaisOrigen.setFocusable(flag);
             jtfBuscarPaisOrigen.setBackground(colorEditable);
 
-        } else {
-            JOptionPane.showMessageDialog(this, "Seleccione una fila");
-        }
-    }
-
-    private void SeleccionDestino() {
-        int filas = jTableDestino.getSelectedRow();
-        if (filas != -1) {
-            Color colorEditable;
-            Boolean flag;
-            if (jbSeleccionarDestino.getText().equalsIgnoreCase("Seleccionar")) {
-                colorEditable = new Color(66, 66, 66);
-                flag = false;
-                jbSeleccionarDestino.setText("De-Seleccionar");
-
-                jtfBuscarCiudadDestino.setText((String) jTableDestino.getValueAt(filas, 1));
-                jtfBuscarProvinciaDestino.setText((String) jTableDestino.getValueAt(filas, 2));
-                jtfBuscarPaisDestino.setText((String) jTableDestino.getValueAt(filas, 3));
-                int idDestino=(int) jTableDestino.getValueAt(filas, 0); //guardamoes esto para mas tarde
-                destino=ciudadData.buscarCiudad(idDestino);
-            } else {
-                colorEditable = new Color(56, 63, 79);
-                flag = true;
-                jbSeleccionarDestino.setText("Seleccionar");
-
-                jtfBuscarCiudadDestino.setText("");
-                jtfBuscarProvinciaDestino.setText("");
-                jtfBuscarPaisDestino.setText("");
-            }
-
+            //Sacar modo editable para Destino
+            jbSeleccionarDestino.setText("De-Seleccionar");
             jTableDestino.setFocusable(flag);
             jTableDestino.setRowSelectionAllowed(flag);
 
@@ -929,24 +1002,9 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
             jtfBuscarPaisDestino.setFocusable(flag);
             jtfBuscarPaisDestino.setBackground(colorEditable);
 
-        } else {
-            JOptionPane.showMessageDialog(this, "Seleccione una fila");
         }
     }
 
-    private void botonFocusSeiguiente() {
-        if (jbSeleccionarDestino.getText().equalsIgnoreCase("De-Seleccionar")
-                && jbSeleccionarOrigen.getText().equalsIgnoreCase("De-Seleccionar")) {
-            jbSiguiente.setFocusable(true);
-            jbSiguiente.setEnabled(true);
-            jbSiguiente.setBackground(new Color(56, 63, 79));
-
-        } else {
-            jbSiguiente.setFocusable(false);
-            jbSiguiente.setEnabled(false);
-                jbSiguiente.setBackground(new Color(66, 66, 66));
-        }
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnSalir;
     private javax.swing.JLabel jLabel1;
