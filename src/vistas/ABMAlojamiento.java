@@ -80,6 +80,8 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
         jButtonEliminar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jTextCiudad = new javax.swing.JTextField();
+        btnSalir1 = new javax.swing.JPanel();
+        jlabel_exit1 = new javax.swing.JLabel();
 
         jPanelFull.setBackground(new java.awt.Color(56, 63, 79));
         jPanelFull.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -415,6 +417,35 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnSalir1.setBackground(new java.awt.Color(56, 63, 79));
+        btnSalir1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnSalir1MousePressed(evt);
+            }
+        });
+
+        jlabel_exit1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jlabel_exit1.setForeground(new java.awt.Color(255, 255, 255));
+        jlabel_exit1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlabel_exit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icon_Exit_25px.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnSalir1Layout = new javax.swing.GroupLayout(btnSalir1);
+        btnSalir1.setLayout(btnSalir1Layout);
+        btnSalir1Layout.setHorizontalGroup(
+            btnSalir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnSalir1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jlabel_exit1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
+        );
+        btnSalir1Layout.setVerticalGroup(
+            btnSalir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnSalir1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlabel_exit1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanelHeadLayout = new javax.swing.GroupLayout(jPanelHead);
         jPanelHead.setLayout(jPanelHeadLayout);
         jPanelHeadLayout.setHorizontalGroup(
@@ -429,7 +460,9 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addComponent(btnSalir1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanelHeadLayout.setVerticalGroup(
             jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -437,7 +470,9 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -664,6 +699,10 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextCiudadFocusLost
 
+    private void btnSalir1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalir1MousePressed
+        this.dispose();
+    }//GEN-LAST:event_btnSalir1MousePressed
+
     // </editor-fold>
     // </editor-fold>  
     private void textBorderFocusGained(JTextField textField) {
@@ -675,6 +714,8 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel btnSalir;
+    private javax.swing.JPanel btnSalir1;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonGuardar;
@@ -708,6 +749,8 @@ public class ABMAlojamiento extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextImporteT;
     private javax.swing.JTextField jTextServicio;
     private javax.swing.JTextField jTextTipoAlojamiento;
+    private javax.swing.JLabel jlabel_exit;
+    private javax.swing.JLabel jlabel_exit1;
     // End of variables declaration//GEN-END:variables
 private void cargarcombobox() {
 
