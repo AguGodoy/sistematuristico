@@ -712,7 +712,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         } else {
             Menu.paquete.setOrigen(origen);
             Menu.paquete.setDestino(destino);
-            InvocarJInternalFrame(new SeleccionAlojamiento(Menu.paquete.getOrigen(), Menu.paquete.getDestino()));
+            InvocarJInternalFrame(new SeleccionAlojamiento());
 
         }
     }//GEN-LAST:event_jbSiguienteActionPerformed

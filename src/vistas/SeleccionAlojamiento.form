@@ -298,7 +298,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jButtonConfirmar" min="-2" pref="130" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jButtonNuevo" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <Component id="jButtonSiguiente" min="-2" pref="130" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel7" min="-2" pref="154" max="-2" attributes="0"/>
@@ -353,7 +353,7 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButtonNuevo" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                                  <Component id="jButtonSiguiente" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                                   <Component id="jButtonConfirmar" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="57" max="32767" attributes="0"/>
@@ -577,7 +577,7 @@
                         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextTotalFocusLost"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButtonNuevo">
+                    <Component class="javax.swing.JButton" name="jButtonSiguiente">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="43" green="34" red="2f" type="rgb"/>
@@ -591,7 +591,7 @@
                         <Property name="text" type="java.lang.String" value="Siguiente"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNuevoActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSiguienteActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButtonConfirmar">

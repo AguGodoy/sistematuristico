@@ -15,8 +15,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 import sistematuristico.Entidades.Alojamiento;
 import sistematuristico.Entidades.Ciudad;
 
@@ -26,16 +24,12 @@ import sistematuristico.Entidades.Ciudad;
  */
 public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
     Alojamiento alojamiento;
-    Ciudad origen;
-    Ciudad destino;
-
-    public SeleccionAlojamiento(Ciudad origen, Ciudad destino) {
+ 
+    public SeleccionAlojamiento() {
         initComponents();
         cargarcombobox();
-   
-        this.origen=origen;
-        this.destino=destino;
-        jTextCiudad.setText(destino.getNombre()+", "+destino.getProvincia()+", "+destino.getPais());
+           
+        jTextCiudad.setText(Menu.paquete.getDestino().getNombre()+", "+Menu.paquete.getDestino().getProvincia()+", "+Menu.paquete.getDestino().getPais());
         if(Menu.paquete.getAloja()!=null){
             LocalDate ldate = (Menu.paquete.getAloja().getFechaIn());
           
@@ -82,7 +76,7 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
         jLabel18 = new javax.swing.JLabel();
         jTextServicio = new javax.swing.JTextField();
         jTextTotal = new javax.swing.JTextField();
-        jButtonNuevo = new javax.swing.JButton();
+        jButtonSiguiente = new javax.swing.JButton();
         jButtonConfirmar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jTextDiario = new javax.swing.JTextField();
@@ -269,13 +263,13 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
             }
         });
 
-        jButtonNuevo.setBackground(new java.awt.Color(47, 52, 67));
-        jButtonNuevo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButtonNuevo.setForeground(new java.awt.Color(235, 237, 255));
-        jButtonNuevo.setText("Siguiente");
-        jButtonNuevo.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSiguiente.setBackground(new java.awt.Color(47, 52, 67));
+        jButtonSiguiente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonSiguiente.setForeground(new java.awt.Color(235, 237, 255));
+        jButtonSiguiente.setText("Siguiente");
+        jButtonSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNuevoActionPerformed(evt);
+                jButtonSiguienteActionPerformed(evt);
             }
         });
 
@@ -353,7 +347,7 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -396,7 +390,7 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
                     .addComponent(jTextTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
@@ -466,10 +460,10 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextAlojamientoFocusLost
 
-    private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
+    private void jButtonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSiguienteActionPerformed
         Menu.paquete.setAloja(alojamiento);
-        InvocarJInternalFrame(new SeleccionTransporte(Menu.paquete.getOrigen(), Menu.paquete.getDestino(), Menu.paquete.getAloja()));     
-    }//GEN-LAST:event_jButtonNuevoActionPerformed
+        InvocarJInternalFrame(new SeleccionTransporte());     
+    }//GEN-LAST:event_jButtonSiguienteActionPerformed
 
     private void jTextServicioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextServicioFocusGained
         // TODO add your handling code here:
@@ -590,7 +584,7 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnSalir;
     private javax.swing.JButton jButtonConfirmar;
-    private javax.swing.JButton jButtonNuevo;
+    private javax.swing.JButton jButtonSiguiente;
     private javax.swing.JComboBox<String> jComboBoxAlojamiento;
     private javax.swing.JComboBox<String> jComboBoxServicio;
     private com.toedter.calendar.JDateChooser jDateChooserInicio;
