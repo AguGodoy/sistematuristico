@@ -468,21 +468,27 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDestinoMousePressed
 
     private void btnTransoporteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransoporteMousePressed
-        InternalNum = 3;
-        SelecTransporte();
-        InvocarJInternalFrame(new SeleccionTransporte());
+        if (InternalNum > 3) {
+            InternalNum = 3;
+            SelecTransporte();
+            InvocarJInternalFrame(new SeleccionTransporte());
+        }
     }//GEN-LAST:event_btnTransoporteMousePressed
 
     private void btnAlojamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlojamientoMousePressed
-        InternalNum = 2;
-        SelecAlojamiento();
-        InvocarJInternalFrame(new SeleccionAlojamiento());
+        if (InternalNum > 2) {
+            InternalNum = 2;
+            SelecAlojamiento();
+            InvocarJInternalFrame(new SeleccionAlojamiento());
+        }
     }//GEN-LAST:event_btnAlojamientoMousePressed
 
     private void btnResumenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResumenMousePressed
+        if (InternalNum>4){
         InternalNum = 4;
         SelecResumen();
         InvocarJInternalFrame(new ResumenPaquete());
+        }
     }//GEN-LAST:event_btnResumenMousePressed
 
     private void btnSalirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMousePressed
@@ -490,7 +496,6 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMousePressed
 
     private void EscritorioComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_EscritorioComponentAdded
-        System.out.println("ComponentAdded");
         switch (InternalNum) {
             case 1:
                 SelecCiudad();
