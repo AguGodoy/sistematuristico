@@ -4,31 +4,36 @@
  */
 package vistas;
 
+import java.awt.Color;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import sistematuristico.AccesoData.PasajeData;
 import sistematuristico.Entidades.Ciudad;
 import sistematuristico.Entidades.Pasaje;
-
 
 /**
  *
  * @author crist
  */
 public class SeleccionTransporte extends javax.swing.JInternalFrame {
+
     Ciudad origen = Menu.paquete.getOrigen();
     Ciudad destino = Menu.paquete.getDestino();
     int precio;
     String transporte;
+    Pasaje pasajeGlobal;
     PasajeData pasajeData = new PasajeData();
-    int colectivo[] = {5000,10000,30000};
-        int avion[] = {0,80000,150000};
-        int tren[] = {300,300,10000};
-        int barco[] = {0,15000,40000};
+    int colectivo[] = {5000, 10000, 30000};
+    int avion[] = {0, 80000, 150000};
+    int tren[] = {300, 300, 10000};
+    int barco[] = {0, 15000, 40000};
+
     public SeleccionTransporte() {
         initComponents();
         datosPrecargados();
-        ActualizarPrecio(CalcularDistancia(origen,destino));
+        ActualizarPrecio(CalcularDistancia(origen, destino));
 
     }
 
@@ -50,25 +55,25 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
         jlabel_exit = new javax.swing.JLabel();
         jPanelBody = new javax.swing.JPanel();
         jPanelBuscar1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        jPanelColectivo = new javax.swing.JPanel();
         jbSeleccionarColectivo = new javax.swing.JButton();
         jlPrecioColectivo = new javax.swing.JLabel();
         jSeparator11 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
         jSeparator12 = new javax.swing.JSeparator();
-        jPanel4 = new javax.swing.JPanel();
+        jPanelAvion = new javax.swing.JPanel();
         jbSeleccionarAvion = new javax.swing.JButton();
         jlPrecioAvion = new javax.swing.JLabel();
         jSeparator13 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
         jSeparator14 = new javax.swing.JSeparator();
-        jPanel5 = new javax.swing.JPanel();
+        jPanelBarco = new javax.swing.JPanel();
         jbSeleccionarBarco = new javax.swing.JButton();
         jlPrecioBarco = new javax.swing.JLabel();
         jSeparator15 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
         jSeparator16 = new javax.swing.JSeparator();
-        jPanel6 = new javax.swing.JPanel();
+        jPanelTren = new javax.swing.JPanel();
         jbSeleccionarTren = new javax.swing.JButton();
         jlPrecioTren = new javax.swing.JLabel();
         jSeparator17 = new javax.swing.JSeparator();
@@ -156,8 +161,8 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
         jPanelBuscar1.setBackground(new java.awt.Color(56, 63, 79));
 
-        jPanel3.setBackground(new java.awt.Color(56, 63, 79));
-        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        jPanelColectivo.setBackground(new java.awt.Color(56, 63, 79));
+        jPanelColectivo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
 
         jbSeleccionarColectivo.setBackground(new java.awt.Color(47, 52, 67));
         jbSeleccionarColectivo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -183,32 +188,32 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
         jSeparator12.setBackground(new java.awt.Color(235, 237, 255));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelColectivoLayout = new javax.swing.GroupLayout(jPanelColectivo);
+        jPanelColectivo.setLayout(jPanelColectivoLayout);
+        jPanelColectivoLayout.setHorizontalGroup(
+            jPanelColectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelColectivoLayout.createSequentialGroup()
+                .addGroup(jPanelColectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelColectivoLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(jPanelColectivoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator12))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelColectivoLayout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(jbSeleccionarColectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(jPanelColectivoLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelColectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlPrecioColectivo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        jPanelColectivoLayout.setVerticalGroup(
+            jPanelColectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelColectivoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
@@ -222,8 +227,8 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
                 .addGap(10, 10, 10))
         );
 
-        jPanel4.setBackground(new java.awt.Color(56, 63, 79));
-        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        jPanelAvion.setBackground(new java.awt.Color(56, 63, 79));
+        jPanelAvion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
 
         jbSeleccionarAvion.setBackground(new java.awt.Color(47, 52, 67));
         jbSeleccionarAvion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -249,32 +254,32 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
         jSeparator14.setBackground(new java.awt.Color(235, 237, 255));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelAvionLayout = new javax.swing.GroupLayout(jPanelAvion);
+        jPanelAvion.setLayout(jPanelAvionLayout);
+        jPanelAvionLayout.setHorizontalGroup(
+            jPanelAvionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAvionLayout.createSequentialGroup()
+                .addGroup(jPanelAvionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelAvionLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGroup(jPanelAvionLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator14))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelAvionLayout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(jbSeleccionarAvion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGroup(jPanelAvionLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelAvionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlPrecioAvion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        jPanelAvionLayout.setVerticalGroup(
+            jPanelAvionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAvionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
@@ -288,8 +293,8 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
                 .addGap(10, 10, 10))
         );
 
-        jPanel5.setBackground(new java.awt.Color(56, 63, 79));
-        jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        jPanelBarco.setBackground(new java.awt.Color(56, 63, 79));
+        jPanelBarco.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
 
         jbSeleccionarBarco.setBackground(new java.awt.Color(47, 52, 67));
         jbSeleccionarBarco.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -315,32 +320,32 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
         jSeparator16.setBackground(new java.awt.Color(235, 237, 255));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelBarcoLayout = new javax.swing.GroupLayout(jPanelBarco);
+        jPanelBarco.setLayout(jPanelBarcoLayout);
+        jPanelBarcoLayout.setHorizontalGroup(
+            jPanelBarcoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBarcoLayout.createSequentialGroup()
+                .addGroup(jPanelBarcoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelBarcoLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGroup(jPanelBarcoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator16))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBarcoLayout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(jbSeleccionarBarco, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGroup(jPanelBarcoLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelBarcoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlPrecioBarco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        jPanelBarcoLayout.setVerticalGroup(
+            jPanelBarcoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBarcoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -354,8 +359,8 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
                 .addGap(10, 10, 10))
         );
 
-        jPanel6.setBackground(new java.awt.Color(56, 63, 79));
-        jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        jPanelTren.setBackground(new java.awt.Color(56, 63, 79));
+        jPanelTren.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
 
         jbSeleccionarTren.setBackground(new java.awt.Color(47, 52, 67));
         jbSeleccionarTren.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -381,32 +386,32 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
         jSeparator18.setBackground(new java.awt.Color(235, 237, 255));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelTrenLayout = new javax.swing.GroupLayout(jPanelTren);
+        jPanelTren.setLayout(jPanelTrenLayout);
+        jPanelTrenLayout.setHorizontalGroup(
+            jPanelTrenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTrenLayout.createSequentialGroup()
+                .addGroup(jPanelTrenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelTrenLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGroup(jPanelTrenLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelTrenLayout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(jbSeleccionarTren, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGroup(jPanelTrenLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelTrenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlPrecioTren, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        jPanelTrenLayout.setVerticalGroup(
+            jPanelTrenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTrenLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -427,12 +432,12 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
             .addGroup(jPanelBuscar1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanelBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelTren, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelColectivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(100, 100, 100)
                 .addGroup(jPanelBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelAvion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelBarco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(24, 24, 24))
         );
         jPanelBuscar1Layout.setVerticalGroup(
@@ -440,12 +445,12 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
             .addGroup(jPanelBuscar1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jPanelBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelColectivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelAvion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelTren, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelBarco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(5, 5, 5))
         );
 
@@ -504,56 +509,70 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalirMousePressed
 
     private void jbSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSiguienteActionPerformed
-        Pasaje pasaje = new Pasaje(transporte, precio, origen, true, destino);
-        if(Menu.paquete.getPasa().getIdPasaje()==0){
-            Menu.guardarIdTransporte=pasajeData.AltaPasaje(pasaje);
-        }else{
-            Menu.guardarIdTransporte=Menu.paquete.getPasa().getIdPasaje();
-            pasajeData.ModificacionPasaje(Menu.guardarIdTransporte,pasaje);
+
+        System.out.println(transporte + " sout");
+        Pasaje pasaje = new Pasaje(transporte, precio, origen, true);  
+                System.out.println(destino);
+                System.out.println(destino.getIdCiudad());
+
+        if(Menu.paquete.getPasa()==null){ //Entra si es la primera vez creando el Pasaje
+            Menu.paquete.setPasa(pasaje);
         }
-        
+        if(Menu.paquete.getPasa().getIdPasaje()==0){ //Entra si es 0 no paso por SQL
+             Menu.guardarIdTransporte = pasajeData.AltaPasaje(Menu.paquete.getPasa()); //ahora id tiene valor y lo guardamos en "guardarIdTransporte" y ademas creamos el sql
+        }else{
+            Menu.guardarIdTransporte = Menu.paquete.getPasa().getIdPasaje();    //guardamos  en "guardarIdTransporte" el id, y no creamos el sql porque ya estaba
+            Menu.paquete.setPasa(pasaje);
+            pasajeData.ModificacionPasaje( Menu.guardarIdTransporte, Menu.paquete.getPasa());
+        }
+        Menu.InternalNum=4;
+        InvocarJInternalFrame(new ResumenPaquete());
     }//GEN-LAST:event_jbSiguienteActionPerformed
 
     private void jbSeleccionarColectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeleccionarColectivoActionPerformed
-        precio=colectivo[CalcularDistancia(origen,destino)];
-        transporte="Colectivo";
+        precio = colectivo[CalcularDistancia(origen, destino)];
+        transporte = "Colectivo";
+        seleccionFocus(transporte);
     }//GEN-LAST:event_jbSeleccionarColectivoActionPerformed
 
     private void jbSeleccionarAvionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeleccionarAvionActionPerformed
-        precio=avion[CalcularDistancia(origen,destino)];
-        transporte="Avion";
+        precio = avion[CalcularDistancia(origen, destino)];
+        transporte = "Avion";
+        seleccionFocus(transporte);
+
     }//GEN-LAST:event_jbSeleccionarAvionActionPerformed
 
     private void jbSeleccionarBarcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeleccionarBarcoActionPerformed
-        precio=barco[CalcularDistancia(origen,destino)];
-        transporte="Barco";
+        precio = barco[CalcularDistancia(origen, destino)];
+        transporte = "Barco";
+        seleccionFocus(transporte);
+
     }//GEN-LAST:event_jbSeleccionarBarcoActionPerformed
 
     private void jbSeleccionarTrenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeleccionarTrenActionPerformed
-        precio=tren[CalcularDistancia(origen,destino)];
-        transporte="Tren";
+        precio = tren[CalcularDistancia(origen, destino)];
+        transporte = "Tren";
+        seleccionFocus(transporte);
+
     }//GEN-LAST:event_jbSeleccionarTrenActionPerformed
 
-   
-   
-    private int CalcularDistancia(Ciudad origen, Ciudad destino){
+    private int CalcularDistancia(Ciudad origen, Ciudad destino) {
         if (!(origen.getPais().equalsIgnoreCase(destino.getPais()))) {
             return 2;//es internacional
-        }else if (!origen.getProvincia().equalsIgnoreCase(destino.getProvincia())) {
+        } else if (!origen.getProvincia().equalsIgnoreCase(destino.getProvincia())) {
             return 1;//es interprovincial 
-        }else{
+        } else {
             return 0;
-        }  
+        }
     }
-    
-    private void ActualizarPrecio(int distancia){
+
+    private void ActualizarPrecio(int distancia) {
         jlPrecioColectivo.setText("$ " + colectivo[distancia]);
         jlPrecioAvion.setText("$ " + avion[distancia]);
         jlPrecioTren.setText("$ " + tren[distancia]);
         jlPrecioBarco.setText("$ " + barco[distancia]);
-                
+
     }
-  
 
     private void InvocarJInternalFrame(JInternalFrame frame) {
         BasicInternalFrameUI ui = (BasicInternalFrameUI) frame.getUI();
@@ -567,8 +586,31 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
         Menu.Escritorio.add(frame); // Agrega el JInternalFrame al JDesktopPane
         frame.toFront();
     }
-    private void datosPrecargados(){
-        
+
+    private void datosPrecargados() {
+    }
+
+    private void seleccionFocus(String text) {
+        jPanelColectivo.setBorder(new LineBorder(new Color(235, 237, 255), 3));
+        jPanelAvion.setBorder(new LineBorder(new Color(235, 237, 255), 3));
+        jPanelTren.setBorder(new LineBorder(new Color(235, 237, 255), 3));
+        jPanelBarco.setBorder(new LineBorder(new Color(235, 237, 255), 3));
+        switch (text) {
+            case "Colectivo":
+                jPanelColectivo.setBorder(new LineBorder(new Color(83, 81, 251), 3));
+                break;
+            case "Avion":
+                jPanelAvion.setBorder(new LineBorder(new Color(83, 81, 251), 3));
+                break;
+            case "Tren":
+                jPanelTren.setBorder(new LineBorder(new Color(83, 81, 251), 3));
+                break;
+            case "Barco":
+                jPanelBarco.setBorder(new LineBorder(new Color(83, 81, 251), 3));
+                break;
+            default:
+                System.out.println("No deverias estar aca (seleccionFocus)");
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -578,14 +620,14 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanelAvion;
+    private javax.swing.JPanel jPanelBarco;
     private javax.swing.JPanel jPanelBody;
     private javax.swing.JPanel jPanelBuscar1;
+    private javax.swing.JPanel jPanelColectivo;
     private javax.swing.JPanel jPanelFull;
     private javax.swing.JPanel jPanelHead;
+    private javax.swing.JPanel jPanelTren;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;

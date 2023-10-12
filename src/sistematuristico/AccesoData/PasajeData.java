@@ -12,23 +12,21 @@ import sistematuristico.Entidades.Pasaje;
 public class PasajeData {
 
     private Connection con = null;
-    private CiudadData ciudaddata=new CiudadData();
-
+    private CiudadData ciudaddata = new CiudadData();
 
     public PasajeData() {
         con = Conexion.getConexion();
     }
 
     public int AltaPasaje(Pasaje pasaje) {
-        String sql = "INSERT INTO pasaje idPasaje, transporte, importe, idOrigen, estado, idDestino VALUES (?, ?, ?, ?, ?,?)";
+        String sql = "INSERT INTO pasaje (transporte, importe, idOrigen, estado) VALUES ( ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, pasaje.getIdPasaje());
-            ps.setString(2, pasaje.getTransporte());
-            ps.setDouble(3, pasaje.getImporte());
-            ps.setInt(4, pasaje.getOrigen(). getIdCiudad());
-            ps.setBoolean(5, pasaje.isEstado());
-            ps.setInt(6, pasaje.getDestino().getIdCiudad());
+            ps.setString(1, pasaje.getTransporte());
+            ps.setDouble(2, pasaje.getImporte());
+            ps.setInt(3, pasaje.getOrigen().getIdCiudad());
+            ps.setBoolean(4, pasaje.isEstado());
+            //ps.setInt(6, pasaje.getDestino().getIdCiudad());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
@@ -60,16 +58,17 @@ public class PasajeData {
     }
 
     public void ModificacionPasaje(int IdPasaje, Pasaje pasaje) {
-        String sql = "UPDATE pasaje SET Idpasaje = ? , transporte = ?, origen = ?, estado = ?, idDestino =? WHERE importe = ?";
+        System.out.println(IdPasaje);
+        String sql = "UPDATE pasaje SET transporte = ?, importe = ? , idOrigen = ?, estado = ? WHERE Idpasaje = ?";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
-             ps.setInt(1, pasaje.getIdPasaje());
-            ps.setString(2, pasaje.getTransporte());
-            ps.setDouble(3, pasaje.getImporte());
-            ps.setInt(4, pasaje.getOrigen().getIdCiudad());
-            ps.setBoolean(5, pasaje.isEstado());
-            ps.setInt(6, pasaje.getDestino().getIdCiudad());
+
+            ps.setString(1, pasaje.getTransporte());
+            ps.setDouble(2, pasaje.getImporte());
+            ps.setInt(3, pasaje.getOrigen().getIdCiudad());
+            ps.setBoolean(4, pasaje.isEstado());
+            ps.setInt(5, IdPasaje);
 
             int exito = ps.executeUpdate();
             if (exito == 1) {
@@ -81,9 +80,10 @@ public class PasajeData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pasaje \n[Error en el metodo ModificacionPasaje de PasajeData]\n" + ex.getMessage());
         }
     }
-     public Pasaje buscarPasaje(int id) {
+
+    public Pasaje buscarPasaje(int id) {
         Pasaje pasaje = null;
-        String sql = "SELECT idPasaje, transporte, importe, idOrigen, estado, idDestino FROM pasaje WHERE idPasaje = ? AND estado = 1";
+        String sql = "SELECT idPasaje, transporte, importe, idOrigen, estado FROM pasaje WHERE idPasaje = ? AND estado = 1";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
@@ -96,12 +96,10 @@ public class PasajeData {
                 pasaje.setTransporte(rs.getString("transporte"));
                 pasaje.setImporte(rs.getDouble("importe"));
                 pasaje.setEstado(rs.getBoolean("estado"));
-               
-                
-                Ciudad ciudad =ciudaddata.buscarCiudad(rs.getInt("idOrigen"));
+
+                Ciudad ciudad = ciudaddata.buscarCiudad(rs.getInt("idOrigen"));
                 pasaje.setOrigen(ciudad);
-                Ciudad ciudad2 =ciudaddata.buscarCiudad(rs.getInt("idDestino"));
-                pasaje.setDestino(ciudad2);
+                Ciudad ciudad2 = ciudaddata.buscarCiudad(rs.getInt("idDestino"));
 
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el pasaje");
@@ -111,7 +109,6 @@ public class PasajeData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pasaje " + ex.getMessage());
         }
         return pasaje;
-     }
+    }
 
 }
-
