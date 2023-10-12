@@ -518,8 +518,8 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
             aloja.setServicio(String.valueOf(jComboBoxServicio.getSelectedItem()));
             aloja.setEstado(true);
             aloja.setDestino(Menu.paquete.getDestino());
-            double precio = Double.parseDouble(jTextServicio.getText()) + Double.parseDouble(jTextServicio.getText());
-            aloja.setImporteDiario(precio);
+            //double precio = Double.parseDouble(jTextServicio.getText()) + Double.parseDouble(jTextServicio.getText());
+            aloja.setImporteDiario(Double.parseDouble(jTextDiario.getText()));
             alojamiento = aloja;
             a=1;
 
