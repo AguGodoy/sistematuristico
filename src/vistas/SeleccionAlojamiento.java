@@ -18,7 +18,6 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 import sistematuristico.AccesoData.AlojamientoData;
 import sistematuristico.Entidades.Alojamiento;
 
-
 import sistematuristico.AccesoData.AlojamientoData;
 
 import sistematuristico.Entidades.Alojamiento;
@@ -40,10 +39,11 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
         if (Menu.paquete.getAloja() != null) {
             LocalDate ldate = (Menu.paquete.getAloja().getFechaIn());
 
-            jDateChooserInicio.setDate(Date.from(Instant.from((Menu.paquete.getAloja().getFechaIn()).atStartOfDay(ZoneId.of("GMT")))));
-            jDateChooserSalida.setDate(Date.from(Instant.from((Menu.paquete.getAloja().getFechaOn()).atStartOfDay(ZoneId.of("GMT")))));
+            jDateChooserInicio.setDate(Date.from(Menu.paquete.getAloja().getFechaIn().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+            jDateChooserSalida.setDate(Date.from(Menu.paquete.getAloja().getFechaOn().atStartOfDay(ZoneId.systemDefault()).toInstant()));
             jComboBoxAlojamiento.setSelectedItem(Menu.paquete.getAloja().getTipo());
             jComboBoxServicio.setSelectedItem(Menu.paquete.getAloja().getServicio());
+
         }
     }
 
@@ -231,9 +231,21 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
             }
         });
 
+        jDateChooserInicio.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooserInicioPropertyChange(evt);
+            }
+        });
+
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(235, 237, 255));
         jLabel16.setText("Fecha de Salida:");
+
+        jDateChooserSalida.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooserSalidaPropertyChange(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(235, 237, 255));
@@ -495,6 +507,7 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextTotalFocusLost
 
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
+       int a;//variable para permitir realizar el alta o la modicicacion si cumple con las condiciones previas
         try {
             Alojamiento aloja = new Alojamiento();
 
@@ -507,37 +520,36 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
             aloja.setDestino(Menu.paquete.getDestino());
             double precio = Double.parseDouble(jTextServicio.getText()) + Double.parseDouble(jTextServicio.getText());
             aloja.setImporteDiario(precio);
-            aloja.setIdAlojamiento(2);
             alojamiento = aloja;
-            
-            try{
-                Menu.guardarIdAlojamiento = Menu.paquete.getAloja().getIdAlojamiento();
-               alojamientoData.ModificacionAlojamiento(Menu.guardarIdAlojamiento, alojamiento);
-                } catch (NullPointerException ex) {
-           JOptionPane.showMessageDialog(null, "se genero un nuevo id de alojamiento");
-           Menu.guardarIdAlojamiento = alojamientoData.AltaAlojamiento(alojamiento);
-        }
-            
-          
-            Menu.paquete.setAloja(alojamiento);
-            Menu.InternalNum = 3;
-            InvocarJInternalFrame(new SeleccionTransporte());
+            a=1;
 
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "error al ingresar datos");
-
-       } catch (NullPointerException ex) {
-           JOptionPane.showMessageDialog(null, "Error. No debe haber campos vacios");
+            a=0;
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(null, "Error. No debe haber campos vacios");
+            a=0;
         }
-
+        if(a==1){
+        try {
+            Menu.guardarIdAlojamiento = Menu.paquete.getAloja().getIdAlojamiento();
+            alojamientoData.ModificacionAlojamiento(Menu.guardarIdAlojamiento, alojamiento);
+        } catch (NullPointerException ex) {
+            alojamientoData.AltaAlojamiento(alojamiento);
+            Menu.guardarIdAlojamiento = alojamiento.getIdAlojamiento();
+        }
+        Menu.paquete.setAloja(alojamiento);
+        Menu.InternalNum = 3;
+        InvocarJInternalFrame(new SeleccionTransporte());
+        }else{
+            JOptionPane.showMessageDialog(null, "no se pudo completar la operacion");
+        }
 
     }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
     private void jComboBoxAlojamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAlojamientoActionPerformed
         switch (String.valueOf(jComboBoxAlojamiento.getSelectedItem())) {
-            case "":
-                jTextAlojamiento.setText(String.valueOf(0));
-                break;
+            
             case "Hotel":
                 jTextAlojamiento.setText(String.valueOf(3000));
                 break;
@@ -568,9 +580,7 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
 
     private void jComboBoxServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxServicioActionPerformed
         switch (String.valueOf(jComboBoxServicio.getSelectedItem())) {
-            case "":
-                jTextServicio.setText(String.valueOf(0));
-                break;
+           
             case "Clasico":
                 jTextServicio.setText(String.valueOf(0));
                 break;
@@ -592,6 +602,47 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
     private void btnSalirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMousePressed
         InvocarJInternalFrame(new ABMAlojamiento());
     }//GEN-LAST:event_btnSalirMousePressed
+
+    private void jDateChooserInicioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooserInicioPropertyChange
+        try {
+            LocalDate fechaActual = LocalDate.now();
+            LocalDate fecha2 = jDateChooserInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate fecha1 = fechaActual;
+            long diferenciaDias1 = ChronoUnit.DAYS.between(fecha1, fecha2);
+            long diferenciaDias2 = 1;
+            if (jDateChooserSalida.getDate() != null) {
+                LocalDate fecha3 = jDateChooserSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                diferenciaDias2 = ChronoUnit.DAYS.between(fecha2, fecha3);
+            }
+            if (diferenciaDias1 >= 0 && diferenciaDias2 > 0) {
+                precioDiario();
+            } else {
+                JOptionPane.showMessageDialog(null, "La fecha no puede ser anterior a la actual o posterior a la feha de salida");
+                jDateChooserInicio.setDate(null);
+            }
+        } catch (NullPointerException ex) {
+        }
+    }//GEN-LAST:event_jDateChooserInicioPropertyChange
+
+    private void jDateChooserSalidaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooserSalidaPropertyChange
+
+        try {
+            LocalDate fechaActual = LocalDate.now();
+            LocalDate fecha2 = jDateChooserSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate fecha1 = fechaActual;
+            if (jDateChooserInicio.getDate() != null) {
+                fecha1 = jDateChooserInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            }
+            long diferenciaDias = ChronoUnit.DAYS.between(fecha1, fecha2);
+            if (diferenciaDias > 0) {
+                precioDiario();
+            } else {
+                JOptionPane.showMessageDialog(null, "La fecha no puede ser anterior seleccionada en Fecha Inicio ni a la fecha actual");
+                jDateChooserSalida.setDate(null);
+            }
+        } catch (NullPointerException ex) {
+        }
+    }//GEN-LAST:event_jDateChooserSalidaPropertyChange
     // </editor-fold>
     // </editor-fold>  
 
@@ -637,22 +688,18 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 private void cargarcombobox() {
         //combo alojamiento
-        jComboBoxAlojamiento.addItem("");
         jComboBoxAlojamiento.addItem("Hotel");
         jComboBoxAlojamiento.addItem("Hostel");
         jComboBoxAlojamiento.addItem("Casa");
         jComboBoxAlojamiento.addItem("Cabania");
         //combo servicio
-        jComboBoxServicio.addItem("");
         jComboBoxServicio.addItem("Clasico");
         jComboBoxServicio.addItem("Desayuno");
         jComboBoxServicio.addItem("Media Pension");
         jComboBoxServicio.addItem("Todo Incluido");
-
     }
 
     private void limpiar() {
-
         jComboBoxAlojamiento.setSelectedIndex(-1);
         jComboBoxServicio.setSelectedIndex(-1);
         jDateChooserInicio.setDate(null);
@@ -661,24 +708,19 @@ private void cargarcombobox() {
         jTextTotal.setText("");
         jTextServicio.setText("");
         jTextAlojamiento.setText("");
-
     }
 
     private void precioDiario() {
         if (!(jTextAlojamiento.getText().isEmpty() || jTextServicio.getText().isEmpty())) {
             jTextDiario.setText(Double.parseDouble(jTextAlojamiento.getText()) + Double.parseDouble(jTextServicio.getText()) + "");
             if (jDateChooserInicio.getDate() == null || jDateChooserSalida.getDate() == null) {
-
             } else {
                 LocalDate fecha1 = jDateChooserInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 LocalDate fecha2 = jDateChooserSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
                 long diferenciaDias = ChronoUnit.DAYS.between(fecha1, fecha2);
-
                 jTextTotal.setText(String.valueOf(Double.valueOf(jTextDiario.getText()) * diferenciaDias + ""));
             }
         }
-
     }
 
     private void InvocarJInternalFrame(JInternalFrame frame) {
@@ -693,5 +735,21 @@ private void cargarcombobox() {
         Menu.Escritorio.add(frame); // Agrega el JInternalFrame al JDesktopPane
         frame.toFront();
     }
+    /**
+     * private void recuperarDatos() { try { if (Menu.guardarIdAlojamiento !=0)
+     * {
+     * jComboBoxAlojamiento.setSelectedItem(Menu.paquete.getAloja().getTipo());
+     * jComboBoxServicio.setSelectedItem(Menu.paquete.getAloja().getServicio());
+     * jDateChooserInicio.setDate(Date.from(Menu.paquete.getAloja().getFechaIn().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+     * jDateChooserSalida.setDate(Date.from(Menu.paquete.getAloja().getFechaOn().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+     * precioDiario();
+     *
+     * }
+     * } catch (NullPointerException ex) {
+     *
+     * }
+     * }
+     *
+     */
 
 }

@@ -20,31 +20,33 @@ public class AlojamientoData {
         
     }
 
-    public int AltaAlojamiento(Alojamiento alojamiento) {
-        String sql = "INSERT INTO alojamiento ( fechaIn, fechaOn, estado, servicio, importe, idDestino,tipoDeAlojamiento) VALUES (?, ?, ?, ?, ?,?,?)";
+    public void AltaAlojamiento(Alojamiento alojamiento) {
+        String sql = "INSERT INTO alojamiento ( idAlojamiento, fechaIn, fechaOn, estado, servicio, importe, idDestino,tipoDeAlojamiento) VALUES (?,?, ?, ?, ?, ?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            //ps.setInt(1, alojamiento.getIdAlojamiento());
-            ps.setDate(1, Date.valueOf(alojamiento.getFechaIn()));
-            ps.setDate(2, Date.valueOf(alojamiento.getFechaOn()));
-            ps.setBoolean(3, alojamiento.isEstado());
-            ps.setString(4, alojamiento.getServicio());
-            ps.setDouble(5, alojamiento.getImporteDiario());
-            ps.setInt(6, alojamiento.getDestino().getIdCiudad());
-            ps.setString(7, alojamiento.getTipo());
+            ps.setInt(1, alojamiento.getIdAlojamiento());
+            ps.setDate(2, Date.valueOf(alojamiento.getFechaIn()));
+            ps.setDate(3, Date.valueOf(alojamiento.getFechaOn()));
+            ps.setBoolean(4, alojamiento.isEstado());
+            ps.setString(5, alojamiento.getServicio());
+            ps.setDouble(6, alojamiento.getImporteDiario());
+            ps.setInt(7, alojamiento.getDestino().getIdCiudad());
+            ps.setString(8, alojamiento.getTipo());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 alojamiento.setIdAlojamiento(rs.getInt(1));
+               
                 JOptionPane.showMessageDialog(null, "Alojamiento añadido con exito.");
-               return alojamiento.getIdAlojamiento();
+                
+               
             }
             ps.close();
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alojamiento\n[Error en el metodo AltaAlojamiento de AlojamientoData]\n" + ex.getMessage());
         }
-        return 0;
+        
     }
 
     public void BajaAlojamiento(int IdAlojamientoParametro) {
@@ -63,7 +65,7 @@ public class AlojamientoData {
         }
     }
 
-    public void ModificacionAlojamiento(int IdAlojamientoParametro, Alojamiento alojamiento) {
+    public void ModificacionAlojamiento(int idAlojamientoParametro, Alojamiento alojamiento) {
         String sql = "UPDATE alojamiento SET fechaIn = ?, fechaOn = ?, estado = ?, servicio = ?, importe = ?, idDestino = ?, tipoDeAlojamiento=? WHERE IdAlojamiento = ?";
         PreparedStatement ps = null;
         try {
@@ -75,12 +77,13 @@ public class AlojamientoData {
             ps.setDouble(5, alojamiento.getImporteDiario());
             ps.setInt(6, alojamiento.getDestino().getIdCiudad());
             ps.setString(7, alojamiento.getTipo());
-            ps.setInt(8, IdAlojamientoParametro);
-            
+            ps.setInt(8, idAlojamientoParametro);
+           
 
             int exito = ps.executeUpdate();
             if (exito == 1) {
                 JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
+                alojamiento.setIdAlojamiento(idAlojamientoParametro);
             } else {
                 JOptionPane.showMessageDialog(null, "El Alojamiento no existe");
             }
