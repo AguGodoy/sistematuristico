@@ -9,41 +9,29 @@ package sistematuristico.Entidades;
  * @author Usuario
  */
 public class Pasaje {
-  private int idPasaje;
-  private String transporte;
-  private double importe;
-  private Ciudad origen;
-  private boolean estado;
-  private Ciudad destino;
+
+    private int idPasaje;
+    private String transporte;
+    private double importe;
+    private Ciudad origen;
+    private boolean estado;
 
     public Pasaje() {
     }
 
-    public Pasaje(String Transporte, double importe, Ciudad origen, boolean estado,Ciudad destino) {
+    public Pasaje(String Transporte, double importe, Ciudad origen, boolean estado) {
         this.transporte = Transporte;
         this.importe = importe;
         this.origen = origen;
         this.estado = estado;
     }
 
-    public Pasaje(int idPasaje, String Transporte, double importe, Ciudad origen, boolean estado,Ciudad destino) {
+    public Pasaje(int idPasaje, String Transporte, double importe, Ciudad origen, boolean estado) {
         this.idPasaje = idPasaje;
         this.transporte = Transporte;
         this.importe = importe;
         this.origen = origen;
         this.estado = estado;
-    }
-
-    public Ciudad getDestino() {
-        return destino;
-    }
-
-    public void setDestino(Ciudad destino) {
-        this.destino = destino;
-    }
-
-    public Pasaje(int idPasaje, String transporte, double importe, int origen, boolean estado) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public int getIdPasaje() {
@@ -85,9 +73,9 @@ public class Pasaje {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-  
-  @Override
-  public String toString(){
-      return idPasaje+ " " + transporte+ " " + importe + " " + origen+ " " + estado;
-  }
+
+    @Override
+    public String toString() {
+        return idPasaje + " " + transporte + " " + importe + " " + origen + " " + estado;
+    }
 }
