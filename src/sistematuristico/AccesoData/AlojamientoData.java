@@ -37,7 +37,7 @@ public class AlojamientoData {
             if (rs.next()) {
                 alojamiento.setIdAlojamiento(rs.getInt(1));
                
-                JOptionPane.showMessageDialog(null, "Alojamiento añadido con exito.");
+                //JOptionPane.showMessageDialog(null, "Alojamiento añadido con exito.");
                 
                
             }
@@ -82,7 +82,7 @@ public class AlojamientoData {
 
             int exito = ps.executeUpdate();
             if (exito == 1) {
-                JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
+                //JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
                 alojamiento.setIdAlojamiento(idAlojamientoParametro);
             } else {
                 JOptionPane.showMessageDialog(null, "El Alojamiento no existe");

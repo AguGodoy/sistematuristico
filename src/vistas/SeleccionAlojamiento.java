@@ -82,7 +82,6 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
         jLabel18 = new javax.swing.JLabel();
         jTextServicio = new javax.swing.JTextField();
         jTextTotal = new javax.swing.JTextField();
-        jButtonSiguiente = new javax.swing.JButton();
         jButtonConfirmar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jTextDiario = new javax.swing.JTextField();
@@ -281,20 +280,10 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
             }
         });
 
-        jButtonSiguiente.setBackground(new java.awt.Color(47, 52, 67));
-        jButtonSiguiente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButtonSiguiente.setForeground(new java.awt.Color(235, 237, 255));
-        jButtonSiguiente.setText("Siguiente");
-        jButtonSiguiente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSiguienteActionPerformed(evt);
-            }
-        });
-
         jButtonConfirmar.setBackground(new java.awt.Color(47, 52, 67));
         jButtonConfirmar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButtonConfirmar.setForeground(new java.awt.Color(235, 237, 255));
-        jButtonConfirmar.setText("Confirmar");
+        jButtonConfirmar.setText("Siguiente");
         jButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonConfirmarActionPerformed(evt);
@@ -352,6 +341,9 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jDateChooserInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jDateChooserSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -369,12 +361,6 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
                             .addComponent(jTextAlojamiento)))
                     .addComponent(jTextCiudad))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -410,11 +396,9 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelNuevoLayout = new javax.swing.GroupLayout(jPanelNuevo);
@@ -481,19 +465,6 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
     private void jTextAlojamientoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextAlojamientoFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextAlojamientoFocusLost
-
-    private void jButtonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSiguienteActionPerformed
-
-        // if (Menu.paquete.getAloja().getIdAlojamiento()==0) {
-        //     Menu.guardarIdAlojamiento = alojamientoData.AltaAlojamiento(alojamiento);
-        // } else {
-        //     Menu.guardarIdAlojamiento = Menu.paquete.getAloja().getIdAlojamiento();
-        //     alojamientoData.ModificacionAlojamiento(Menu.guardarIdAlojamiento, alojamiento);
-        // }
-        // Menu.paquete.setAloja(alojamiento);
-        // Menu.InternalNum = 3;
-        // InvocarJInternalFrame(new SeleccionTransporte());
-    }//GEN-LAST:event_jButtonSiguienteActionPerformed
 
     private void jTextServicioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextServicioFocusGained
         // TODO add your handling code here:
@@ -666,7 +637,6 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnSalir;
     private javax.swing.JButton jButtonConfirmar;
-    private javax.swing.JButton jButtonSiguiente;
     private javax.swing.JComboBox<String> jComboBoxAlojamiento;
     private javax.swing.JComboBox<String> jComboBoxServicio;
     private com.toedter.calendar.JDateChooser jDateChooserInicio;
