@@ -21,7 +21,7 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
     Ciudad origen = Menu.paquete.getOrigen();
     Ciudad destino = Menu.paquete.getDestino();
-    int precio;
+    double precio;
     String transporte;
     Pasaje pasajeGlobal;
     PasajeData pasajeData = new PasajeData();
@@ -510,22 +510,21 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
     private void jbSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSiguienteActionPerformed
 
-        System.out.println(transporte + " sout");
-        Pasaje pasaje = new Pasaje(transporte, precio, origen, true);  
-                System.out.println(destino);
-                System.out.println(destino.getIdCiudad());
+        Pasaje pasaje = new Pasaje(transporte, precio, origen, true);
+        System.out.println(destino);
+        System.out.println(destino.getIdCiudad());
 
-        if(Menu.paquete.getPasa()==null){ //Entra si es la primera vez creando el Pasaje
+        if (Menu.paquete.getPasa() == null) { //Entra si es la primera vez creando el Pasaje
             Menu.paquete.setPasa(pasaje);
         }
-        if(Menu.paquete.getPasa().getIdPasaje()==0){ //Entra si es 0 no paso por SQL
-             Menu.guardarIdTransporte = pasajeData.AltaPasaje(Menu.paquete.getPasa()); //ahora id tiene valor y lo guardamos en "guardarIdTransporte" y ademas creamos el sql
-        }else{
+        if (Menu.paquete.getPasa().getIdPasaje() == 0) { //Entra si es 0 no paso por SQL
+            Menu.guardarIdTransporte = pasajeData.AltaPasaje(Menu.paquete.getPasa()); //ahora id tiene valor y lo guardamos en "guardarIdTransporte" y ademas creamos el sql
+        } else {
             Menu.guardarIdTransporte = Menu.paquete.getPasa().getIdPasaje();    //guardamos  en "guardarIdTransporte" el id, y no creamos el sql porque ya estaba
             Menu.paquete.setPasa(pasaje);
-            pasajeData.ModificacionPasaje( Menu.guardarIdTransporte, Menu.paquete.getPasa());
+            pasajeData.ModificacionPasaje(Menu.guardarIdTransporte, Menu.paquete.getPasa());
         }
-        Menu.InternalNum=4;
+        Menu.InternalNum = 4;
         InvocarJInternalFrame(new ResumenPaquete());
     }//GEN-LAST:event_jbSiguienteActionPerformed
 
@@ -588,6 +587,13 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
     }
 
     private void datosPrecargados() {
+       if(Menu.paquete.getPasa()!=null){
+           transporte=Menu.paquete.getPasa().getTransporte();
+           precio = Menu.paquete.getPasa().getImporte();
+           seleccionFocus(transporte);
+       }else{
+          seleccionFocus(""); 
+       }
     }
 
     private void seleccionFocus(String text) {
@@ -609,7 +615,10 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
                 jPanelBarco.setBorder(new LineBorder(new Color(83, 81, 251), 3));
                 break;
             default:
-                System.out.println("No deverias estar aca (seleccionFocus)");
+                jPanelColectivo.setBorder(new LineBorder(new Color(235, 237, 255), 3));
+                jPanelAvion.setBorder(new LineBorder(new Color(235, 237, 255), 3));
+                jPanelTren.setBorder(new LineBorder(new Color(235, 237, 255), 3));
+                jPanelBarco.setBorder(new LineBorder(new Color(235, 237, 255), 3));
         }
     }
 
