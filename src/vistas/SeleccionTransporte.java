@@ -51,8 +51,6 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        btnSalir = new javax.swing.JPanel();
-        jlabel_exit = new javax.swing.JLabel();
         jPanelBody = new javax.swing.JPanel();
         jPanelBuscar1 = new javax.swing.JPanel();
         jPanelColectivo = new javax.swing.JPanel();
@@ -95,35 +93,6 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
         jSeparator2.setBackground(new java.awt.Color(235, 237, 255));
 
-        btnSalir.setBackground(new java.awt.Color(56, 63, 79));
-        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnSalirMousePressed(evt);
-            }
-        });
-
-        jlabel_exit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jlabel_exit.setForeground(new java.awt.Color(255, 255, 255));
-        jlabel_exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlabel_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/settings-25-24.png"))); // NOI18N
-
-        javax.swing.GroupLayout btnSalirLayout = new javax.swing.GroupLayout(btnSalir);
-        btnSalir.setLayout(btnSalirLayout);
-        btnSalirLayout.setHorizontalGroup(
-            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnSalirLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jlabel_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(30, 30, 30))
-        );
-        btnSalirLayout.setVerticalGroup(
-            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnSalirLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jlabel_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout jPanelHeadLayout = new javax.swing.GroupLayout(jPanelHead);
         jPanelHead.setLayout(jPanelHeadLayout);
         jPanelHeadLayout.setHorizontalGroup(
@@ -136,9 +105,7 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
                     .addGroup(jPanelHeadLayout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(265, Short.MAX_VALUE))
         );
         jPanelHeadLayout.setVerticalGroup(
             jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,9 +113,7 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(8, Short.MAX_VALUE))
@@ -158,6 +123,7 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
         jPanelBody.setBackground(new java.awt.Color(56, 63, 79));
         jPanelBody.setPreferredSize(new java.awt.Dimension(1000, 540));
+        jPanelBody.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelBuscar1.setBackground(new java.awt.Color(56, 63, 79));
 
@@ -454,6 +420,8 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
                 .addGap(5, 5, 5))
         );
 
+        jPanelBody.add(jPanelBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+
         jbSiguiente.setBackground(new java.awt.Color(47, 52, 67));
         jbSiguiente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jbSiguiente.setForeground(new java.awt.Color(235, 237, 255));
@@ -463,30 +431,7 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
                 jbSiguienteActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
-        jPanelBody.setLayout(jPanelBodyLayout);
-        jPanelBodyLayout.setHorizontalGroup(
-            jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
-                        .addComponent(jPanelBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
-                        .addComponent(jbSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(424, 424, 424))))
-        );
-        jPanelBodyLayout.setVerticalGroup(
-            jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
-                .addComponent(jPanelBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-        );
+        jPanelBody.add(jbSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 475, 130, 45));
 
         jPanelFull.add(jPanelBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1000, 540));
 
@@ -503,10 +448,6 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSalirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMousePressed
-        //InvocarJInternalFrame(new *Agrega aca tu internalframe ABM*());
-    }//GEN-LAST:event_btnSalirMousePressed
 
     private void jbSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSiguienteActionPerformed
 
@@ -623,7 +564,6 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -656,6 +596,5 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jlPrecioBarco;
     private javax.swing.JLabel jlPrecioColectivo;
     private javax.swing.JLabel jlPrecioTren;
-    private javax.swing.JLabel jlabel_exit;
     // End of variables declaration//GEN-END:variables
 }
