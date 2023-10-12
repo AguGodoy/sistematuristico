@@ -37,6 +37,23 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jPanelBody = new javax.swing.JPanel();
+        jPanelNuevo = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jPanelFull.setBackground(new java.awt.Color(56, 63, 79));
         jPanelFull.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -60,12 +77,11 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
                 .addGap(265, 265, 265)
                 .addGroup(jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanelHeadLayout.createSequentialGroup()
-                            .addGap(57, 57, 57)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(265, Short.MAX_VALUE))
+                    .addGroup(jPanelHeadLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
         jPanelHeadLayout.setVerticalGroup(
             jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,15 +100,120 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jPanelBody.setBackground(new java.awt.Color(56, 63, 79));
         jPanelBody.setPreferredSize(new java.awt.Dimension(1000, 540));
 
+        jPanelNuevo.setBackground(new java.awt.Color(56, 63, 79));
+        jPanelNuevo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel2.setText("Importe total a pagar:");
+        jPanelNuevo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, -1, 30));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel3.setText("Destino:");
+        jPanelNuevo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, 30));
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel4.setText("Fecha de ingreso:");
+        jPanelNuevo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, -1, 30));
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel5.setText("Fecha de ingreso:");
+        jPanelNuevo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, 30));
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel6.setText("Tipo de transporte:");
+        jPanelNuevo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, -1, 30));
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel7.setText("Tipo de alojamiento:");
+        jPanelNuevo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, 30));
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel8.setText("Tipo de servicio:");
+        jPanelNuevo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, -1, 30));
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanelNuevo.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, 250, -1));
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        jPanelNuevo.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 250, -1));
+
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        jPanelNuevo.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 250, -1));
+
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        jPanelNuevo.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 250, -1));
+
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        jPanelNuevo.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 250, -1));
+
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        jPanelNuevo.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 250, -1));
+
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+        jPanelNuevo.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 250, -1));
+
+        jButton1.setBackground(new java.awt.Color(47, 52, 67));
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(235, 237, 255));
+        jButton1.setText("Terminar");
+        jPanelNuevo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, -1, -1));
+
+        jButton2.setBackground(new java.awt.Color(47, 52, 67));
+        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(235, 237, 255));
+        jButton2.setText("Modificar");
+        jPanelNuevo.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, -1, -1));
+
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGroup(jPanelBodyLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanelFull.add(jPanelBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1000, 540));
@@ -111,6 +232,34 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
 
     private void InvocarJInternalFrame(JInternalFrame frame) {
         BasicInternalFrameUI ui = (BasicInternalFrameUI) frame.getUI();
@@ -126,11 +275,28 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanelBody;
     private javax.swing.JPanel jPanelFull;
     private javax.swing.JPanel jPanelHead;
+    private javax.swing.JPanel jPanelNuevo;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }

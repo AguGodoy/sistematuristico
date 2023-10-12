@@ -317,6 +317,11 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
                 jTextDiarioFocusLost(evt);
             }
         });
+        jTextDiario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextDiarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -643,6 +648,10 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
         } catch (NullPointerException ex) {
         }
     }//GEN-LAST:event_jDateChooserSalidaPropertyChange
+
+    private void jTextDiarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextDiarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextDiarioActionPerformed
     // </editor-fold>
     // </editor-fold>  
 
