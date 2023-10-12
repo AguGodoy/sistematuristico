@@ -480,9 +480,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlojamientoMousePressed
 
     private void btnResumenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResumenMousePressed
-        setColor(btnResumen);
-        indResumen.setOpaque(true);
-        resetColor(new JPanel[]{btnDestino, btnAlojamiento, btnTransoporte,}, new JPanel[]{indDestino, indAlojamiento, indTransoporte});
+        InternalNum = 4;
+        SelecResumen();
         InvocarJInternalFrame(new ResumenPaquete());
     }//GEN-LAST:event_btnResumenMousePressed
 
@@ -503,6 +502,7 @@ public class Menu extends javax.swing.JFrame {
                 SelecTransporte();
                 break;
             case 4:
+                SelecResumen();
                 break;
             default:
                 System.out.println("No deveria pasar esto");
@@ -577,6 +577,12 @@ public class Menu extends javax.swing.JFrame {
         setColor(btnTransoporte);
         indTransoporte.setOpaque(true);
         resetColor(new JPanel[]{btnAlojamiento, btnDestino, btnResumen}, new JPanel[]{indAlojamiento, indDestino, indResumen});
+    }
+
+    private void SelecResumen() {
+        setColor(btnResumen);
+        indResumen.setOpaque(true);
+        resetColor(new JPanel[]{btnDestino, btnAlojamiento, btnTransoporte,}, new JPanel[]{indDestino, indAlojamiento, indTransoporte});
     }
 
     private void InvocarJInternalFrame(JInternalFrame frame) {
