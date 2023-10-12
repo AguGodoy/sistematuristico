@@ -9,7 +9,6 @@ import sistematuristico.Entidades.Pasaje;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -55,6 +54,8 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
         modificarButton = new javax.swing.JButton();
         altaButton = new javax.swing.JButton();
         bajaButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         jPanelFull.setBackground(new java.awt.Color(56, 63, 79));
         jPanelFull.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -158,7 +159,7 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(235, 237, 255));
-        jLabel6.setText("Nombre Pais:");
+        jLabel6.setText("origen");
 
         origenField.setBackground(new java.awt.Color(56, 63, 79));
         origenField.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -300,6 +301,28 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
                 .addGap(24, 24, 24))
         );
 
+        jScrollPane2.setBackground(new java.awt.Color(56, 63, 79));
+        jScrollPane2.setForeground(new java.awt.Color(56, 63, 79));
+
+        jTable2.setBackground(new java.awt.Color(56, 63, 79));
+        jTable2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTable2.setForeground(new java.awt.Color(235, 237, 255));
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "id pasaje", "trasporte", "importe", "origen"
+            }
+        ));
+        jTable2.setFocusable(false);
+        jTable2.setGridColor(new java.awt.Color(47, 52, 67));
+        jTable2.setSelectionBackground(new java.awt.Color(83, 81, 251));
+        jTable2.setSelectionForeground(new java.awt.Color(235, 237, 255));
+        jScrollPane2.setViewportView(jTable2);
+
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
@@ -307,11 +330,17 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jPanelNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(503, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanelBodyLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanelFull.add(jPanelBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1000, 540));
@@ -428,8 +457,10 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanelFull;
     private javax.swing.JPanel jPanelHead;
     private javax.swing.JPanel jPanelNuevo;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTable jTable2;
     private javax.swing.JButton modificarButton;
     private javax.swing.JTextField origenField;
     private javax.swing.JTextField transporteField;
