@@ -41,11 +41,9 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
@@ -54,6 +52,7 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jTextField7 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jTextField8 = new javax.swing.JTextField();
 
         jPanelFull.setBackground(new java.awt.Color(56, 63, 79));
         jPanelFull.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,98 +105,107 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(235, 237, 255));
         jLabel2.setText("Importe total a pagar:");
-        jPanelNuevo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, -1, 30));
+        jPanelNuevo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(235, 237, 255));
         jLabel3.setText("Destino:");
-        jPanelNuevo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, 30));
+        jPanelNuevo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(235, 237, 255));
-        jLabel4.setText("Fecha de ingreso:");
-        jPanelNuevo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, -1, 30));
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(235, 237, 255));
-        jLabel5.setText("Fecha de ingreso:");
-        jPanelNuevo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, 30));
+        jLabel4.setText("Fecha de ingreso                                 Fecha de salida:");
+        jPanelNuevo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, 30));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(235, 237, 255));
         jLabel6.setText("Tipo de transporte:");
-        jPanelNuevo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, -1, 30));
+        jPanelNuevo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, 30));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(235, 237, 255));
         jLabel7.setText("Tipo de alojamiento:");
-        jPanelNuevo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, 30));
+        jPanelNuevo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, 30));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(235, 237, 255));
         jLabel8.setText("Tipo de servicio:");
-        jPanelNuevo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, -1, 30));
+        jPanelNuevo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, -1, 30));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanelNuevo.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, 250, -1));
-
+        jTextField2.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
-        jPanelNuevo.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 250, -1));
+        jPanelNuevo.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 440, 30));
 
+        jTextField3.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
             }
         });
-        jPanelNuevo.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 250, -1));
+        jPanelNuevo.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 190, 30));
 
+        jTextField4.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
             }
         });
-        jPanelNuevo.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 250, -1));
+        jPanelNuevo.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 440, 30));
 
+        jTextField5.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
             }
         });
-        jPanelNuevo.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 250, -1));
+        jPanelNuevo.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 190, 30));
 
+        jTextField6.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField6ActionPerformed(evt);
             }
         });
-        jPanelNuevo.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 250, -1));
+        jPanelNuevo.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 440, 30));
 
+        jTextField7.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField7ActionPerformed(evt);
             }
         });
-        jPanelNuevo.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 250, -1));
+        jPanelNuevo.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 440, 30));
 
         jButton1.setBackground(new java.awt.Color(47, 52, 67));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(235, 237, 255));
         jButton1.setText("Terminar");
-        jPanelNuevo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, -1, -1));
+        jPanelNuevo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 480, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(47, 52, 67));
         jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(235, 237, 255));
         jButton2.setText("Modificar");
-        jPanelNuevo.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, -1, -1));
+        jPanelNuevo.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, -1, -1));
+
+        jTextField8.setBackground(new java.awt.Color(56, 63, 79));
+        jTextField8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
+        jPanelNuevo.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 190, 30));
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
@@ -232,10 +240,6 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
@@ -260,6 +264,10 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
 
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
+
 
     private void InvocarJInternalFrame(JInternalFrame frame) {
         BasicInternalFrameUI ui = (BasicInternalFrameUI) frame.getUI();
@@ -281,7 +289,6 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -291,12 +298,12 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanelNuevo;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }
