@@ -336,7 +336,7 @@
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jlPrecioAvion" alignment="1" min="-2" pref="360" max="-2" attributes="0"/>
-                                          <Component id="jLabel10" alignment="1" min="-2" pref="360" max="-2" attributes="0"/>
+                                          <Component id="jLabelAvion" alignment="1" min="-2" pref="360" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -350,7 +350,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator14" min="-2" pref="2" max="-2" attributes="0"/>
                               <EmptySpace pref="10" max="32767" attributes="0"/>
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAvion" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Component id="jSeparator13" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -399,7 +399,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel10">
+                    <Component class="javax.swing.JLabel" name="jLabelAvion">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Dialog" size="24" style="1"/>
@@ -456,7 +456,7 @@
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jlPrecioBarco" alignment="1" min="-2" pref="360" max="-2" attributes="0"/>
-                                          <Component id="jLabel12" alignment="1" min="-2" pref="360" max="-2" attributes="0"/>
+                                          <Component id="jLabelBarco" alignment="1" min="-2" pref="360" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -470,7 +470,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator16" min="-2" pref="2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelBarco" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Component id="jSeparator15" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -519,7 +519,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel12">
+                    <Component class="javax.swing.JLabel" name="jLabelBarco">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Dialog" size="24" style="1"/>

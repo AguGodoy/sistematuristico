@@ -32,9 +32,11 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
     public SeleccionTransporte() {
         initComponents();
-        datosPrecargados();
         ActualizarPrecio(CalcularDistancia(origen, destino));
-
+        desactivarOpciones();
+        datosPrecargados();
+        
+        
     }
 
     /**
@@ -63,13 +65,13 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
         jbSeleccionarAvion = new javax.swing.JButton();
         jlPrecioAvion = new javax.swing.JLabel();
         jSeparator13 = new javax.swing.JSeparator();
-        jLabel10 = new javax.swing.JLabel();
+        jLabelAvion = new javax.swing.JLabel();
         jSeparator14 = new javax.swing.JSeparator();
         jPanelBarco = new javax.swing.JPanel();
         jbSeleccionarBarco = new javax.swing.JButton();
         jlPrecioBarco = new javax.swing.JLabel();
         jSeparator15 = new javax.swing.JSeparator();
-        jLabel12 = new javax.swing.JLabel();
+        jLabelBarco = new javax.swing.JLabel();
         jSeparator16 = new javax.swing.JSeparator();
         jPanelTren = new javax.swing.JPanel();
         jbSeleccionarTren = new javax.swing.JButton();
@@ -213,10 +215,10 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
         jSeparator13.setBackground(new java.awt.Color(235, 237, 255));
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(235, 237, 255));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Avion");
+        jLabelAvion.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabelAvion.setForeground(new java.awt.Color(235, 237, 255));
+        jLabelAvion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelAvion.setText("Avion");
 
         jSeparator14.setBackground(new java.awt.Color(235, 237, 255));
 
@@ -240,7 +242,7 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelAvionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlPrecioAvion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabelAvion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanelAvionLayout.setVerticalGroup(
@@ -249,7 +251,7 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(jLabel10)
+                .addComponent(jLabelAvion)
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -279,10 +281,10 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
 
         jSeparator15.setBackground(new java.awt.Color(235, 237, 255));
 
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(235, 237, 255));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Barco");
+        jLabelBarco.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabelBarco.setForeground(new java.awt.Color(235, 237, 255));
+        jLabelBarco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelBarco.setText("Barco");
 
         jSeparator16.setBackground(new java.awt.Color(235, 237, 255));
 
@@ -306,7 +308,7 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelBarcoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlPrecioBarco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabelBarco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanelBarcoLayout.setVerticalGroup(
@@ -315,7 +317,7 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel12)
+                .addComponent(jLabelBarco)
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -528,13 +530,13 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
     }
 
     private void datosPrecargados() {
-       if(Menu.paquete.getPasa()!=null){
-           transporte=Menu.paquete.getPasa().getTransporte();
-           precio = Menu.paquete.getPasa().getImporte();
-           seleccionFocus(transporte);
-       }else{
-          seleccionFocus(""); 
-       }
+        if (Menu.paquete.getPasa() != null) {
+            transporte = Menu.paquete.getPasa().getTransporte();
+            precio = Menu.paquete.getPasa().getImporte();
+            seleccionFocus(transporte);
+        } else {
+            seleccionFocus("");
+        }
     }
 
     private void seleccionFocus(String text) {
@@ -561,14 +563,61 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
                 jPanelTren.setBorder(new LineBorder(new Color(235, 237, 255), 3));
                 jPanelBarco.setBorder(new LineBorder(new Color(235, 237, 255), 3));
         }
+        //Boton siguiente se habilita
+        if (!((text.equalsIgnoreCase("Avion")&&avion[CalcularDistancia(origen, destino)] == 0)||(text.equalsIgnoreCase("Barco")&&barco[CalcularDistancia(origen, destino)]==0))) {
+            jbSiguiente.setFocusable(true);
+            jbSiguiente.setEnabled(true);
+            jbSiguiente.setBackground(new Color(56, 63, 79));
+        }
     }
+
+    private void desactivarOpciones() {
+        //Boton siguiente se deshabilita
+        jbSiguiente.setFocusable(false);
+        jbSiguiente.setEnabled(false);
+        jbSiguiente.setBackground(new Color(66, 66, 66));
+        
+        //el panel de avion y barco se activan por si venian desactivados de antes [no se si es posible es por las dudas]
+        enabledPanelAvion(true);
+        enabledPanelBarco(true);
+        //se deshabilita avion o barco si el importe es 0
+        if (avion[CalcularDistancia(origen, destino)] == 0) {
+            enabledPanelAvion(false);
+        }
+        if (barco[CalcularDistancia(origen, destino)] == 0) {
+           enabledPanelBarco(false);
+        }
+    }
+    private void enabledPanelAvion(boolean flag){
+        jbSeleccionarAvion.setFocusable(flag);
+        jbSeleccionarAvion.setEnabled(flag);
+        jbSeleccionarAvion.setBackground(flag?new Color(47,52,67):new Color(66, 66, 66));
+        jlPrecioAvion.setText(flag?"$ " + avion[CalcularDistancia(origen, destino)]:"$ - - - - -");
+        jlPrecioAvion.setForeground(flag?new Color(235,237,255):new Color(155, 155, 155));
+        jLabelAvion.setForeground(flag?new Color(235,237,255):new Color(155, 155, 155));
+        jPanelAvion.setBorder(flag?new LineBorder(new Color(235, 237, 255), 3):new LineBorder(new Color(155, 155, 155), 3));
+        jSeparator13.setForeground(flag?new Color(235,237,255):new Color(155, 155, 155));
+        jSeparator14.setForeground(flag?new Color(235,237,255):new Color(155, 155, 155));
+    }
+    private void enabledPanelBarco(boolean flag){
+        jbSeleccionarBarco.setFocusable(flag);
+        jbSeleccionarBarco.setEnabled(flag);
+        jbSeleccionarBarco.setBackground(flag?new Color(47,52,67):new Color(66, 66, 66));
+        jlPrecioBarco.setText(flag?"$ " + avion[CalcularDistancia(origen, destino)]:"$ - - - - -");
+        jlPrecioBarco.setForeground(flag?new Color(235,237,255):new Color(155, 155, 155));
+        jLabelBarco.setForeground(flag?new Color(235,237,255):new Color(155, 155, 155));
+        jPanelBarco.setBorder(flag?new LineBorder(new Color(235, 237, 255), 3):new LineBorder(new Color(155, 155, 155), 3));
+        jSeparator15.setForeground(flag?new Color(235,237,255):new Color(155, 155, 155));
+        jSeparator16.setForeground(flag?new Color(235,237,255):new Color(155, 155, 155));
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabelAvion;
+    private javax.swing.JLabel jLabelBarco;
     private javax.swing.JPanel jPanelAvion;
     private javax.swing.JPanel jPanelBarco;
     private javax.swing.JPanel jPanelBody;
