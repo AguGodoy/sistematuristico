@@ -106,11 +106,10 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
                 .addGap(265, 265, 265)
                 .addGroup(jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanelHeadLayout.createSequentialGroup()
-                            .addGap(57, 57, 57)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelHeadLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(265, Short.MAX_VALUE))
         );
         jPanelHeadLayout.setVerticalGroup(
@@ -190,6 +189,7 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jComboBoxAlojamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 160, -1));
 
+        jTextAlojamiento.setEditable(false);
         jTextAlojamiento.setBackground(new java.awt.Color(56, 63, 79));
         jTextAlojamiento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTextAlojamiento.setForeground(new java.awt.Color(235, 237, 255));
@@ -233,6 +233,7 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
         jLabel18.setText("$:");
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, 38));
 
+        jTextServicio.setEditable(false);
         jTextServicio.setBackground(new java.awt.Color(56, 63, 79));
         jTextServicio.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTextServicio.setForeground(new java.awt.Color(235, 237, 255));
@@ -247,6 +248,7 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jTextServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 81, 38));
 
+        jTextTotal.setEditable(false);
         jTextTotal.setBackground(new java.awt.Color(56, 63, 79));
         jTextTotal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTextTotal.setForeground(new java.awt.Color(235, 237, 255));
@@ -277,6 +279,7 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
         jLabel7.setText("Ciudad Destino");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 154, 38));
 
+        jTextDiario.setEditable(false);
         jTextDiario.setBackground(new java.awt.Color(56, 63, 79));
         jTextDiario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTextDiario.setForeground(new java.awt.Color(235, 237, 255));
@@ -417,23 +420,7 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
     private void jComboBoxAlojamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAlojamientoActionPerformed
-        switch (String.valueOf(jComboBoxAlojamiento.getSelectedItem())) {
-            
-            case "Hotel":
-                jTextAlojamiento.setText(String.valueOf(3000));
-                break;
-            case "Hostel":
-                jTextAlojamiento.setText(String.valueOf(1500));
-                break;
-            case "Casa":
-                jTextAlojamiento.setText(String.valueOf(2000));
-                break;
-            case "Cabania":
-                jTextAlojamiento.setText(String.valueOf(2500));
-                break;
-            default:
-
-        }
+       seleAloja();
         precioDiario();
 
 
@@ -448,23 +435,7 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextDiarioFocusLost
 
     private void jComboBoxServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxServicioActionPerformed
-        switch (String.valueOf(jComboBoxServicio.getSelectedItem())) {
-           
-            case "Clasico":
-                jTextServicio.setText(String.valueOf(0));
-                break;
-            case "Desayuno":
-                jTextServicio.setText(String.valueOf(300));
-                break;
-            case "Media Pension":
-                jTextServicio.setText(String.valueOf(500));
-                break;
-            case "Todo Incluido":
-                jTextServicio.setText(String.valueOf(1000));
-                break;
-            default:
-
-        }
+       seleServi();
         precioDiario();
     }//GEN-LAST:event_jComboBoxServicioActionPerformed
 
@@ -480,7 +451,10 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
                 diferenciaDias2 = ChronoUnit.DAYS.between(fecha2, fecha3);
             }
             if (diferenciaDias1 >= 0 && diferenciaDias2 > 0) {
+                seleServi();
+                seleAloja();
                 precioDiario();
+                
             } else {
                 JOptionPane.showMessageDialog(null, "La fecha no puede ser anterior a la actual o posterior a la feha de salida");
                 jDateChooserInicio.setDate(null);
@@ -500,6 +474,8 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
             }
             long diferenciaDias = ChronoUnit.DAYS.between(fecha1, fecha2);
             if (diferenciaDias > 0) {
+                seleServi();
+                seleAloja();
                 precioDiario();
             } else {
                 JOptionPane.showMessageDialog(null, "La fecha no puede ser anterior seleccionada en Fecha Inicio ni a la fecha actual");
@@ -554,11 +530,15 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 private void cargarcombobox() {
         //combo alojamiento
+        jComboBoxAlojamiento.setForeground(new Color(235,237,255));
+        jComboBoxAlojamiento.setBackground(new Color(56,63,79));
         jComboBoxAlojamiento.addItem("Hotel");
         jComboBoxAlojamiento.addItem("Hostel");
         jComboBoxAlojamiento.addItem("Casa");
         jComboBoxAlojamiento.addItem("Cabania");
         //combo servicio
+        jComboBoxServicio.setForeground(new Color(235,237,255));
+        jComboBoxServicio.setBackground(new Color(56,63,79));
         jComboBoxServicio.addItem("Clasico");
         jComboBoxServicio.addItem("Desayuno");
         jComboBoxServicio.addItem("Media Pension");
@@ -578,8 +558,9 @@ private void cargarcombobox() {
 
     private void precioDiario() {
         if (!(jTextAlojamiento.getText().isEmpty() || jTextServicio.getText().isEmpty())) {
-            jTextDiario.setText(Double.parseDouble(jTextAlojamiento.getText()) + Double.parseDouble(jTextServicio.getText()) + "");
+            jTextDiario.setText((Double.parseDouble(jTextAlojamiento.getText()) + Double.parseDouble(jTextServicio.getText()) )+ "");
             if (jDateChooserInicio.getDate() == null || jDateChooserSalida.getDate() == null) {
+                jTextTotal.setText(null);
             } else {
                 LocalDate fecha1 = jDateChooserInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 LocalDate fecha2 = jDateChooserSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -587,6 +568,62 @@ private void cargarcombobox() {
                 jTextTotal.setText(String.valueOf(Double.valueOf(jTextDiario.getText()) * diferenciaDias + ""));
             }
         }
+    }
+    private void seleServi(){
+         switch (String.valueOf(jComboBoxServicio.getSelectedItem())) {
+           
+            case "Clasico":
+                jTextServicio.setText(String.valueOf(0*temporada()));
+                break;
+            case "Desayuno":
+                jTextServicio.setText(String.valueOf(300*temporada()));
+                break;
+            case "Media Pension":
+                jTextServicio.setText(String.valueOf(500*temporada()));
+                break;
+            case "Todo Incluido":
+                jTextServicio.setText(String.valueOf(1000*temporada()));
+                break;
+            default:
+
+        }
+    }
+    private void seleAloja(){
+         switch (String.valueOf(jComboBoxAlojamiento.getSelectedItem())) {
+            
+            case "Hotel":
+                jTextAlojamiento.setText(String.valueOf( Math.round(3000*temporada())));
+                break;
+            case "Hostel":
+                jTextAlojamiento.setText(String.valueOf(String.format("%.2f",1500*temporada())));
+                break;
+            case "Casa":
+                jTextAlojamiento.setText(String.valueOf(String.format("%.2f",2000*temporada())));
+                break;
+            case "Cabania":
+                jTextAlojamiento.setText(String.valueOf(String.format("%.2f",2500*temporada())));
+                break;
+            default:
+
+        }
+    }
+    private double temporada(){
+         double precioTemporada= 1;
+    
+        try{
+        LocalDate inicio=jDateChooserInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+       
+       
+        if(inicio.getMonthValue()<3|| inicio.getMonthValue()>11){
+             precioTemporada= 1.3;
+        }
+        if(inicio.getMonthValue()>8&& inicio.getMonthValue()<12){
+             precioTemporada= 1.15;
+        }
+        return precioTemporada;
+    }catch(NullPointerException ex){
+        return precioTemporada;
+    }
     }
 
     private void InvocarJInternalFrame(JInternalFrame frame) {
