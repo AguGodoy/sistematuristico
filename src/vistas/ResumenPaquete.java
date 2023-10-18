@@ -4,9 +4,16 @@
  */
 package vistas;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.time.temporal.ChronoUnit;
+import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JInternalFrame;
+import javax.swing.JTextField;
+import javax.swing.plaf.basic.BasicArrowButton;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
-
+import sistematuristico.AccesoData.PaqueteData;
 
 /**
  *
@@ -17,9 +24,16 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
     /**
      * Creates new form ResumenPaquete2
      */
-    
+    PaqueteData paqueteData = new PaqueteData();
+    long cantDias;
+    double total;
+
     public ResumenPaquete() {
         initComponents();
+        spinnerColor();
+        cargarDatos();
+        jSpinner1.setValue(Menu.paquete.getCantPersonas());
+
     }
 
     /**
@@ -44,15 +58,19 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        jtfDestino = new javax.swing.JTextField();
+        jtfFechaSalida = new javax.swing.JTextField();
+        jtfTransporte = new javax.swing.JTextField();
+        jtfImporteTotal = new javax.swing.JTextField();
+        jtfAlojamiento = new javax.swing.JTextField();
+        jtfServicio = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextField8 = new javax.swing.JTextField();
+        jtfFechaIngreso = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jtfOrigen = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jtfImportePersona = new javax.swing.JTextField();
+        jSpinner1 = new javax.swing.JSpinner();
 
         jPanelFull.setBackground(new java.awt.Color(56, 63, 79));
         jPanelFull.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -105,107 +123,124 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(235, 237, 255));
         jLabel2.setText("Importe total a pagar:");
-        jPanelNuevo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, -1, 30));
+        jPanelNuevo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(235, 237, 255));
         jLabel3.setText("Destino:");
-        jPanelNuevo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, 30));
+        jPanelNuevo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(235, 237, 255));
         jLabel4.setText("Fecha de ingreso                                 Fecha de salida:");
-        jPanelNuevo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, 30));
+        jPanelNuevo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, -1, 30));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(235, 237, 255));
         jLabel6.setText("Tipo de transporte:");
-        jPanelNuevo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, 30));
+        jPanelNuevo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, -1, 30));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(235, 237, 255));
         jLabel7.setText("Tipo de alojamiento:");
-        jPanelNuevo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, 30));
+        jPanelNuevo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, 30));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(235, 237, 255));
         jLabel8.setText("Tipo de servicio:");
-        jPanelNuevo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, -1, 30));
+        jPanelNuevo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, -1, 30));
 
-        jTextField2.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        jPanelNuevo.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 440, 30));
+        jtfDestino.setBackground(new java.awt.Color(56, 63, 79));
+        jtfDestino.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfDestino.setForeground(new java.awt.Color(235, 237, 255));
+        jtfDestino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfDestino.setFocusable(false);
+        jPanelNuevo.add(jtfDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 440, 30));
 
-        jTextField3.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        jPanelNuevo.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 190, 30));
+        jtfFechaSalida.setBackground(new java.awt.Color(56, 63, 79));
+        jtfFechaSalida.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfFechaSalida.setForeground(new java.awt.Color(235, 237, 255));
+        jtfFechaSalida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfFechaSalida.setFocusable(false);
+        jPanelNuevo.add(jtfFechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 190, 30));
 
-        jTextField4.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        jPanelNuevo.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 440, 30));
+        jtfTransporte.setBackground(new java.awt.Color(56, 63, 79));
+        jtfTransporte.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfTransporte.setForeground(new java.awt.Color(235, 237, 255));
+        jtfTransporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfTransporte.setFocusable(false);
+        jPanelNuevo.add(jtfTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 440, 30));
 
-        jTextField5.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-        jPanelNuevo.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 190, 30));
+        jtfImporteTotal.setBackground(new java.awt.Color(56, 63, 79));
+        jtfImporteTotal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfImporteTotal.setForeground(new java.awt.Color(235, 237, 255));
+        jtfImporteTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfImporteTotal.setFocusable(false);
+        jPanelNuevo.add(jtfImporteTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, 190, 30));
 
-        jTextField6.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-        jPanelNuevo.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 440, 30));
+        jtfAlojamiento.setBackground(new java.awt.Color(56, 63, 79));
+        jtfAlojamiento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfAlojamiento.setForeground(new java.awt.Color(235, 237, 255));
+        jtfAlojamiento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfAlojamiento.setFocusable(false);
+        jPanelNuevo.add(jtfAlojamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 190, 30));
 
-        jTextField7.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
-        jPanelNuevo.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 440, 30));
+        jtfServicio.setBackground(new java.awt.Color(56, 63, 79));
+        jtfServicio.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfServicio.setForeground(new java.awt.Color(235, 237, 255));
+        jtfServicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfServicio.setFocusable(false);
+        jPanelNuevo.add(jtfServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 190, 30));
 
         jButton1.setBackground(new java.awt.Color(47, 52, 67));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(235, 237, 255));
         jButton1.setText("Terminar");
-        jPanelNuevo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 480, -1, -1));
-
-        jButton2.setBackground(new java.awt.Color(47, 52, 67));
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(235, 237, 255));
-        jButton2.setText("Modificar");
-        jPanelNuevo.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, -1, -1));
-
-        jTextField8.setBackground(new java.awt.Color(56, 63, 79));
-        jTextField8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        jPanelNuevo.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 190, 30));
+        jPanelNuevo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 130, 45));
+
+        jtfFechaIngreso.setBackground(new java.awt.Color(56, 63, 79));
+        jtfFechaIngreso.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfFechaIngreso.setForeground(new java.awt.Color(235, 237, 255));
+        jtfFechaIngreso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfFechaIngreso.setFocusable(false);
+        jPanelNuevo.add(jtfFechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 190, 30));
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel5.setText("Origen:");
+        jPanelNuevo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, 30));
+
+        jtfOrigen.setBackground(new java.awt.Color(56, 63, 79));
+        jtfOrigen.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfOrigen.setForeground(new java.awt.Color(235, 237, 255));
+        jtfOrigen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfOrigen.setFocusable(false);
+        jPanelNuevo.add(jtfOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 440, 30));
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(235, 237, 255));
+        jLabel9.setText("Importe por persona:");
+        jPanelNuevo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, 30));
+
+        jtfImportePersona.setBackground(new java.awt.Color(56, 63, 79));
+        jtfImportePersona.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jtfImportePersona.setForeground(new java.awt.Color(235, 237, 255));
+        jtfImportePersona.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfImportePersona.setFocusable(false);
+        jPanelNuevo.add(jtfImportePersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 140, 30));
+
+        jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jSpinner1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinner1StateChanged(evt);
+            }
+        });
+        jPanelNuevo.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 50, 30));
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
@@ -240,34 +275,32 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
+        if ((int) jSpinner1.getValue() <= 0) {
+            jSpinner1.setValue(1);
+        }
+        Menu.paquete.setCantPersonas((int) jSpinner1.getValue());
+        jtfImporteTotal.setText("$ " + total * (int) jSpinner1.getValue());
+    }//GEN-LAST:event_jSpinner1StateChanged
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        paqueteData.AltaPaquete(Menu.paquete);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
+    private void cargarDatos() {
+        jtfAlojamiento.setText(Menu.paquete.getAloja().getTipo());
+        jtfOrigen.setText(Menu.paquete.getOrigen().getNombre() + ", " + Menu.paquete.getOrigen().getProvincia() + ", " + Menu.paquete.getOrigen().getPais());
+        jtfDestino.setText(Menu.paquete.getDestino().getNombre() + ", " + Menu.paquete.getDestino().getProvincia() + ", " + Menu.paquete.getDestino().getPais());
+        jtfFechaIngreso.setText(Menu.paquete.getAloja().getFechaIn().toString());
+        jtfFechaSalida.setText(Menu.paquete.getAloja().getFechaOn().toString());
+        cantDias = ChronoUnit.DAYS.between(Menu.paquete.getAloja().getFechaIn(), Menu.paquete.getAloja().getFechaOn()); //cantidad de dias
+        total = Menu.paquete.getAloja().getImporteDiario() * cantDias;   //cantidad de dias * el importe diario
+        total += Menu.paquete.getPasa().getImporte();                         //se le suma el transpoirte
+        jtfImportePersona.setText("$ " + total);
+        jtfImporteTotal.setText("$ " + total * (int) jSpinner1.getValue());
+        jtfServicio.setText(Menu.paquete.getAloja().getServicio());
+        jtfTransporte.setText(Menu.paquete.getPasa().getTransporte());
+    }
 
     private void InvocarJInternalFrame(JInternalFrame frame) {
         BasicInternalFrameUI ui = (BasicInternalFrameUI) frame.getUI();
@@ -281,29 +314,51 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         Menu.Escritorio.add(frame); // Agrega el JInternalFrame al JDesktopPane
         frame.toFront();
     }
-    
+
+    private void spinnerColor() {
+        JComponent editor = jSpinner1.getEditor();
+        int n = editor.getComponentCount();
+        for (int i = 0; i < n; i++) {
+            Component c = editor.getComponent(i);
+            if (c instanceof JTextField) {
+                c.setForeground(new Color(235, 237, 255));
+                c.setBackground(new Color(56, 63, 79));
+                ((JTextField) c).setEditable(false);
+            }
+            if (c instanceof BasicArrowButton) {                //intento de cambiar color del boton NO FUNCIONA
+                JButton b = (JButton) c;
+                b.setBackground(new Color(56, 63, 79));
+                b.setForeground(new Color(56, 63, 79));
+            }
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanelBody;
     private javax.swing.JPanel jPanelFull;
     private javax.swing.JPanel jPanelHead;
     private javax.swing.JPanel jPanelNuevo;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTextField jtfAlojamiento;
+    private javax.swing.JTextField jtfDestino;
+    private javax.swing.JTextField jtfFechaIngreso;
+    private javax.swing.JTextField jtfFechaSalida;
+    private javax.swing.JTextField jtfImportePersona;
+    private javax.swing.JTextField jtfImporteTotal;
+    private javax.swing.JTextField jtfOrigen;
+    private javax.swing.JTextField jtfServicio;
+    private javax.swing.JTextField jtfTransporte;
     // End of variables declaration//GEN-END:variables
 }

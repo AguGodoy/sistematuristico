@@ -9,28 +9,33 @@ package sistematuristico.Entidades;
  * @author Usuario
  */
 public class Paquete {
+
     private int idPaquete;
     private Ciudad origen;
     private Ciudad destino;
     private Alojamiento aloja;
     private Pasaje pasa;
+    private int cantPersonas;
 
     public Paquete() {
+        this.cantPersonas = 1;
     }
 
-    public Paquete(Ciudad origen, Ciudad destino, Alojamiento alojaminto, Pasaje pasaje) {
+    public Paquete(Ciudad origen, Ciudad destino, Alojamiento alojaminto, Pasaje pasaje, int cantPersonas) {
         this.origen = origen;
         this.destino = destino;
         this.aloja = alojaminto;
         this.pasa = pasaje;
+        this.cantPersonas = cantPersonas;
     }
 
-    public Paquete(int idPaquete, Ciudad origen, Ciudad destino, Alojamiento alojaminto, Pasaje pasaje) {
+    public Paquete(int idPaquete, Ciudad origen, Ciudad destino, Alojamiento alojaminto, Pasaje pasaje, int cantPersonas) {
         this.idPaquete = idPaquete;
         this.origen = origen;
         this.destino = destino;
         this.aloja = alojaminto;
         this.pasa = pasaje;
+        this.cantPersonas = cantPersonas;
     }
 
     public int getIdPaquete() {
@@ -72,11 +77,18 @@ public class Paquete {
     public void setPasa(Pasaje pasaje) {
         this.pasa = pasaje;
     }
-    
-    @Override
-    public String toString(){
-        return idPaquete+" "+origen+" "+destino+" " +aloja+ " "+ pasa;
+
+    public int getCantPersonas() {
+        return cantPersonas;
     }
 
+    public void setCantPersonas(int cantPersonas) {
+        this.cantPersonas = cantPersonas;
+    }
+
+    @Override
+    public String toString() {
+        return idPaquete + " " + origen + " " + destino + " " + aloja + " " + pasa;
+    }
 
 }
