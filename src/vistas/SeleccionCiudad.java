@@ -373,6 +373,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         jtfBuscarProvinciaOrigen.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jtfBuscarProvinciaOrigen.setForeground(new java.awt.Color(235, 237, 255));
         jtfBuscarProvinciaOrigen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfBuscarProvinciaOrigen.setNextFocusableComponent(jtfBuscarPaisOrigen);
         jtfBuscarProvinciaOrigen.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtfBuscarProvinciaOrigenFocusGained(evt);
@@ -402,6 +403,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         jtfBuscarPaisOrigen.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jtfBuscarPaisOrigen.setForeground(new java.awt.Color(235, 237, 255));
         jtfBuscarPaisOrigen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfBuscarPaisOrigen.setNextFocusableComponent(jTableOrigen);
         jtfBuscarPaisOrigen.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtfBuscarPaisOrigenFocusGained(evt);
@@ -427,6 +429,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         jtfBuscarCiudadOrigen.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jtfBuscarCiudadOrigen.setForeground(new java.awt.Color(235, 237, 255));
         jtfBuscarCiudadOrigen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 237, 255)));
+        jtfBuscarCiudadOrigen.setNextFocusableComponent(jtfBuscarProvinciaOrigen);
         jtfBuscarCiudadOrigen.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtfBuscarCiudadOrigenFocusGained(evt);
@@ -462,6 +465,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         ));
         jTableOrigen.setFocusable(false);
         jTableOrigen.setGridColor(new java.awt.Color(47, 52, 67));
+        jTableOrigen.setNextFocusableComponent(jbSeleccionarOrigen);
         jTableOrigen.setSelectionBackground(new java.awt.Color(83, 81, 251));
         jTableOrigen.setSelectionForeground(new java.awt.Color(235, 237, 255));
         jScrollPane2.setViewportView(jTableOrigen);
