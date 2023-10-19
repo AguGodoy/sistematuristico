@@ -2,8 +2,10 @@ package vistas;
 
 import java.awt.Color;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import sistematuristico.AccesoData.PaqueteData;
 import sistematuristico.Entidades.*;
 
 public class Menu extends javax.swing.JFrame {
@@ -439,6 +441,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     int xx, xy;
+    PaqueteData paqueteData = new PaqueteData();
     static Paquete paquete = new Paquete();
     static int InternalNum;
     static int guardarIdAlojamiento;
@@ -456,7 +459,12 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelMarcoArribaMouseDragged
 
     private void btn_loginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_loginMousePressed
-
+        try {
+         String aux =JOptionPane.showInputDialog(null, "Ingrese su codigo de paquete\nG47 - ");
+         paquete = paqueteData.buscarPaquete(Integer.parseInt(aux));
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
     }//GEN-LAST:event_btn_loginMousePressed
 
     private void btnDestinoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDestinoMousePressed

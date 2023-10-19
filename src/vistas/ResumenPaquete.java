@@ -10,6 +10,7 @@ import java.time.temporal.ChronoUnit;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.plaf.basic.BasicArrowButton;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -284,7 +285,8 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jSpinner1StateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        paqueteData.AltaPaquete(Menu.paquete);
+        int aux = paqueteData.AltaPaquete(Menu.paquete);
+        JOptionPane.showMessageDialog(null, "Ya generamos su Codigo de seguimiento del paquete\nG47 - "+ aux);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cargarDatos() {
