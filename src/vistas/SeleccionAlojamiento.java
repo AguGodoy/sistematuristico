@@ -535,7 +535,7 @@ private void cargarcombobox() {
         jComboBoxAlojamiento.addItem("Hotel");
         jComboBoxAlojamiento.addItem("Hostel");
         jComboBoxAlojamiento.addItem("Casa");
-        jComboBoxAlojamiento.addItem("Cabania");
+        jComboBoxAlojamiento.addItem("Cabaña");
         //combo servicio
         jComboBoxServicio.setForeground(new Color(235,237,255));
         jComboBoxServicio.setBackground(new Color(56,63,79));
