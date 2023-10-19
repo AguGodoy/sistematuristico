@@ -285,8 +285,18 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jSpinner1StateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int aux = paqueteData.AltaPaquete(Menu.paquete);
-        JOptionPane.showMessageDialog(null, "Ya generamos su Codigo de seguimiento del paquete\nG47 - "+ aux);
+        int idAux;
+        Menu.paquete.setCantPersonas((int)jSpinner1.getValue());
+        if (Menu.paquete.getIdPaquete() == 0) {
+            idAux = paqueteData.AltaPaquete(Menu.paquete);
+            JOptionPane.showMessageDialog(null, "Ya generamos su Codigo de seguimiento del paquete\nG47 - " + idAux);
+        } else {
+            idAux = Menu.paquete.getIdPaquete();
+            paqueteData.ModificarPaquete(idAux, Menu.paquete);
+            JOptionPane.showMessageDialog(null, "Ya modificamos su Paquete, su Codigo de seguimiento del paquete\nG47 - " + idAux);
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cargarDatos() {
@@ -302,6 +312,11 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jtfImporteTotal.setText("$ " + total * (int) jSpinner1.getValue());
         jtfServicio.setText(Menu.paquete.getAloja().getServicio());
         jtfTransporte.setText(Menu.paquete.getPasa().getTransporte());
+        if (Menu.paquete.getCantPersonas()!=0) {
+            System.out.println(Menu.paquete.getCantPersonas());
+             jSpinner1.setValue(Menu.paquete.getCantPersonas());
+        }
+       
     }
 
     private void InvocarJInternalFrame(JInternalFrame frame) {
