@@ -853,8 +853,8 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
     private void SeleccionOrigen() {
         int filas = jTableOrigen.getSelectedRow();
 
-        Color colorEditable = new Color(66, 66, 66);;
-        Boolean flag = false;;
+        Color colorEditable = new Color(56, 63, 79);
+        Boolean flag = true;
         if (jbSeleccionarOrigen.getText().equalsIgnoreCase("Seleccionar")) {
             if (filas != -1) {
                 colorEditable = new Color(66, 66, 66);
@@ -898,8 +898,8 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
 
     private void SeleccionDestino() {
         int filas = jTableDestino.getSelectedRow();
-        Color colorEditable = new Color(66, 66, 66);
-        Boolean flag = false;
+        Color colorEditable = new Color(56, 63, 79);
+        Boolean flag = true;
 
         if (jbSeleccionarDestino.getText().equalsIgnoreCase("Seleccionar")) {
             if (filas != -1) {
