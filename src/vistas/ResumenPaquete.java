@@ -313,6 +313,7 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jtfServicio.setText(Menu.paquete.getAloja().getServicio());
         jtfTransporte.setText(Menu.paquete.getPasa().getTransporte());
         if (Menu.paquete.getCantPersonas()!=0) {
+            System.out.println(Menu.paquete.getCantPersonas());
              jSpinner1.setValue(Menu.paquete.getCantPersonas());
         }
        
