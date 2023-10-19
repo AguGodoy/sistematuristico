@@ -31,7 +31,7 @@ public class PasajeData {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 pasaje.setIdPasaje(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "pasaje añadido con exito.");
+                //JOptionPane.showMessageDialog(null, "pasaje añadido con exito.");
             }
             ps.close();
             return pasaje.getIdPasaje();
@@ -72,7 +72,7 @@ public class PasajeData {
 
             int exito = ps.executeUpdate();
             if (exito == 1) {
-                JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
+                //JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
             } else {
                 JOptionPane.showMessageDialog(null, "el Pasaje no existe");
             }
@@ -96,10 +96,8 @@ public class PasajeData {
                 pasaje.setTransporte(rs.getString("transporte"));
                 pasaje.setImporte(rs.getDouble("importe"));
                 pasaje.setEstado(rs.getBoolean("estado"));
-
                 Ciudad ciudad = ciudaddata.buscarCiudad(rs.getInt("idOrigen"));
                 pasaje.setOrigen(ciudad);
-                Ciudad ciudad2 = ciudaddata.buscarCiudad(rs.getInt("idDestino"));
 
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el pasaje");

@@ -23,15 +23,15 @@ import sistematuristico.Entidades.Pasaje;
 public class PaqueteData {
 
     private Connection con = null;
-     private CiudadData ciudaddata=new CiudadData();
-    private AlojamientoData alojamientodata = new AlojamientoData();
-    private PasajeData pasajedata=new PasajeData();
+    private CiudadData ciudadData=new CiudadData();
+    private AlojamientoData alojamientoData = new AlojamientoData();
+    private PasajeData pasajeData=new PasajeData();
     
     public PaqueteData() {
         con = Conexion.getConexion();
     }
 
-    public void AltaPaquete(Paquete paquete) {
+    public int AltaPaquete(Paquete paquete) {
         String sql = "INSERT INTO paquete( idOrigen, idDestino, idAlojamiento, idPasaje) VALUES (?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -45,11 +45,13 @@ public class PaqueteData {
             if (rs.next()) {
                 paquete.setIdPaquete(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Se genero su paquete turistico con exito.");
+                return paquete.getIdPaquete();
             }
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Paquete" + ex.getMessage());
         }
+        return 0;
     }
 
     public void ModificarPaquete(int idPaquete, Paquete paquete) {
@@ -104,7 +106,7 @@ public class PaqueteData {
         }
 
     }
-         public Paquete buscarPaquete(int id) {
+        public Paquete buscarPaquete(int id) {
         Paquete paquete = null;
         String sql = "SELECT idOrigen, idDestino, idAlojamiento, idPasaje FROM paquete WHERE idPaquete = ?";
         PreparedStatement ps = null;
@@ -116,13 +118,13 @@ public class PaqueteData {
             if (rs.next()) {
                 paquete = new Paquete();
                 paquete.setIdPaquete(id);
-                Ciudad ciudad1 =ciudaddata.buscarCiudad(rs.getInt("idDestino"));
-                paquete.setDestino(ciudad1);
-                Ciudad ciudad2 =ciudaddata.buscarCiudad(rs.getInt("idDestino"));
+                Ciudad ciudad1 =ciudadData.buscarCiudad(rs.getInt("idOrigen"));
+                paquete.setOrigen(ciudad1);
+                Ciudad ciudad2 =ciudadData.buscarCiudad(rs.getInt("idDestino"));
                 paquete.setDestino(ciudad2);
-                Alojamiento alojamiento=alojamientodata.buscarAlojamiento(rs.getInt("idAlojamiento"));
+                Alojamiento alojamiento=alojamientoData.buscarAlojamiento(rs.getInt("idAlojamiento"));
                 paquete.setAloja(alojamiento);
-                Pasaje pasaje=pasajedata.buscarPasaje(rs.getInt("idPasaje"));
+                Pasaje pasaje=pasajeData.buscarPasaje(rs.getInt("idPasaje"));
                 paquete.setPasa(pasaje);
               
             } else {
@@ -130,7 +132,7 @@ public class PaqueteData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla paquete " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla paquete en buscarPaquete" + ex.getMessage());
         }
         return paquete;
      }
