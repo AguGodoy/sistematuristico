@@ -454,9 +454,6 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
     private void jbSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSiguienteActionPerformed
 
         Pasaje pasaje = new Pasaje(transporte, precio, origen, true);
-        System.out.println(destino);
-        System.out.println(destino.getIdCiudad());
-
         if (Menu.paquete.getPasa() == null) { //Entra si es la primera vez creando el Pasaje
             Menu.paquete.setPasa(pasaje);
         }
@@ -465,6 +462,7 @@ public class SeleccionTransporte extends javax.swing.JInternalFrame {
         } else {
             Menu.guardarIdTransporte = Menu.paquete.getPasa().getIdPasaje();    //guardamos  en "guardarIdTransporte" el id, y no creamos el sql porque ya estaba
             Menu.paquete.setPasa(pasaje);
+            Menu.paquete.getPasa().setIdPasaje(Menu.guardarIdTransporte);  
             pasajeData.ModificacionPasaje(Menu.guardarIdTransporte, Menu.paquete.getPasa());
         }
         Menu.InternalNum = 4;

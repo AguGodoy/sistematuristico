@@ -44,18 +44,18 @@ public class PaqueteData {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 paquete.setIdPaquete(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Se genero su paquete turistico con exito.");
+                //JOptionPane.showMessageDialog(null, "Se genero su paquete turistico con exito.");
                 return paquete.getIdPaquete();
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Paquete" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Paquete [AltaPaquete]" + ex.getMessage());
         }
         return 0;
     }
 
     public void ModificarPaquete(int idPaquete, Paquete paquete) {
-        String sql = "UPDATE paquete SET origen = ? , destino = ?, alojamiento = ?, pasaje = ? WHERE idPaquete = ?";
+        String sql = "UPDATE paquete SET idOrigen = ? , idDestino = ?, idAlojamiento = ?, idPasaje = ? WHERE idPaquete = ?";
         PreparedStatement ps = null;
 
         try {
@@ -64,16 +64,17 @@ public class PaqueteData {
             ps.setInt(2, paquete.getDestino().getIdCiudad());
             ps.setInt(3, paquete.getAloja().getIdAlojamiento());
             ps.setInt(4, paquete.getPasa().getIdPasaje());
+            ps.setInt(5, idPaquete);
 
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
-                JOptionPane.showMessageDialog(null, "se modifico el Paquete exitosamente");
+               // JOptionPane.showMessageDialog(null, "se modifico el Paquete exitosamente");
             } else {
                 JOptionPane.showMessageDialog(null, "El Paquete no existe");
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Paquete " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Paquete [ModificarPaquete]" + ex.getMessage());
         }
     }
 

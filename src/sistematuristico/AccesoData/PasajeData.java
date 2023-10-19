@@ -58,7 +58,6 @@ public class PasajeData {
     }
 
     public void ModificacionPasaje(int IdPasaje, Pasaje pasaje) {
-        System.out.println(IdPasaje);
         String sql = "UPDATE pasaje SET transporte = ?, importe = ? , idOrigen = ?, estado = ? WHERE Idpasaje = ?";
         PreparedStatement ps = null;
         try {

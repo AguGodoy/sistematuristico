@@ -460,8 +460,13 @@ public class Menu extends javax.swing.JFrame {
 
     private void btn_loginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_loginMousePressed
         try {
-         String aux =JOptionPane.showInputDialog(null, "Ingrese su codigo de paquete\nG47 - ");
-         paquete = paqueteData.buscarPaquete(Integer.parseInt(aux));
+            String aux = JOptionPane.showInputDialog(null, "Ingrese su codigo de paquete\nG47 - ");
+            paquete = paqueteData.buscarPaquete(Integer.parseInt(aux));
+            if (paquete.getIdPaquete() != 0) {
+                InternalNum = 4;
+                SelecResumen();
+                InvocarJInternalFrame(new ResumenPaquete());
+            }
         } catch (Exception e) {
             System.out.println("Error");
         }
@@ -492,10 +497,10 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlojamientoMousePressed
 
     private void btnResumenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResumenMousePressed
-        if (InternalNum>4){
-        InternalNum = 4;
-        SelecResumen();
-        InvocarJInternalFrame(new ResumenPaquete());
+        if (InternalNum > 4) {
+            InternalNum = 4;
+            SelecResumen();
+            InvocarJInternalFrame(new ResumenPaquete());
         }
     }//GEN-LAST:event_btnResumenMousePressed
 
@@ -518,7 +523,7 @@ public class Menu extends javax.swing.JFrame {
                 SelecResumen();
                 break;
             default:
-                System.out.println("No deveria pasar esto");
+                
         }
 
     }//GEN-LAST:event_EscritorioComponentAdded

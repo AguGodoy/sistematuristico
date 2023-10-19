@@ -957,8 +957,6 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
     }
 
     private void datosPrecargados() {
-        System.out.println(Menu.paquete.getOrigen());
-        System.out.println(Menu.paquete.getDestino());
         if (Menu.paquete.getOrigen() != null && Menu.paquete.getDestino() != null) {
             Color colorEditable;
             Boolean flag;
