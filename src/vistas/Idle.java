@@ -108,13 +108,13 @@ public class Idle extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(235, 237, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Agustin");
+        jLabel12.setText("Agustin Lazcano");
         jPanelHead1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 250, 56));
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(235, 237, 255));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Leandro");
+        jLabel13.setText("Leandro Valenzuela");
         jPanelHead1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, 250, 56));
 
         jPanelFull.add(jPanelHead1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, -1, -1));
