@@ -122,5 +122,19 @@ public class AlojamientoData {
         }
         return alojamiento;
      }
-     
+     public void BajaRealAlojamiento(int IdAlojamiento) {
+        String sql = "DELETE FROM `alojamiento` WHERE IdAlojamiento= ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, IdAlojamiento);
+            int exito = ps.executeUpdate();
+
+            if (exito == 1) {
+                JOptionPane.showMessageDialog(null, " Se eliminó el Alojamiento.");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alojamiento\n[Error en el metodo BajaRealCiudad de CiudadData]\n" + ex.getMessage());
+        }
+    }
 }

@@ -107,5 +107,20 @@ public class PasajeData {
         }
         return pasaje;
     }
+     public void BajaRealAlojamiento(int IdPasaje) {
+        String sql = "DELETE FROM `pasaje` WHERE IdPasaje= ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, IdPasaje);
+            int exito = ps.executeUpdate();
+
+            if (exito == 1) {
+                JOptionPane.showMessageDialog(null, " Se eliminó el Pasaje.");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Pasaje\n[Error en el metodo BajaRealCiudad de CiudadData]\n" + ex.getMessage());
+        }
+    }
 
 }
