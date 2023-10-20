@@ -248,7 +248,6 @@ public class SeleccionAlojamiento extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jTextServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 81, 38));
 
-        jTextTotal.setEditable(false);
         jTextTotal.setBackground(new java.awt.Color(56, 63, 79));
         jTextTotal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTextTotal.setForeground(new java.awt.Color(235, 237, 255));
@@ -596,11 +595,12 @@ private void cargarcombobox() {
                 break;
             case "Hostel":
                 jTextAlojamiento.setText(String.valueOf(String.format("%.2f",1500*temporada())));
+                System.out.println((String.valueOf(String.format("%.2f",1500*temporada()))));
                 break;
             case "Casa":
                 jTextAlojamiento.setText(String.valueOf(String.format("%.2f",2000*temporada())));
                 break;
-            case "Cabania":
+            case "Cabaña":
                 jTextAlojamiento.setText(String.valueOf(String.format("%.2f",2500*temporada())));
                 break;
             default:
