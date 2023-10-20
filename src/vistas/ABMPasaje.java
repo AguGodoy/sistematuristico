@@ -406,8 +406,8 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
                 int origen = Integer.parseInt(origenField.getText());
                 boolean estado = estadoCheckBox.isSelected();
 
-                Pasaje pasaje = new Pasaje(idPasaje, transporte, importe, origen, estado);
-                pasajeData.ModificacionPasaje(idPasaje, pasaje);
+               // Pasaje pasaje = new Pasaje(idPasaje, transporte, importe, origen, estado);
+                //pasajeData.ModificacionPasaje(idPasaje, pasaje);
     }//GEN-LAST:event_modificarButtonActionPerformed
 
     private void bajaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bajaButtonActionPerformed
@@ -424,8 +424,8 @@ public class ABMPasaje extends javax.swing.JInternalFrame {
                 int origen = Integer.parseInt(origenField.getText());
                 boolean estado = estadoCheckBox.isSelected();
 
-                Pasaje pasaje = new Pasaje(idPasaje, transporte, importe, origen, estado);
-                pasajeData.AltaPasaje(pasaje);
+                //Pasaje pasaje = new Pasaje(idPasaje, transporte, importe, origen, estado);
+               // pasajeData.AltaPasaje(pasaje);
     }//GEN-LAST:event_altaButtonActionPerformed
         // </editor-fold>
     // </editor-fold>  

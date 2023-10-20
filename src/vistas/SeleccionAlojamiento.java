@@ -595,7 +595,6 @@ private void cargarcombobox() {
                 break;
             case "Hostel":
                 jTextAlojamiento.setText(String.valueOf( Math.round(1500*temporada())));
-                
                 break;
             case "Casa":
                 jTextAlojamiento.setText(String.valueOf(Math.round(2000*temporada())));

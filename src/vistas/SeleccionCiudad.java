@@ -957,7 +957,8 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
     }
 
     private void datosPrecargados() {
-        if (Menu.paquete.getOrigen() != null && Menu.paquete.getDestino() != null) {
+        try {
+             if (Menu.paquete.getOrigen() != null && Menu.paquete.getDestino() != null) {
             Color colorEditable;
             Boolean flag;
             origen = Menu.paquete.getOrigen();
@@ -1008,6 +1009,9 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
             jtfBuscarPaisDestino.setBackground(colorEditable);
 
         }
+        } catch (Exception e) {
+        }
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
