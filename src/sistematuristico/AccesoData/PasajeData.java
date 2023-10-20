@@ -107,7 +107,7 @@ public class PasajeData {
         }
         return pasaje;
     }
-     public void BajaRealAlojamiento(int IdPasaje) {
+     public void BajaRealPasaje(int IdPasaje) {
         String sql = "DELETE FROM `pasaje` WHERE IdPasaje= ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
