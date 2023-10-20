@@ -130,7 +130,7 @@ public class AlojamientoData {
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
-                JOptionPane.showMessageDialog(null, " Se eliminó el Alojamiento.");
+                
             }
             ps.close();
         } catch (SQLException ex) {

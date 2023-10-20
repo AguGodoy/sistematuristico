@@ -115,7 +115,7 @@ public class PasajeData {
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
-                JOptionPane.showMessageDialog(null, " Se eliminó el Pasaje.");
+               
             }
             ps.close();
         } catch (SQLException ex) {
