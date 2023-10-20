@@ -460,6 +460,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void btn_loginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_loginMousePressed
         try {
+            InvocarJInternalFrame(new Login());
+            /*
             String aux = JOptionPane.showInputDialog(null, "Ingrese su codigo de paquete\nG47 - ");
             paquete = paqueteData.buscarPaquete(Integer.parseInt(aux));
             if (paquete.getIdPaquete() != 0) {
@@ -467,6 +469,7 @@ public class Menu extends javax.swing.JFrame {
                 SelecResumen();
                 InvocarJInternalFrame(new ResumenPaquete());
             }
+              */
         } catch (Exception e) {
             System.out.println("Error");
         }
@@ -523,7 +526,7 @@ public class Menu extends javax.swing.JFrame {
                 SelecResumen();
                 break;
             default:
-                
+                resetColor(new JPanel[]{btnDestino, btnAlojamiento, btnTransoporte,btnResumen}, new JPanel[]{indDestino, indAlojamiento, indTransoporte,indResumen});
         }
 
     }//GEN-LAST:event_EscritorioComponentAdded

@@ -14,7 +14,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.plaf.basic.BasicArrowButton;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import sistematuristico.AccesoData.AlojamientoData;
 import sistematuristico.AccesoData.PaqueteData;
+import sistematuristico.AccesoData.PasajeData;
+import sistematuristico.Entidades.Paquete;
 
 /**
  *
@@ -25,6 +28,8 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
     /**
      * Creates new form ResumenPaquete2
      */
+    PasajeData pasajeData = new PasajeData();
+    AlojamientoData alojamientoData = new AlojamientoData();
     PaqueteData paqueteData = new PaqueteData();
     long cantDias;
     double total;
@@ -65,13 +70,14 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jtfImporteTotal = new javax.swing.JTextField();
         jtfAlojamiento = new javax.swing.JTextField();
         jtfServicio = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jbConfirmar = new javax.swing.JButton();
         jtfFechaIngreso = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jtfOrigen = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jtfImportePersona = new javax.swing.JTextField();
         jSpinner1 = new javax.swing.JSpinner();
+        jbCancelar = new javax.swing.JButton();
 
         jPanelFull.setBackground(new java.awt.Color(56, 63, 79));
         jPanelFull.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -193,16 +199,16 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jtfServicio.setFocusable(false);
         jPanelNuevo.add(jtfServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 190, 30));
 
-        jButton1.setBackground(new java.awt.Color(47, 52, 67));
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(235, 237, 255));
-        jButton1.setText("Terminar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbConfirmar.setBackground(new java.awt.Color(47, 52, 67));
+        jbConfirmar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jbConfirmar.setForeground(new java.awt.Color(235, 237, 255));
+        jbConfirmar.setText("Confirmar");
+        jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbConfirmarActionPerformed(evt);
             }
         });
-        jPanelNuevo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 130, 45));
+        jPanelNuevo.add(jbConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 460, 130, 45));
 
         jtfFechaIngreso.setBackground(new java.awt.Color(56, 63, 79));
         jtfFechaIngreso.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -242,6 +248,17 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
             }
         });
         jPanelNuevo.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 50, 30));
+
+        jbCancelar.setBackground(new java.awt.Color(47, 52, 67));
+        jbCancelar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jbCancelar.setForeground(new java.awt.Color(235, 237, 255));
+        jbCancelar.setText("Cancelar");
+        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelarActionPerformed(evt);
+            }
+        });
+        jPanelNuevo.add(jbCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 130, 45));
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
@@ -284,7 +301,7 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jtfImporteTotal.setText("$ " + total * (int) jSpinner1.getValue());
     }//GEN-LAST:event_jSpinner1StateChanged
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
         int idAux;
         Menu.paquete.setCantPersonas((int)jSpinner1.getValue());
         if (Menu.paquete.getIdPaquete() == 0) {
@@ -295,9 +312,14 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
             paqueteData.ModificarPaquete(idAux, Menu.paquete);
             JOptionPane.showMessageDialog(null, "Ya modificamos su Paquete, su Codigo de seguimiento del paquete\nG47 - " + idAux);
         }
+        reset();
 
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbConfirmarActionPerformed
+
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+        reset();
+    }//GEN-LAST:event_jbCancelarActionPerformed
 
     private void cargarDatos() {
         jtfAlojamiento.setText(Menu.paquete.getAloja().getTipo());
@@ -349,9 +371,22 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
             }
         }
     }
+    private void reset(){
+        if(Menu.paquete.getIdPaquete()==0){ //borra el alojamiento y el pasaje
+            alojamientoData.BajaRealAlojamiento(Menu.guardarIdAlojamiento);
+            pasajeData.BajaRealPasaje(Menu.guardarIdTransporte);
+        }
+        
+        Menu.paquete = new Paquete();
+        Menu.InternalNum=0;
+        Menu.guardarIdAlojamiento=0;
+        Menu.guardarIdTransporte=0;
+        Menu.Escritorio.repaint();
+        Menu.Escritorio.removeAll();
+        InvocarJInternalFrame(new Idle());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -368,6 +403,8 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JButton jbCancelar;
+    private javax.swing.JButton jbConfirmar;
     private javax.swing.JTextField jtfAlojamiento;
     private javax.swing.JTextField jtfDestino;
     private javax.swing.JTextField jtfFechaIngreso;
