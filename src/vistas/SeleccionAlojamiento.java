@@ -572,16 +572,16 @@ private void cargarcombobox() {
          switch (String.valueOf(jComboBoxServicio.getSelectedItem())) {
            
             case "Clasico":
-                jTextServicio.setText(String.valueOf(0*temporada()));
+                jTextServicio.setText(String.valueOf(Math.round(0*temporada())));
                 break;
             case "Desayuno":
-                jTextServicio.setText(String.valueOf(300*temporada()));
+                jTextServicio.setText(String.valueOf(Math.round(300*temporada())));
                 break;
             case "Media Pension":
-                jTextServicio.setText(String.valueOf(500*temporada()));
+                jTextServicio.setText(String.valueOf(Math.round(500*temporada())));
                 break;
             case "Todo Incluido":
-                jTextServicio.setText(String.valueOf(1000*temporada()));
+                jTextServicio.setText(String.valueOf(Math.round(1000*temporada())));
                 break;
             default:
 
@@ -594,14 +594,14 @@ private void cargarcombobox() {
                 jTextAlojamiento.setText(String.valueOf( Math.round(3000*temporada())));
                 break;
             case "Hostel":
-                jTextAlojamiento.setText(String.valueOf(String.format("%.2f",1500*temporada())));
-                System.out.println((String.valueOf(String.format("%.2f",1500*temporada()))));
+                jTextAlojamiento.setText(String.valueOf( Math.round(1500*temporada())));
+                
                 break;
             case "Casa":
-                jTextAlojamiento.setText(String.valueOf(String.format("%.2f",2000*temporada())));
+                jTextAlojamiento.setText(String.valueOf(Math.round(2000*temporada())));
                 break;
             case "Cabaña":
-                jTextAlojamiento.setText(String.valueOf(String.format("%.2f",2500*temporada())));
+                jTextAlojamiento.setText(String.valueOf( Math.round(2500*temporada())));
                 break;
             default:
 
