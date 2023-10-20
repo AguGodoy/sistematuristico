@@ -609,22 +609,60 @@ private void cargarcombobox() {
     }
     private double temporada(){
          double precioTemporada= 1;
-    
+         int dias1=0;
+         int dias2=0;
+         int dias3=0;
+         int total=0;
+         double interes=1;
+         try{        
+         LocalDate inicio=jDateChooserInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate salida=jDateChooserSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        for (LocalDate date = inicio; !date.isAfter(salida); date = date.plusDays(1)) {
+            if (date.getMonthValue()>11||date.getMonthValue()<3){
+                dias1=dias1+1;
+            }
+            if (date.getMonthValue()>2&&date.getMonthValue()<9){
+                dias2=dias2+1;
+            }
+            if(date.getMonthValue()>8&&date.getMonthValue()<12){
+                dias3=dias3+1;
+                
+            }
+            
+        }
+        total=dias1+dias2+dias3;
+            interes=(dias1*1.3+dias2*1+dias3*1.15)/total;
+           
+         }catch (Exception ex){
+             
+         } 
+        return interes;
+    }
+
+         
+    /**
         try{
         LocalDate inicio=jDateChooserInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate salida=jDateChooserSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
        
        
         if(inicio.getMonthValue()<3|| inicio.getMonthValue()>11){
+            if(salida.getMonthValue()<3||salida.getMonthValue()>11){
              precioTemporada= 1.3;
+            }
+            if(salida.getMonthValue()>2||salida.getMonthValue()<9){
+             
+            }
         }
-        if(inicio.getMonthValue()>8&& inicio.getMonthValue()<12){
+        if((inicio.getMonthValue()>8&& inicio.getMonthValue()<12)&&(salida.getMonthValue()>8&& salida.getMonthValue()<12)){
              precioTemporada= 1.15;
         }
+        
         return precioTemporada;
     }catch(NullPointerException ex){
         return precioTemporada;
     }
-    }
+    }*/
 
     private void InvocarJInternalFrame(JInternalFrame frame) {
         BasicInternalFrameUI ui = (BasicInternalFrameUI) frame.getUI();
