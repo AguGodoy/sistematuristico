@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package vistas;
+package vistas.sobras;
 import sistematuristico.AccesoData.PasajeData;
 import sistematuristico.Entidades.Pasaje;
 

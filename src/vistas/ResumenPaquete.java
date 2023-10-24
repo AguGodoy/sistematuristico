@@ -39,6 +39,11 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         spinnerColor();
         cargarDatos();
         jSpinner1.setValue(Menu.paquete.getCantPersonas());
+        if (Menu.paquete.getIdPaquete() != 0) {
+            jbEliminar.setVisible(true);
+        } else {
+            jbEliminar.setVisible(false);
+        }
 
     }
 
@@ -78,6 +83,7 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jtfImportePersona = new javax.swing.JTextField();
         jSpinner1 = new javax.swing.JSpinner();
         jbCancelar = new javax.swing.JButton();
+        jbEliminar = new javax.swing.JButton();
 
         jPanelFull.setBackground(new java.awt.Color(56, 63, 79));
         jPanelFull.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -260,6 +266,17 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         });
         jPanelNuevo.add(jbCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 130, 45));
 
+        jbEliminar.setBackground(new java.awt.Color(47, 52, 67));
+        jbEliminar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jbEliminar.setForeground(new java.awt.Color(235, 237, 255));
+        jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
+        jPanelNuevo.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 130, 45));
+
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
@@ -303,7 +320,7 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
 
     private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
         int idAux;
-        Menu.paquete.setCantPersonas((int)jSpinner1.getValue());
+        Menu.paquete.setCantPersonas((int) jSpinner1.getValue());
         if (Menu.paquete.getIdPaquete() == 0) {
             idAux = paqueteData.AltaPaquete(Menu.paquete);
             JOptionPane.showMessageDialog(null, "Ya generamos su Codigo de seguimiento del paquete\nG47 - " + idAux);
@@ -321,6 +338,17 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         reset();
     }//GEN-LAST:event_jbCancelarActionPerformed
 
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        String title = "Eliminacion de Paquete";
+        String message = "Esta a punto de eliminar su paquete\nEsta seguro de esto?";
+        int respuesta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+        if (respuesta == JOptionPane.YES_OPTION) {
+            pasajeData.BajaPasaje(Menu.paquete.getPasa().getIdPasaje());
+            alojamientoData.BajaAlojamiento(Menu.paquete.getAloja().getIdAlojamiento());
+            paqueteData.BajaPaquete(Menu.paquete.getIdPaquete());   //Inecesario ya que pasaje y alojamiento tienen eliminar en cascada en las relaciones
+        }
+    }//GEN-LAST:event_jbEliminarActionPerformed
+
     private void cargarDatos() {
         jtfAlojamiento.setText(Menu.paquete.getAloja().getTipo());
         jtfOrigen.setText(Menu.paquete.getOrigen().getNombre() + ", " + Menu.paquete.getOrigen().getProvincia() + ", " + Menu.paquete.getOrigen().getPais());
@@ -334,11 +362,11 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
         jtfImporteTotal.setText("$ " + total * (int) jSpinner1.getValue());
         jtfServicio.setText(Menu.paquete.getAloja().getServicio());
         jtfTransporte.setText(Menu.paquete.getPasa().getTransporte());
-        if (Menu.paquete.getCantPersonas()!=0) {
+        if (Menu.paquete.getCantPersonas() != 0) {
             System.out.println(Menu.paquete.getCantPersonas());
-             jSpinner1.setValue(Menu.paquete.getCantPersonas());
+            jSpinner1.setValue(Menu.paquete.getCantPersonas());
         }
-       
+
     }
 
     private void InvocarJInternalFrame(JInternalFrame frame) {
@@ -371,16 +399,17 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
             }
         }
     }
-    private void reset(){
-        if(Menu.paquete.getIdPaquete()==0){ //borra el alojamiento y el pasaje
+
+    private void reset() {
+        if (Menu.paquete.getIdPaquete() == 0) { //borra el alojamiento y el pasaje
             alojamientoData.BajaRealAlojamiento(Menu.guardarIdAlojamiento);
             pasajeData.BajaRealPasaje(Menu.guardarIdTransporte);
         }
-        
+
         Menu.paquete = new Paquete();
-        Menu.InternalNum=0;
-        Menu.guardarIdAlojamiento=0;
-        Menu.guardarIdTransporte=0;
+        Menu.InternalNum = 0;
+        Menu.guardarIdAlojamiento = 0;
+        Menu.guardarIdTransporte = 0;
         Menu.Escritorio.repaint();
         Menu.Escritorio.removeAll();
         InvocarJInternalFrame(new Idle());
@@ -405,6 +434,7 @@ public class ResumenPaquete extends javax.swing.JInternalFrame {
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbConfirmar;
+    private javax.swing.JButton jbEliminar;
     private javax.swing.JTextField jtfAlojamiento;
     private javax.swing.JTextField jtfDestino;
     private javax.swing.JTextField jtfFechaIngreso;

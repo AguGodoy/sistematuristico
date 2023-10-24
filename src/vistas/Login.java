@@ -1,6 +1,7 @@
 
 package vistas;
 
+import vistas.sobras.ABMPaquete;
 import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 

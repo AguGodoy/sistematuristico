@@ -16,6 +16,7 @@ public class Paquete {
     private Alojamiento aloja;
     private Pasaje pasa;
     private int cantPersonas;
+    private boolean estado;
 
     public Paquete() {
         this.cantPersonas = 1;
@@ -84,6 +85,14 @@ public class Paquete {
 
     public void setCantPersonas(int cantPersonas) {
         this.cantPersonas = cantPersonas;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
     @Override
