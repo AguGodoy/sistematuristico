@@ -1,4 +1,3 @@
-
 package vistas;
 
 import java.awt.Color;
@@ -13,13 +12,13 @@ import static vistas.Menu.paquete;
 
 public class Login extends javax.swing.JInternalFrame {
 
-   
     PaqueteData paqueteData = new PaqueteData();
+
     public Login() {
         initComponents();
 
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -317,6 +316,9 @@ public class Login extends javax.swing.JInternalFrame {
                 .addContainerGap(161, Short.MAX_VALUE))
         );
 
+        jSeparator7.setBackground(new java.awt.Color(235, 237, 255));
+        jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
@@ -327,6 +329,11 @@ public class Login extends javax.swing.JInternalFrame {
                 .addGap(84, 84, 84)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelBodyLayout.createSequentialGroup()
+                    .addGap(511, 511, 511)
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(487, Short.MAX_VALUE)))
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,46 +343,38 @@ public class Login extends javax.swing.JInternalFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(77, 77, 77))
+            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelBodyLayout.createSequentialGroup()
+                    .addGap(122, 122, 122)
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(94, Short.MAX_VALUE)))
         );
 
         jPanelFull.add(jPanelBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1000, 540));
-
-        jSeparator7.setBackground(new java.awt.Color(235, 237, 255));
-        jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelFull, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(495, 495, 495)
-                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(488, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelFull, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(233, 233, 233)
-                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(48, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   // </editor-fold> 
+    // </editor-fold> 
     private void btnSalirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMousePressed
         this.dispose();
     }//GEN-LAST:event_btnSalirMousePressed
 
     private void jbIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIngresarActionPerformed
-       String user="Grupo47";
-       String pass="1234";
-        if (jtfIdUser.getText().equalsIgnoreCase(user)&&jtfIdPass.getText().equalsIgnoreCase(pass)) {
+        String user = "Grupo47";
+        String pass = "1234";
+        if (jtfIdUser.getText().equalsIgnoreCase(user) && jtfIdPass.getText().equalsIgnoreCase(pass)) {
             dispose();
             InvocarJInternalFrame(new ABMPaquete());
         }
@@ -386,9 +385,14 @@ public class Login extends javax.swing.JInternalFrame {
             String aux = jtfIdBuscar.getText();
             paquete = paqueteData.buscarPaquete(Integer.parseInt(aux));
             if (paquete.getIdPaquete() != 0) {
-                InternalNum = 4;
-                InvocarJInternalFrame(new ResumenPaquete());
-            } 
+                if (paquete.isEstado()) {
+                    InternalNum = 4;
+                    InvocarJInternalFrame(new ResumenPaquete());
+                } else {
+                    JOptionPane.showMessageDialog(this, "El paquete que intenta selecionar esta eliminado");
+                }
+
+            }
         } catch (Exception e) {
             System.out.println("Error");
         }
@@ -433,6 +437,7 @@ public class Login extends javax.swing.JInternalFrame {
         Menu.Escritorio.add(frame); // Agrega el JInternalFrame al JDesktopPane
         frame.toFront();
     }
+
     private void textBorderFocusGained(JTextField textField) {
         textField.setBorder(new LineBorder(new Color(83, 81, 251), 3));
     }
@@ -440,6 +445,7 @@ public class Login extends javax.swing.JInternalFrame {
     private void textBorderFocusLost(JTextField textField) {
         textField.setBorder(new LineBorder(new Color(235, 237, 255), 1));
     }
+
     private void KeyPress(java.awt.event.KeyEvent evt, String Opcion) {
         if (Opcion.equalsIgnoreCase("letra")) {
             char c = evt.getKeyChar();
@@ -455,7 +461,7 @@ public class Login extends javax.swing.JInternalFrame {
         }
 
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnSalir;
     private javax.swing.JLabel jLabel1;

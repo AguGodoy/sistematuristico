@@ -93,7 +93,7 @@ public class AlojamientoData {
     }
      public Alojamiento buscarAlojamiento(int id) {
         Alojamiento alojamiento = null;
-        String sql = "SELECT idAlojamiento, fechaIn, fechaOn, estado, servicio, importe, idDestino,tipoDeAlojamiento FROM alojamiento WHERE idAlojamiento = ? AND estado = 1";
+        String sql = "SELECT idAlojamiento, fechaIn, fechaOn, estado, servicio, importe, idDestino,tipoDeAlojamiento FROM alojamiento WHERE idAlojamiento = ?";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
