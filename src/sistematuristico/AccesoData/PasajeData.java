@@ -82,7 +82,7 @@ public class PasajeData {
 
     public Pasaje buscarPasaje(int id) {
         Pasaje pasaje = null;
-        String sql = "SELECT idPasaje, transporte, importe, idOrigen, estado FROM pasaje WHERE idPasaje = ? AND estado = 1";
+        String sql = "SELECT idPasaje, transporte, importe, idOrigen, estado FROM pasaje WHERE idPasaje = ?";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);

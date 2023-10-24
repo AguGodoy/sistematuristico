@@ -7,6 +7,7 @@ package vistas;
 import java.awt.Color;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -737,6 +738,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         jTableOrigen.setModel(modeloOrigen);
         jTableOrigen.setEnabled(true);
         jTableOrigen.setRowSelectionAllowed(true);
+        jTableOrigen.getColumnModel().getColumn(0).setPreferredWidth(27);
 
         //Tabla destino
         JTableHeader TblHeaderDestino = jTableDestino.getTableHeader();
@@ -752,6 +754,7 @@ public class SeleccionCiudad extends javax.swing.JInternalFrame {
         jTableDestino.setModel(modeloDestino);
         jTableDestino.setEnabled(true);
         jTableDestino.setRowSelectionAllowed(true);
+        jTableDestino.getColumnModel().getColumn(0).setPreferredWidth(20);
     }
 
     private void textBorderFocusGained(JTextField textField) {

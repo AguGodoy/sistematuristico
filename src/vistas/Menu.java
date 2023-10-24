@@ -460,19 +460,21 @@ public class Menu extends javax.swing.JFrame {
 
     private void btn_loginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_loginMousePressed
         try {
+            String title = "Administracion / Seleccion de paquete";
+            String message = "Si entra a Administracion/Seleccion de Paquete puede perder el progreso del paquete\n"
+                    + "Esta seguro que quiere entrar a Administracion y Seleccion de Paquete?";
+            int respuesta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+            if (respuesta == JOptionPane.YES_OPTION) {
+                Escritorio.removeAll();
+            InvocarJInternalFrame(new Idle());
             InvocarJInternalFrame(new Login());
-            
-            String aux = JOptionPane.showInputDialog(null, "Ingrese su codigo de paquete\nG47 - ");
-            paquete = paqueteData.buscarPaquete(Integer.parseInt(aux));
-            if (paquete.getIdPaquete() != 0) {
-                InternalNum = 4;
-                SelecResumen();
-                InvocarJInternalFrame(new ResumenPaquete());
             }
-              
-        } catch (Exception e) {
+
+            
+        }catch (Exception e) {
             System.out.println("Error");
-        }
+    }
+
     }//GEN-LAST:event_btn_loginMousePressed
 
     private void btnDestinoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDestinoMousePressed
@@ -526,7 +528,7 @@ public class Menu extends javax.swing.JFrame {
                 SelecResumen();
                 break;
             default:
-                resetColor(new JPanel[]{btnDestino, btnAlojamiento, btnTransoporte,btnResumen}, new JPanel[]{indDestino, indAlojamiento, indTransoporte,indResumen});
+                resetColor(new JPanel[]{btnDestino, btnAlojamiento, btnTransoporte, btnResumen}, new JPanel[]{indDestino, indAlojamiento, indTransoporte, indResumen});
         }
 
     }//GEN-LAST:event_EscritorioComponentAdded
@@ -545,16 +547,28 @@ public class Menu extends javax.swing.JFrame {
                 if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Menu.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Menu.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Menu.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
