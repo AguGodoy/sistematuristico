@@ -43,7 +43,7 @@ public class Idle extends javax.swing.JInternalFrame {
         jPanelFull.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/proyecto (6).gif"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/video.gif"))); // NOI18N
         jPanelFull.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 640));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
