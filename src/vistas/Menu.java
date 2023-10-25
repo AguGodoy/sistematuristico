@@ -121,7 +121,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Destino");
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/alfiler.png"))); // NOI18N
+        jLabel8.setText("   Destino      ");
 
         javax.swing.GroupLayout btnDestinoLayout = new javax.swing.GroupLayout(btnDestino);
         btnDestino.setLayout(btnDestinoLayout);
@@ -170,7 +171,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Alojamiento");
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/hotel (2).png"))); // NOI18N
+        jLabel10.setText("  Alojamiento");
 
         javax.swing.GroupLayout btnAlojamientoLayout = new javax.swing.GroupLayout(btnAlojamiento);
         btnAlojamiento.setLayout(btnAlojamientoLayout);
@@ -219,7 +221,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Transporte");
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/transporte (1).png"))); // NOI18N
+        jLabel11.setText("  Transporte ");
 
         javax.swing.GroupLayout btnTransoporteLayout = new javax.swing.GroupLayout(btnTransoporte);
         btnTransoporte.setLayout(btnTransoporteLayout);
@@ -269,7 +272,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Resumen");
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/visa.png"))); // NOI18N
+        jLabel12.setText("  Resumen   ");
 
         javax.swing.GroupLayout btnResumenLayout = new javax.swing.GroupLayout(btnResumen);
         btnResumen.setLayout(btnResumenLayout);
@@ -318,8 +322,8 @@ public class Menu extends javax.swing.JFrame {
         jlabel_exit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlabel_exit.setForeground(new java.awt.Color(255, 255, 255));
         jlabel_exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlabel_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icon_Exit_25px.png"))); // NOI18N
-        jlabel_exit.setText("Exit");
+        jlabel_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/salida (1).png"))); // NOI18N
+        jlabel_exit.setText("  Salir");
 
         javax.swing.GroupLayout btnSalirLayout = new javax.swing.GroupLayout(btnSalir);
         btnSalir.setLayout(btnSalirLayout);
