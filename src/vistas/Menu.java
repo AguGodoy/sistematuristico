@@ -1,6 +1,7 @@
 package vistas;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -13,6 +14,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         InvocarJInternalFrame(new Idle());
+        //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logoGrande.png")));
 
     }
 
